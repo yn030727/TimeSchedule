@@ -1,0 +1,39 @@
+ext {
+    //
+
+    android = [
+            compileSdkVersion :32,
+            buildToolsVersion: "30.0.2",
+            applicationId :"com.example.componentbase",
+            minSdkVersion: 21,
+            targetSdkVersion :32,
+            versionCode :2,
+            versionName :"1.1",
+    ]
+    androidxDeps = [
+            "appcompat" : 'androidx.appcompat:appcompat:1.3.0',
+            "material" : 'com.google.android.material:material:1.4.0',
+            "constraintlayout":'androidx.constraintlayout:constraintlayout:2.0.4'
+    ]
+    commonDesps = [
+            "arouter_api"          : 'com.alibaba:arouter-api:1.5.1',
+            "glide"                : 'com.github.bumptech.glide:glide:4.11.0'
+    ]
+    annotationDeps = [
+            "arouter_compiler" : 'com.alibaba:arouter-compiler:1.5.1'
+    ]
+    retrofitDeps = [
+            "retrofit"  : 'com.squareup.retrofit2:retrofit:2.9.0',
+            "converter" : 'com.squareup.retrofit2:converter-gson:2.9.0',
+            "rxjava"    : 'io.reactivex.rxjava2:rxjava:2.2.20',
+            "rxandroid" : 'io.reactivex.rxjava2:rxandroid:2.1.1',
+            "adapter"   : 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    ]
+
+    androidxLibs = androidxDeps.values()
+    commonLibs = commonDesps.values()
+    annotationLibs = annotationDeps.values()
+    retrofitLibs = retrofitDeps.values()
+    //这里写了一些版本号，support库，路由，图片加载等常用的基础库，最后面这四行，是对前面的一个封装。
+    //在其他地方调用这四行，等于调用了我这里写的所有代码。
+}
