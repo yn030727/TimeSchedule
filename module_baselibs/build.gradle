@@ -1,19 +1,17 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
 }
 
 android {
-    namespace 'com.example.timeschedule'
+    namespace 'com.example.module_baselibs'
     compileSdk 32
-    //此处可以修改成config.gradle中android中我们定义的版本
-    //方便统一修改，此处我们没有这么做
+
     defaultConfig {
-        applicationId "com.example.timeschedule"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
         javaCompileOptions{
             annotationProcessorOptions{
                 arguments = [AROUTER_MODULE_NAME:project.getName(),AROUTER_GENERATE_DOC:"enable"]
@@ -33,14 +31,18 @@ android {
     }
 }
 
-dependencies {
 
-    implementation project(":module_baselibs")
-    //注释处理器的依赖需要在每一个应用的组件的build.gradle中写
+//创建一个library，这里命名为module_baselibs
+//在这个build.gradle中，添加我们刚刚写的模块，注意这里运用api的方式来添加。
+//因为这样做的化，当别的模块继承当前模块的时候，不必在独写依赖了
+dependencies {
+    api rootProject.ext.androidxLibs
+    api rootProject.ext.commonLibs
+    api rootProject.ext.annotationLibs
+    api rootProject.ext.retrofitLibs
     annotationProcessor rootProject.ext.annotationLibs
-    if(!isModule.toBoolean()){
-        implementation project(":module_calendar")
-    }
+    //annotationProcessor
+    //eventbus
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
