@@ -11,8 +11,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/module_almanac" />
             <option value="$PROJECT_DIR$/module_baselibs" />
             <option value="$PROJECT_DIR$/module_calendar" />
+            <option value="$PROJECT_DIR$/module_editscheudle" />
+            <option value="$PROJECT_DIR$/module_enroll" />
+            <option value="$PROJECT_DIR$/module_history" />
+            <option value="$PROJECT_DIR$/module_individual" />
+            <option value="$PROJECT_DIR$/module_login" />
+            <option value="$PROJECT_DIR$/module_socializing" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.module_socializing">
+
+    <application
+
+        android:theme="@style/Theme.TimeSchedule">
+        <activity
+            android:name=".SocializingActivity"
+            android:exported="true">
+        </activity>
+    </application>
+
+</manifest>
