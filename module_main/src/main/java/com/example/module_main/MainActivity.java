@@ -1,20 +1,16 @@
-package com.example.timeschedule;
+package com.example.module_main;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.module_main.R;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //1.设置瘦金体
         Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/main_font_shoujin.ttf");
         //设置方式案例
-        /* TextView textView = findViewById(R.id.textView);
+/*         TextView textView = findViewById(R.id.textView);
         textView.setTypeface(typeface);*/
 
         //2.初始化变量
@@ -60,33 +56,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.app_navigation_challenge_btn:{
-                setEnable(app_navigation_challenge_btn);
-                initText();
-                app_navigation_challenge_text.setTextColor(Color.rgb(111,24,32));
-                ARouter.getInstance().build("/module_challenge/module_challenge1").navigation();
-                break;
-            }
-            case R.id.app_navigation_schedule_btn:{
-                setEnable(app_navigation_schedule_btn);
-                initText();
-                app_navigation_schedule_text.setTextColor(Color.rgb(111,24,32));
-                ARouter.getInstance().build("/module_calendar/module_calendar1").navigation();
-                break;
-            }
-            case R.id.app_navigation_social_btn:{
-                setEnable(app_navigation_social_btn);
-                initText();
-                app_navigation_social_text.setTextColor(Color.rgb(111,24,32));
-                break;
-            }
-            case R.id.app_navigation_person_btn:{
-                setEnable(app_navigation_person_btn);
-                initText();
-                app_navigation_person_text.setTextColor(Color.rgb(111,24,32));
-                break;
-            }
+        int id = v.getId();
+        if (id == R.id.app_navigation_challenge_btn) {
+            setEnable(app_navigation_challenge_btn);
+            initText();
+            app_navigation_challenge_text.setTextColor(Color.rgb(111, 24, 32));
+        } else if (id == R.id.app_navigation_schedule_btn) {
+            setEnable(app_navigation_schedule_btn);
+            initText();
+            app_navigation_schedule_text.setTextColor(Color.rgb(111, 24, 32));
+        } else if (id == R.id.app_navigation_social_btn) {
+            setEnable(app_navigation_social_btn);
+            initText();
+            app_navigation_social_text.setTextColor(Color.rgb(111, 24, 32));
+        } else if (id == R.id.app_navigation_person_btn) {
+            setEnable(app_navigation_person_btn);
+            initText();
+            app_navigation_person_text.setTextColor(Color.rgb(111, 24, 32));
         }
     }
 

@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-@Route(path = "/module_challenge/module_challenge1")
 public class ChallengeActivity extends AppCompatActivity {
 
     @Override
