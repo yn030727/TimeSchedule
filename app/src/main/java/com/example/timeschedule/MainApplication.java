@@ -1,10 +1,8 @@
 package com.example.timeschedule;
 
 import static com.alibaba.android.arouter.launcher.ARouter.init;
-
 import android.app.Application;
 import android.os.Build;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 
 public class MainApplication extends Application {
@@ -13,17 +11,18 @@ public class MainApplication extends Application {
         super.onCreate();
         if(isDebug()){
             ARouter.openLog();
+            ARouter.openDebug();
         }
-        init(this);
+        ARouter.init(this);
     }
 
     private boolean isDebug(){
         return BuildConfig.DEBUG;
     }
 
-    @Override
+/*    @Override
     public void onTerminate() {
         super.onTerminate();
-        ARouter.getInstance().destroy();//关闭ARouter
-    }
+       ARouter.getInstance().destroy();//关闭ARouter
+    }*/
 }

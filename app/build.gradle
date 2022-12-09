@@ -40,6 +40,13 @@ dependencies {
     annotationProcessor rootProject.ext.annotationLibs
     if(!isModule.toBoolean()){
         implementation project(":module_calendar")
+        implementation project(":module_challenge")
+        implementation project(":module_editscheudle")
+        implementation project(":module_honor")
+        implementation project(":module_enroll")
+        implementation project(":module_login")
+        implementation project(":module_socializing")
+        implementation project(":module_individual")
     }
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

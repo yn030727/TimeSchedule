@@ -3,13 +3,18 @@ package com.example.timeschedule;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -37,16 +42,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //2.初始化变量
         app_navigation_challenge_btn = findViewById(R.id.app_navigation_challenge_btn);//底部导航栏的石以砥焉界面跳转按钮
         app_navigation_schedule_btn = findViewById(R.id.app_navigation_schedule_btn);//底部导航栏的暂留芳华界面跳转按钮
-        app_navigation_social_btn = findViewById(R.id.app_navigation_social_btn);//底部导航栏的界面跳转按钮
-        app_navigation_person_btn = findViewById(R.id.app_navigation_person_btn);//底部导航栏的界面跳转按钮
+        app_navigation_social_btn = findViewById(R.id.app_navigation_social_btn);//底部导航栏的一觞一咏界面跳转按钮
+        app_navigation_person_btn = findViewById(R.id.app_navigation_person_btn);//底部导航栏的舍间陋室界面跳转按钮
         app_navigation_schedule_text = findViewById(R.id.app_navigation_schedule_text);
-
+        app_navigation_challenge_text = findViewById(R.id.app_navigation_challenge_text);
+        app_navigation_social_text = findViewById(R.id.app_navigation_social_text);
+        app_navigation_person_text = findViewById(R.id.app_navigation_person_text);
 
         //3.初始化按钮的点击事件
         app_navigation_challenge_btn.setOnClickListener(this);
         app_navigation_schedule_btn.setOnClickListener(this);
         app_navigation_social_btn.setOnClickListener(this);
         app_navigation_person_btn.setOnClickListener(this);
+
 
     }
 
@@ -55,18 +63,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.app_navigation_challenge_btn:{
                 setEnable(app_navigation_challenge_btn);
+                initText();
+                app_navigation_challenge_text.setTextColor(Color.rgb(111,24,32));
+                ARouter.getInstance().build("/module_challenge/module_challenge1").navigation();
                 break;
             }
             case R.id.app_navigation_schedule_btn:{
                 setEnable(app_navigation_schedule_btn);
+                initText();
+                app_navigation_schedule_text.setTextColor(Color.rgb(111,24,32));
+                ARouter.getInstance().build("/module_calendar/module_calendar1").navigation();
                 break;
             }
             case R.id.app_navigation_social_btn:{
                 setEnable(app_navigation_social_btn);
+                initText();
+                app_navigation_social_text.setTextColor(Color.rgb(111,24,32));
                 break;
             }
             case R.id.app_navigation_person_btn:{
                 setEnable(app_navigation_person_btn);
+                initText();
+                app_navigation_person_text.setTextColor(Color.rgb(111,24,32));
                 break;
             }
         }
@@ -79,10 +97,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             buttonList.add(app_navigation_schedule_btn);
             buttonList.add(app_navigation_social_btn);
             buttonList.add(app_navigation_person_btn);
+
         }
         for(int i = 0 ; i<buttonList.size() ; i++){
             buttonList.get(i).setEnabled(true);
         }
         btn.setEnabled(false);
+    }
+    private void initText(){
+        app_navigation_challenge_text.setTextColor(Color.rgb(181,181,181));
+        app_navigation_schedule_text.setTextColor(Color.rgb(181,181,181));
+        app_navigation_social_text.setTextColor(Color.rgb(181,181,181));
+        app_navigation_person_text.setTextColor(Color.rgb(181,181,181));
     }
 }
