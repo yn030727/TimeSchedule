@@ -3,6 +3,7 @@ package com.example.timeschedule.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -19,12 +20,13 @@ public class SplashActivity extends AppCompatActivity{
         setContentView(R.layout.activity_splash);
 /*        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         Log.d("Nint","SendMessage");
-        handler.sendEmptyMessageDelayed(0,2000);
+        handler.sendEmptyMessageDelayed(0,1700);
     }
     private Handler handler = new Handler(Looper.myLooper()){
         @Override
         public void handleMessage(@NonNull Message msg){
-            ARouter.getInstance().build("/main/MainActivity").navigation();
+            ARouter.getInstance().build("/main/MainActivity").navigation(SplashActivity.this);
+            finish();
         }
     };
 }

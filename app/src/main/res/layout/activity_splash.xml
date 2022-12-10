@@ -6,9 +6,14 @@
     android:layout_height="match_parent"
     android:background="#b5b5b5"
     tools:context=".ui.SplashActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/app_splash_image"/>
+        android:background="@drawable/app_splash_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
