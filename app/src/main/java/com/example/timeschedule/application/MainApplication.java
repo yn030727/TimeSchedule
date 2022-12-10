@@ -3,6 +3,8 @@ package com.example.timeschedule.application;
 import static com.alibaba.android.arouter.launcher.ARouter.init;
 import android.app.Application;
 import android.os.Build;
+import android.util.Log;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.timeschedule.BuildConfig;
 
@@ -15,6 +17,7 @@ public class MainApplication extends Application {
             ARouter.openDebug();
         }
         ARouter.init(this);
+        Log.d("Ning","ARouter init");
     }
 
     private boolean isDebug(){

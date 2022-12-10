@@ -1,4 +1,4 @@
-package com.example.module_main;
+package com.example.module_main.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_main.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //APP层需要声明的数据
     Button app_navigation_schedule_btn;

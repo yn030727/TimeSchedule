@@ -6,7 +6,7 @@
 
         android:theme="@style/Theme.TimeSchedule">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
         </activity>
     </application>
