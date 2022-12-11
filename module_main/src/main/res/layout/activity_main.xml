@@ -6,8 +6,25 @@
     android:layout_height="match_parent"
     android:background="#b5b5b5"
     tools:context=".ui.MainActivity">
+    <!--除去导航栏的总长是728-->
 
+    <!--加载每一个不同组件Fragment的容器-->
+
+    <FrameLayout
+        android:id="@+id/main_maininterface_container"
+        android:layout_width="match_parent"
+        android:layout_height="728dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+
+    <!--底部导航栏-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="71dp"
         android:background="#f1f1f1"
