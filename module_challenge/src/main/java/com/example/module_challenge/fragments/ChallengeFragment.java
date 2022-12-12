@@ -11,9 +11,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_challenge.R;
+
+import java.util.ArrayList;
 
 
 //第二界面:石以砥焉
@@ -21,13 +26,14 @@ import com.example.module_challenge.R;
 //最好的办法就是在当前界面创建一个容器，点击切换两个界面
 //功能:
 //代码目录:
-//  1.声明变量
+//  0.声明变量
 
 @Route(path = "/challenge/ChallengeFragment")
 public class ChallengeFragment extends Fragment implements View.OnClickListener {
-    //1.声明变量
+    //0.声明变量
     TextView challenge_title_challenge_text ;//第二节面顶部两个标题
     TextView challenge_title_honor_text;
+    ArrayList<Fragment> challenge_fragments;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -44,6 +50,8 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
         challenge_title_challenge_text.setOnClickListener(this);
         challenge_title_honor_text.setOnClickListener(this);
 
+        //初始化Fragment
+        replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_Realtime").navigation());
         return view;
     }
 
@@ -56,10 +64,29 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
         if (id == R.id.challenge_title_challenge_text) {
             challenge_title_challenge_text.setTextSize(30);
             challenge_title_honor_text.setTextSize(24);
-
+            replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_Realtime").navigation());
         } else if (id == R.id.challenge_title_honor_text) {
             challenge_title_challenge_text.setTextSize(24);
             challenge_title_honor_text.setTextSize(30);
+            replaceFragment((Fragment) ARouter.getInstance().build("/honor/HonorFragment") .navigation());
         }
+    }
+    //点击切换Fragment
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.Challenge_main_fragmentContainer,fragment);
+        fragmentTransaction.commit();
+    }
+
+
+
+    //初始化两个界面的Fragment
+    private void initFragments(){
+        challenge_fragments = new ArrayList<>();
+        Fragment challengeFragment_Realtime = (Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_Realtime").navigation();
+        Fragment honorFragment = (Fragment) ARouter.getInstance().build("/honor/HonorFragment").navigation();
+        challenge_fragments.add(challengeFragment_Realtime);
+        challenge_fragments.add(honorFragment);
     }
 }

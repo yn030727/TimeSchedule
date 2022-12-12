@@ -31,7 +31,7 @@ import java.util.List;
 
 @Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    //APP层需要声明的数据
+    //0.APP层需要声明的数据
     Button app_navigation_schedule_btn;//底部导航栏的石以砥焉界面跳转按钮
     Button app_navigation_challenge_btn;//底部导航栏的暂留芳华界面跳转按钮
     Button app_navigation_social_btn;//底部导航栏的一觞一咏界面跳转按钮
