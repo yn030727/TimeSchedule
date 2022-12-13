@@ -15,3 +15,5 @@
     - Ning:在module_main初始化各个组件的Fragment
 5. Day5
     - Ning:module_challenge两个不同界面的跳转
+6. Day6
+    - Ning：完成挑战界面的RecyclerView框架设置
