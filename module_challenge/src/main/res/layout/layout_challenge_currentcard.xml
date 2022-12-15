@@ -59,6 +59,7 @@
                 android:layout_marginTop="4dp"
                 android:textSize="17dp"
                 android:textStyle="bold"
+                android:textColor="#6f1820"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -79,30 +80,20 @@
                 app:layout_constraintVertical_bias="0.02"
                 app:srcCompat="@drawable/challenge_card_chinesekont" />
 
-            <ImageView
-                android:id="@+id/challenge_card_rightImage"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                app:layout_constraintBottom_toBottomOf="@+id/challenge_current_saying"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/challenge_current_saying"
-                app:layout_constraintTop_toTopOf="@+id/challenge_current_saying"
-                app:layout_constraintVertical_bias="0.893" />
-
             <TextView
                 android:id="@+id/challenge_current_saying"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginEnd="18dp"
                 android:gravity="center_vertical|end"
-                tools:text="———少壮不努力，老大徒伤悲"
+                android:textColor="#000"
                 android:textSize="17dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.896" />
+                app:layout_constraintVertical_bias="0.896"
+                tools:text="———少壮不努力，老大徒伤悲" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

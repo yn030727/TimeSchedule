@@ -67,13 +67,12 @@ public class ChallengeFragment_Realtime extends Fragment {
 
     //1.初始化集合
     public void initCurrentCard(){
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
-        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
+        currentChallengeCardList.add(new CurrentChallengeCard("平旦而出挑战","一年之计在于春，一日之计在于晨",1,2));  //早起
+        currentChallengeCardList.add(new CurrentChallengeCard("收拾行宫挑战","花径不曾缘客扫，蓬门今始为君开",1,2));  //打扫卫生
+        currentChallengeCardList.add(new CurrentChallengeCard("六艺进修挑战","发挥六艺无遗精，考黜百家如拉朽",1,2));   //学习知识挑战
+        currentChallengeCardList.add(new CurrentChallengeCard("佛性禅心挑战","非淡泊无以明志，非宁静无以致远",1,2));   //安静
+        currentChallengeCardList.add(new CurrentChallengeCard("五谷为养挑战","春种一粒粟，秋收万颗子",1,2));   //绿色饮食挑战
+        currentChallengeCardList.add(new CurrentChallengeCard("广结益友挑战","相知无远近，万里尚为邻",1,2));   //人际关系挑战
+        currentChallengeCardList.add(new CurrentChallengeCard("冰消冻释挑战","穷且益坚，不坠青云之志",1,2));   //解决困难
     }
 }

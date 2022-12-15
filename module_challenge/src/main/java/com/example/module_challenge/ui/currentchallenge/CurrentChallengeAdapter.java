@@ -54,6 +54,6 @@ class CurrentChallengeViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         cardName = itemView.findViewById(R.id.challenge_current_name);
         cardSaying = itemView.findViewById(R.id.challenge_current_saying);
-        rightImage = itemView.findViewById(R.id.challenge_card_rightImage);
+        //rightImage = itemView.findViewById(R.id.challenge_card_rightImage);
     }
 }
