@@ -1,8 +1,11 @@
 package com.example.module_challenge.ui.currentchallenge;
 
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,8 +17,10 @@ import java.util.List;
 
 public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallengeViewHolder>{
     List<CurrentChallengeCard> currentChallengeCardList;
-    public CurrentChallengeAdapter(List<CurrentChallengeCard> list){
+    Typeface typeface;
+    public CurrentChallengeAdapter(List<CurrentChallengeCard> list , Typeface typeface){
         currentChallengeCardList = list;
+        this.typeface = typeface;
     }
     @NonNull
     @Override
@@ -27,6 +32,11 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
 
     @Override
     public void onBindViewHolder(@NonNull CurrentChallengeViewHolder holder, int position) {
+        CurrentChallengeCard card = currentChallengeCardList.get(position);
+
+        holder.cardName.setText(card.getChallenge_name());
+        holder.cardSaying.setText(card.getChallenge_saying());
+        holder.cardSaying.setTypeface(typeface);
         //更新控件的外观
     }
 
@@ -36,10 +46,14 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
     }
 }
 class CurrentChallengeViewHolder extends RecyclerView.ViewHolder{
-
+    //获取控件的实例
+    TextView cardName;
+    TextView cardSaying;
+    ImageView rightImage;
     public CurrentChallengeViewHolder(@NonNull View itemView) {
-        //获取控件的实例
-
         super(itemView);
+        cardName = itemView.findViewById(R.id.challenge_current_name);
+        cardSaying = itemView.findViewById(R.id.challenge_current_saying);
+        rightImage = itemView.findViewById(R.id.challenge_card_rightImage);
     }
 }

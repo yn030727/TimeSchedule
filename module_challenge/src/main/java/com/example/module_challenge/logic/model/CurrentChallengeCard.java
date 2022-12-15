@@ -8,21 +8,26 @@ public class CurrentChallengeCard {
     String challenge_saying;
     //挑战界面的图片
     int challenge_image;
+    //挑战界面的右下角图片
+    int challenge_rightImage;
     //挑战项目的参与人数(当前变量不一定使用)
     int challenge_personNum;
 
+
     //构造方法
     public CurrentChallengeCard(){}
-    public CurrentChallengeCard(String challenge_name , String challenge_saying , int challenge_image){
+    public CurrentChallengeCard(String challenge_name , String challenge_saying , int challenge_image , int challenge_rightImage){
         this.challenge_image = challenge_image;
         this.challenge_name = challenge_name;
         this.challenge_saying = challenge_saying;
+        this.challenge_rightImage = challenge_rightImage;
     }
-    public CurrentChallengeCard(String challenge_name , String challenge_saying , int challenge_image , int challenge_personNum){
+    public CurrentChallengeCard(String challenge_name , String challenge_saying , int challenge_image , int challenge_personNum , int challenge_rightImage){
         this.challenge_image = challenge_image;
         this.challenge_name = challenge_name;
         this.challenge_saying = challenge_saying;
         this.challenge_personNum = challenge_personNum;
+        this.challenge_rightImage = challenge_rightImage;
     }
 
 
@@ -40,6 +45,14 @@ public class CurrentChallengeCard {
 
     public String getChallenge_saying() {
         return challenge_saying;
+    }
+
+    public int getChallenge_rightImage() {
+        return challenge_rightImage;
+    }
+
+    public void setChallenge_rightImage(int challenge_rightImage) {
+        this.challenge_rightImage = challenge_rightImage;
     }
 
     public void setChallenge_image(int challenge_image) {

@@ -49,7 +49,7 @@ public class ChallengeFragment_Realtime extends Fragment {
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
         //获取实例
         currentChallengeCardList = new ArrayList<CurrentChallengeCard>();
-        challengeAdapter = new CurrentChallengeAdapter(currentChallengeCardList);
+        challengeAdapter = new CurrentChallengeAdapter(currentChallengeCardList,typeface);
         recyclerView = view.findViewById(R.id.challenge_current_recyclerview);
         challenge_current_text1 = view.findViewById(R.id.challenge_current_text1);
         //初始化RecyclerView
@@ -67,6 +67,8 @@ public class ChallengeFragment_Realtime extends Fragment {
 
     //1.初始化集合
     public void initCurrentCard(){
+        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
+        currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
         currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
         currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
         currentChallengeCardList.add(new CurrentChallengeCard("1","1",1,2));
