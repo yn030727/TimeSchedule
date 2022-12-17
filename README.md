@@ -17,3 +17,5 @@
     - Ning:module_challenge两个不同界面的跳转
 6. Day6
     - Ning：完成挑战界面的RecyclerView框架设置
+7. Day7
+    - Ning:完成挑战卡片的制作
