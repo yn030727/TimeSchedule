@@ -37,6 +37,7 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
         holder.cardName.setText(card.getChallenge_name());
         holder.cardSaying.setText(card.getChallenge_saying());
         holder.cardSaying.setTypeface(typeface);
+        holder.imageView.setImageResource(card.getChallenge_image());
         //更新控件的外观
     }
 
@@ -56,6 +57,6 @@ class CurrentChallengeViewHolder extends RecyclerView.ViewHolder{
         cardName = itemView.findViewById(R.id.challenge_current_name);
         cardSaying = itemView.findViewById(R.id.challenge_current_saying);
         //rightImage = itemView.findViewById(R.id.challenge_card_rightImage);
-
+        imageView = itemView.findViewById(R.id.challenge_current_imageView);
     }
 }
