@@ -67,6 +67,17 @@
                 tools:text="音乐混搭挑战" />
 
 
+            <ImageView
+                android:id="@+id/challenge_current_imageView"
+                android:layout_width="149dp"
+                android:layout_height="134dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/challenge_card_image2" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -94,6 +105,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.896"
                 tools:text="———少壮不努力，老大徒伤悲" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
