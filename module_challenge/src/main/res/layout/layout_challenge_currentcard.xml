@@ -15,8 +15,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="420dp"
-            android:layout_height="186dp"
+            android:layout_width="422dp"
+            android:layout_height="191dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/challenge_card_shape"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,9 +57,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:textColor="#6f1820"
                 android:textSize="17dp"
                 android:textStyle="bold"
-                android:textColor="#6f1820"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView3"

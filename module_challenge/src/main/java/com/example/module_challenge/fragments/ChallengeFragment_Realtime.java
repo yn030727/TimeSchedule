@@ -72,7 +72,7 @@ public class ChallengeFragment_Realtime extends Fragment {
         currentChallengeCardList.add(new CurrentChallengeCard("六艺进修挑战","发挥六艺无遗精，考黜百家如拉朽",R.drawable.challenge_card_image4,2));   //学习知识挑战
         currentChallengeCardList.add(new CurrentChallengeCard("佛性禅心挑战","非淡泊无以明志，非宁静无以致远",R.drawable.challenge_card_image6,2));   //安静
         currentChallengeCardList.add(new CurrentChallengeCard("五谷为养挑战","春种一粒粟，秋收万颗子",R.drawable.challenge_card_image3,2));   //绿色饮食挑战
-        currentChallengeCardList.add(new CurrentChallengeCard("广结益友挑战","相知无远近，万里尚为邻",R.drawable.challenge_card_image7,2));   //人际关系挑战
+        currentChallengeCardList.add(new CurrentChallengeCard("广结益友挑战","相知无远近，万里尚为邻",R.drawable.challenge_card_image8,2));   //人际关系挑战
         currentChallengeCardList.add(new CurrentChallengeCard("冰消冻释挑战","穷且益坚，不坠青云之志",R.drawable.challenge_card_image1,2));   //解决困难
     }
 }
