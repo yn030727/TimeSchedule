@@ -1,8 +1,10 @@
 package com.example.module_challenge.ui.currentchallenge;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,11 @@ import com.example.module_challenge.fragments.ChallengeFragment_FirstCard;
 import com.example.module_challenge.logic.model.CurrentChallengeCard;
 import com.example.module_challenge.logic.model.MyUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
+
+import eventbus.EventChallengeCard;
 
 public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallengeViewHolder>{
     List<CurrentChallengeCard> currentChallengeCardList;
@@ -42,7 +48,7 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
     @Override
     public void onBindViewHolder(@NonNull CurrentChallengeViewHolder holder, int position) {
         CurrentChallengeCard card = currentChallengeCardList.get(position);
-
+        int number = position;
         holder.cardName.setText(card.getChallenge_name());
         holder.cardSaying.setText(card.getChallenge_saying());
         holder.cardSaying.setTypeface(typeface);
@@ -51,11 +57,12 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String path = card.getTo_challenge_activity();
+                Log.d("Ning", number+"");
+                //String path = card.getTo_challenge_activity();
                 //获取要跳转到响应的界面
                 //Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation();
                 //ARouter.getInstance().build("/challenge/ChallengeActivity").navigation();
-                ARouter.getInstance().build(path).navigation();
+                EventBus.getDefault().postSticky(new EventChallengeCard(true,number));
             }
         });
         //更新控件的外观

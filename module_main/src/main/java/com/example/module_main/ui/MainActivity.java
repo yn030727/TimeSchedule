@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.metrics.Event;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,8 +19,14 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_main.R;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import eventbus.EventChallengeCard;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -28,6 +36,7 @@ import java.util.List;
 // 1.设置瘦金体
 // 2.初始化变量
 // 3.初始化点击事件
+// 4.EventBus的订阅者事件处理
 
 @Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         app_navigation_challenge_text = findViewById(R.id.app_navigation_challenge_text);
         app_navigation_social_text = findViewById(R.id.app_navigation_social_text);
         app_navigation_person_text = findViewById(R.id.app_navigation_person_text);
+        //初始化EventBus
+        EventBus.getDefault().register(this);
 
 
 
@@ -74,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //初始化Fragment
         replaceFragment( (Fragment) ARouter.getInstance().build("/calendar/CalendarFragment").navigation());
         onClick(app_navigation_schedule_btn);
+
     }
 
     @Override
@@ -140,9 +152,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Fragment calendarFragment = (Fragment) ARouter.getInstance().build("/calendar/CalendarFragment").navigation();
         Fragment socializingFragment = (Fragment) ARouter.getInstance().build("/socializing/SocializingFragment").navigation();
         Fragment individualFragment = (Fragment) ARouter.getInstance().build("/individual/IndividualFragment").navigation();
+        Fragment FirstCardFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FirstCard").navigation();
         fragmentArrayList.add(challengeFragment);
         fragmentArrayList.add(calendarFragment);
         fragmentArrayList.add(socializingFragment);
         fragmentArrayList.add(individualFragment);
+        fragmentArrayList.add(FirstCardFragment);
     }
+
+    //4.EventBus订阅者事件(写成黏性事件)
+    //该方法会在发布对应事件的时侯进行调用
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventChallengeCard(EventChallengeCard card){
+        Log.d("Ning","ShowEventChallengeCard");
+        //true表示有按钮被点击
+        if(card.getClick_card()){
+            if(card.getCard_number() == 0){
+                replaceFragment((Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FirstCard").navigation());
+            }else if(card.getCard_number() == 1){
+
+            }else if(card.getCard_number() == 2){
+
+            }else if(card.getCard_number() == 3){
+
+            }else if(card.getCard_number() == 4){
+
+            }else if(card.getCard_number() == 5){
+
+            }else if(card.getCard_number() == 6){
+
+            }
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
 }

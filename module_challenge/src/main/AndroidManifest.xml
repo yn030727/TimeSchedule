@@ -4,13 +4,6 @@
 
     <application android:theme="@style/Theme.TimeSchedule">
         <activity
-            android:name=".FirstCardActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ChallengeActivity"
             android:exported="true" />
     </application>
