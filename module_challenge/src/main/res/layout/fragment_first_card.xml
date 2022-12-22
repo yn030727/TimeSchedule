@@ -4,15 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="72dp">
+    android:background="#e1e1e1">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="#f1f1f1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/challenge_firstcard_back"
+            android:layout_width="31dp"
+            android:layout_height="34dp"
+            android:src="@drawable/challenge_cardfragment_back1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.016"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.039" />
+
+        <TextView
+            android:id="@+id/challenge_firstcard_text1"
+            android:layout_width="214dp"
+            android:layout_height="47dp"
+            android:text="平旦而出挑战"
+            android:textColor="#2c2c2c"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/challenge_firstcard_back"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/challenge_firstcard_back"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_firstcard_back"
+            app:layout_constraintVertical_bias="0.262" />
+
+        <TextView
+            android:id="@+id/challenge_firstcard_saying"
+            android:layout_width="347dp"
+            android:layout_height="52dp"
+            android:gravity="center_vertical"
+            android:text="一年之计在于春，一日之计在于晨"
+            android:textColor="#2c2c2c"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/challenge_firstcard_text1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/challenge_firstcard_text1"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_firstcard_text1"
+            app:layout_constraintVertical_bias="0.578" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
