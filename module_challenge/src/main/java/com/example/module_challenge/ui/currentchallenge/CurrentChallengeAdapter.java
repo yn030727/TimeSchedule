@@ -1,17 +1,26 @@
 package com.example.module_challenge.ui.currentchallenge;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.module_challenge.ChallengeActivity;
 import com.example.module_challenge.R;
+import com.example.module_challenge.fragments.ChallengeFragment;
+import com.example.module_challenge.fragments.ChallengeFragment_FirstCard;
 import com.example.module_challenge.logic.model.CurrentChallengeCard;
+import com.example.module_challenge.logic.model.MyUtils;
 
 import java.util.List;
 
@@ -38,6 +47,17 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
         holder.cardSaying.setText(card.getChallenge_saying());
         holder.cardSaying.setTypeface(typeface);
         holder.imageView.setImageResource(card.getChallenge_image());
+        //对每一个Item的点击事件,跳转到不同的界面
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = card.getTo_challenge_activity();
+                //获取要跳转到响应的界面
+                //Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation();
+                //ARouter.getInstance().build("/challenge/ChallengeActivity").navigation();
+                ARouter.getInstance().build(path).navigation();
+            }
+        });
         //更新控件的外观
     }
 
@@ -52,11 +72,13 @@ class CurrentChallengeViewHolder extends RecyclerView.ViewHolder{
     TextView cardSaying;
     ImageView rightImage;
     ImageView imageView;
+    Button button;
     public CurrentChallengeViewHolder(@NonNull View itemView) {
         super(itemView);
         cardName = itemView.findViewById(R.id.challenge_current_name);
         cardSaying = itemView.findViewById(R.id.challenge_current_saying);
         //rightImage = itemView.findViewById(R.id.challenge_card_rightImage);
         imageView = itemView.findViewById(R.id.challenge_current_imageView);
+        button = itemView.findViewById(R.id.challenge_currentcard_button);
     }
 }

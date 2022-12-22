@@ -2,13 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.module_challenge">
 
-    <application
-
-        android:theme="@style/Theme.TimeSchedule">
+    <application android:theme="@style/Theme.TimeSchedule">
+        <activity
+            android:name=".FirstCardActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ChallengeActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

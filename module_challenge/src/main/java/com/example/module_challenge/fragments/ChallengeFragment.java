@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -25,8 +26,10 @@ import java.util.ArrayList;
 //按钮点击改变大小，来表示界面的跳转
 //最好的办法就是在当前界面创建一个容器，点击切换两个界面
 //功能:
+//  0.显示挑战小卡片，点击进入详细介绍界面
 //代码目录:
 //  0.声明变量
+//  1.点击事件
 
 @Route(path = "/challenge/ChallengeFragment")
 public class ChallengeFragment extends Fragment implements View.OnClickListener {
@@ -34,6 +37,7 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
     TextView challenge_title_challenge_text ;//第二节面顶部两个标题
     TextView challenge_title_honor_text;
     ArrayList<Fragment> challenge_fragments;
+    RecyclerView challenge_recyclerview;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -57,6 +61,7 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
 
 
 
+    //1.点击事件(上方文本框点击跳转两个事件)
     //文本框点击跳转
     @Override
     public void onClick(View v) {
@@ -71,6 +76,9 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
             replaceFragment((Fragment) ARouter.getInstance().build("/honor/HonorFragment") .navigation());
         }
     }
+
+
+
     //点击切换Fragment
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

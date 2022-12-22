@@ -3,17 +3,15 @@ package com.example.module_challenge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-@Route(path = "/challenge/ChallengeActivity")
-public class ChallengeActivity extends AppCompatActivity {
+@Route(path = "/challenge/FirstCardActivity")
+public class FirstCardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Ning","ChallengeActivity");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_challenge);
+        setContentView(R.layout.activity_first_card);
     }
 }

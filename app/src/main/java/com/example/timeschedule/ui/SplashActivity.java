@@ -19,12 +19,13 @@ public class SplashActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 /*        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
-        Log.d("Nint","SendMessage");
+        Log.d("Ning","SendMessage");
         handler.sendEmptyMessageDelayed(0,1700);
     }
     private Handler handler = new Handler(Looper.myLooper()){
         @Override
         public void handleMessage(@NonNull Message msg){
+            Log.d("Ning","Splash");
             ARouter.getInstance().build("/main/MainActivity").navigation(SplashActivity.this);
             finish();
         }
