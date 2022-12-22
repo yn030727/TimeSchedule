@@ -14,6 +14,7 @@
         //隐藏状态栏，标题栏
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/app_splash_image</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
