@@ -166,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void showEventChallengeCard(EventChallengeCard card){
         Log.d("Ning","ShowEventChallengeCard");
         //true表示有按钮被点击
+
         if(card.getClick_card()){
             if(card.getCard_number() == 0){
                 replaceFragment((Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FirstCard").navigation());
