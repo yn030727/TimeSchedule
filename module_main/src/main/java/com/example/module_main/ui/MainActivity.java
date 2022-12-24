@@ -186,10 +186,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    //解决第一个关于EventBus的Bug,在onDestroy里面注册EventBus，如果在onStop里面注册会出现bug
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
 
 }

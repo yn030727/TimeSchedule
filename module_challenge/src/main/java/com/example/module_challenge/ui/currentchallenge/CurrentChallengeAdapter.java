@@ -58,10 +58,14 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
             @Override
             public void onClick(View v) {
                 Log.d("Ning", number+"");
+                System.out.println(number);
                 //String path = card.getTo_challenge_activity();
                 //获取要跳转到响应的界面
                 //Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation();
                 //ARouter.getInstance().build("/challenge/ChallengeActivity").navigation();
+                //在这里遇到了一个bug,退出到后台之后点击事件依然生效，但是黏性事件无法进行再次的发送
+                //D/EventBus: No subscribers registered for event class eventbus.EventChallengeCard
+                //D/EventBus: No subscribers registered for event class org.greenrobot.eventbus.NoSubscriberEvent
                 EventBus.getDefault().postSticky(new EventChallengeCard(true,number));
             }
         });
