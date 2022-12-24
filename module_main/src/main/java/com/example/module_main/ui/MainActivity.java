@@ -157,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Fragment ThirdFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_ThirdCard") .navigation();
         Fragment FourthFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FourthCard").navigation();
         Fragment FifthFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FifthCard").navigation();
+        Fragment SixthFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_SixthCard").navigation();
+        Fragment SeventhFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_SeventhCard").navigation();
         fragmentArrayList.add(challengeFragment);
         fragmentArrayList.add(calendarFragment);
         fragmentArrayList.add(socializingFragment);
@@ -166,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentArrayList.add(ThirdFragment);
         fragmentArrayList.add(FourthFragment);
         fragmentArrayList.add(FifthFragment);
+        fragmentArrayList.add(SixthFragment);
+        fragmentArrayList.add(SeventhFragment);
     }
 
     //4.EventBus订阅者事件(写成黏性事件)
@@ -187,9 +191,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else if(card.getCard_number() == 4){
                 replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_FifthCard").navigation());
             }else if(card.getCard_number() == 5){
-
+                replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_SixthCard").navigation());
             }else if(card.getCard_number() == 6){
-
+                replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_SeventhCard").navigation());
             }
         }
     }
