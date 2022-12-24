@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Fragment individualFragment = (Fragment) ARouter.getInstance().build("/individual/IndividualFragment").navigation();
         Fragment FirstCardFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FirstCard").navigation();
         Fragment SecondFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_SecondCard").navigation();
+        Fragment ThirdFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_ThirdCard") .navigation();
         fragmentArrayList.add(challengeFragment);
         fragmentArrayList.add(calendarFragment);
         fragmentArrayList.add(socializingFragment);
@@ -175,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else if(card.getCard_number() == 1){
                 replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_SecondCard").navigation());
             }else if(card.getCard_number() == 2){
-
+                replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_ThirdCard").navigation());
             }else if(card.getCard_number() == 3){
 
             }else if(card.getCard_number() == 4){
