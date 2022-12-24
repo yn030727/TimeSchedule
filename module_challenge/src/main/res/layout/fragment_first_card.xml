@@ -7,6 +7,7 @@
     android:background="#e1e1e1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="210dp"
         android:background="#f1f1f1"
@@ -18,8 +19,8 @@
 
         <ImageView
             android:id="@+id/challenge_firstcard_back"
-            android:layout_width="31dp"
-            android:layout_height="34dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
             android:src="@drawable/challenge_cardfragment_back1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +46,8 @@
 
         <TextView
             android:id="@+id/challenge_firstcard_saying"
-            android:layout_width="347dp"
-            android:layout_height="52dp"
+            android:layout_width="280dp"
+            android:layout_height="47dp"
             android:gravity="center_vertical"
             android:text="一年之计在于春，一日之计在于晨"
             android:textColor="#2c2c2c"
@@ -56,10 +57,97 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/challenge_firstcard_text1"
             app:layout_constraintTop_toBottomOf="@+id/challenge_firstcard_text1"
-            app:layout_constraintVertical_bias="0.578" />
+            app:layout_constraintVertical_bias="0.847" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="175dp"
+            android:layout_height="163dp"
+            app:layout_constraintBottom_toBottomOf="@+id/challenge_firstcard_saying"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/challenge_firstcard_saying"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/challenge_card_image5" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="53dp"
+            android:layout_height="45dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/challenge_cardfragment_rightimage" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="81dp"
+        android:layout_height="27dp"
+        android:gravity="center"
+        android:text="七天挑战"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="41dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/challenge_cardfragment_exclamation" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="224dp"
+        android:layout_height="32dp"
+        android:gravity="center_vertical"
+        android:text="您为什么需要它？"
+        android:textColor="#2c2c2c"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="411dp"
+        android:layout_height="270dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="每当雄鸡一唱天下白之时，每当打更人敲锣打鼓报时之时，古人会自然而来的早起。早上留出一些时间来专注于您的目标。它会帮助您用更多的精力、专注力和力量来征服这一天。"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/challenge_firstcard_button"
+        android:layout_width="370dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/challenge_cardfragment_button"
+        android:text="接 下 挑 战"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
