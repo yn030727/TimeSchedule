@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/challenge_firstCard_back"
+            android:id="@+id/challenge_secondCard_back"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:src="@drawable/challenge_cardfragment_back1"
@@ -30,56 +30,56 @@
             app:layout_constraintVertical_bias="0.039" />
 
         <TextView
-            android:id="@+id/challenge_firstCard_text1"
+            android:id="@+id/challenge_secondCard_text1"
             android:layout_width="214dp"
             android:layout_height="47dp"
-            android:text="平旦而出挑战"
+            android:text="收拾行宫挑战"
             android:textColor="#2c2c2c"
             android:textSize="28dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/challenge_firstCard_back"
+            app:layout_constraintEnd_toEndOf="@+id/challenge_secondCard_back"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/challenge_firstCard_back"
-            app:layout_constraintTop_toBottomOf="@+id/challenge_firstCard_back"
+            app:layout_constraintStart_toStartOf="@+id/challenge_secondCard_back"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_secondCard_back"
             app:layout_constraintVertical_bias="0.262" />
 
         <TextView
-            android:id="@+id/challenge_firstcard_saying"
+            android:id="@+id/challenge_secondCard_saying"
             android:layout_width="280dp"
             android:layout_height="47dp"
             android:gravity="center_vertical"
-            android:text="一年之计在于春，一日之计在于晨"
+            android:text="茅檐长扫净无苔，花木成畦手自栽"
             android:textColor="#2c2c2c"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/challenge_firstCard_text1"
+            app:layout_constraintEnd_toEndOf="@+id/challenge_secondCard_text1"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/challenge_firstCard_text1"
-            app:layout_constraintTop_toBottomOf="@+id/challenge_firstCard_text1"
+            app:layout_constraintStart_toStartOf="@+id/challenge_secondCard_text1"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_secondCard_text1"
             app:layout_constraintVertical_bias="0.847" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="175dp"
-            android:layout_height="163dp"
-            app:layout_constraintBottom_toBottomOf="@+id/challenge_firstcard_saying"
+            android:layout_width="165dp"
+            android:layout_height="185dp"
+            app:layout_constraintBottom_toBottomOf="@+id/challenge_secondCard_saying"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/challenge_firstcard_saying"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/challenge_card_image5" />
+            app:layout_constraintTop_toTopOf="@+id/challenge_secondCard_saying"
+            app:layout_constraintVertical_bias="0.862"
+            app:srcCompat="@drawable/challenge_card_image2" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="53dp"
-            android:layout_height="45dp"
+            android:layout_width="36dp"
+            android:layout_height="32dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/challenge_cardfragment_rightimage" />
+            app:srcCompat="@drawable/challenge_cardfragment_rightimage2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -128,7 +128,7 @@
         android:layout_height="270dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="每当雄鸡一唱天下白之时，每当打更人敲锣打鼓报时之时，古人会自然而来的早起。早上留出一些时间来专注于您的目标。它会帮助您用更多的精力、专注力和力量来征服这一天。"
+        android:text="茅草房庭院经常打扫，洁净得没有一丝青苔，王安石将此诗题在了湖阴先生家屋壁上，借此来赞美主人生活情趣的典雅。每天打扫所居住的环境，可以帮助您更好地去享受日常的生活，愉悦心情。"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -136,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/challenge_firstCard_button"
+        android:id="@+id/challenge_secondCard_button"
         android:layout_width="370dp"
         android:layout_height="65dp"
         android:layout_marginTop="40dp"

@@ -153,11 +153,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Fragment socializingFragment = (Fragment) ARouter.getInstance().build("/socializing/SocializingFragment").navigation();
         Fragment individualFragment = (Fragment) ARouter.getInstance().build("/individual/IndividualFragment").navigation();
         Fragment FirstCardFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FirstCard").navigation();
+        Fragment SecondFragment = (Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_SecondCard").navigation();
         fragmentArrayList.add(challengeFragment);
         fragmentArrayList.add(calendarFragment);
         fragmentArrayList.add(socializingFragment);
         fragmentArrayList.add(individualFragment);
         fragmentArrayList.add(FirstCardFragment);
+        fragmentArrayList.add(SecondFragment);
     }
 
     //4.EventBus订阅者事件(写成黏性事件)
@@ -171,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(card.getCard_number() == 0){
                 replaceFragment((Fragment)ARouter.getInstance().build("/challenge/ChallengeFragment_FirstCard").navigation());
             }else if(card.getCard_number() == 1){
-
+                replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_SecondCard").navigation());
             }else if(card.getCard_number() == 2){
 
             }else if(card.getCard_number() == 3){
