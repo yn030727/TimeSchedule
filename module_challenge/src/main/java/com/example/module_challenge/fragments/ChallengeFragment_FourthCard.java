@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,9 +15,15 @@ import androidx.fragment.app.Fragment;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_challenge.R;
 
+import org.greenrobot.eventbus.EventBus;
+
+import eventbus.EventChallenge_CardActivity_Back;
+
 @Route(path = "/challenge/ChallengeFragment_FourthCard")
-public class ChallengeFragment_FourthCard extends Fragment {
+public class ChallengeFragment_FourthCard extends Fragment implements View.OnClickListener {
     TextView fourthSaying;
+    ImageView challenge_fourthCard_back;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +33,17 @@ public class ChallengeFragment_FourthCard extends Fragment {
 
         fourthSaying = view.findViewById(R.id.challenge_fourthCard_saying);
         fourthSaying.setTypeface(typeface);
+        challenge_fourthCard_back = view.findViewById(R.id.challenge_fourthCard_back);
+        challenge_fourthCard_back.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.challenge_fourthCard_back) {
+            //点击back按键继续给main模块发送黏性事件，告诉它我要切换回之前的Fragment
+            EventBus.getDefault().postSticky(new EventChallenge_CardActivity_Back(true));
+        }
     }
 }
