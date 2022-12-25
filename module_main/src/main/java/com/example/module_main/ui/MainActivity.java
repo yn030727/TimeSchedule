@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eventbus.EventChallengeCard;
+import eventbus.EventChallenge_CardActivity_Back;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -36,7 +37,8 @@ import eventbus.EventChallengeCard;
 // 1.设置瘦金体
 // 2.初始化变量
 // 3.初始化点击事件
-// 4.EventBus的订阅者事件处理
+// 4.EventBus的订阅者事件一:挑战卡片的点击接下挑战
+// 5.EventBus的订阅者事件二:挑战界面的back
 
 @Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -174,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //4.EventBus订阅者事件(写成黏性事件)
     //该方法会在发布对应事件的时侯进行调用
+    //此事件对应的是点击卡片切换到相关介绍界面
     @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
     public void showEventChallengeCard(EventChallengeCard card){
         Log.d("Ning","ShowEventChallengeCard");
@@ -195,6 +198,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else if(card.getCard_number() == 6){
                 replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_SeventhCard").navigation());
             }
+        }
+    }
+
+    //5.EventBus订阅者事件
+    //此事件对应的是卡片详细介绍界面点击back，退出当前卡片介绍界面
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void fromChallengeCardActivityBack(EventChallenge_CardActivity_Back back){
+        Log.d("Ning","fromChallengeCardActivityBack");
+        //如果为true,表示点击了back
+        if(back.getClick_back()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment").navigation());
         }
     }
 
