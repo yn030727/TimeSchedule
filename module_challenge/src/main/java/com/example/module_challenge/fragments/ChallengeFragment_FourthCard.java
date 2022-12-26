@@ -2,9 +2,11 @@ package com.example.module_challenge.fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +25,10 @@ import eventbus.EventChallenge_CardActivity_Back;
 public class ChallengeFragment_FourthCard extends Fragment implements View.OnClickListener {
     TextView fourthSaying;
     ImageView challenge_fourthCard_back;
+    Button challenge_fourthCard_button;
+    //当前挑战项目是否被挑战，如果已经点击了同意挑战，那么就将这个值变为true
+    //当挑战结束后，再将这个值重新变为false
+    Boolean challenge_fourthCard_status = false;
 
     @Nullable
     @Override
@@ -34,7 +40,10 @@ public class ChallengeFragment_FourthCard extends Fragment implements View.OnCli
         fourthSaying = view.findViewById(R.id.challenge_fourthCard_saying);
         fourthSaying.setTypeface(typeface);
         challenge_fourthCard_back = view.findViewById(R.id.challenge_fourthCard_back);
+        challenge_fourthCard_button = view.findViewById(R.id.challenge_fourthCardCard_button);
+
         challenge_fourthCard_back.setOnClickListener(this);
+        challenge_fourthCard_button.setOnClickListener(this);
 
         return view;
     }
@@ -44,6 +53,9 @@ public class ChallengeFragment_FourthCard extends Fragment implements View.OnCli
         if(v.getId() == R.id.challenge_fourthCard_back) {
             //点击back按键继续给main模块发送黏性事件，告诉它我要切换回之前的Fragment
             EventBus.getDefault().postSticky(new EventChallenge_CardActivity_Back(true));
+        }else if(v.getId() == R.id.challenge_fourthCardCard_button){
+            challenge_fourthCard_status = true;
+            Log.d("Ning_Challenge", "fourthCard : " + challenge_fourthCard_status);
         }
     }
 }

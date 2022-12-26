@@ -2,9 +2,11 @@ package com.example.module_challenge.fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +26,10 @@ import eventbus.EventChallenge_CardActivity_Back;
 public class ChallengeFragment_FifthCard extends Fragment implements View.OnClickListener {
     TextView fifthSaying;
     ImageView challenge_fifthCard_back;
+    Button challenge_fifthCard_button;
+    //当前挑战项目是否被挑战，如果已经点击了同意挑战，那么就将这个值变为true
+    //当挑战结束后，再将这个值重新变为false
+    Boolean challenge_fifthCard_status = false;
 
     @Nullable
     @Override
@@ -34,7 +40,10 @@ public class ChallengeFragment_FifthCard extends Fragment implements View.OnClic
         fifthSaying = view.findViewById(R.id.challenge_fifthCard_saying);
         fifthSaying.setTypeface(typeface);
         challenge_fifthCard_back = view.findViewById(R.id.challenge_fifthCard_back);
+        challenge_fifthCard_button = view.findViewById(R.id.challenge_fifthCard_button);
+
         challenge_fifthCard_back.setOnClickListener(this);
+        challenge_fifthCard_button.setOnClickListener(this);
 
         return view;
     }
@@ -44,6 +53,9 @@ public class ChallengeFragment_FifthCard extends Fragment implements View.OnClic
         if(v.getId() == R.id.challenge_fifthCard_back) {
             //点击back按键继续给main模块发送黏性事件，告诉它我要切换回之前的Fragment
             EventBus.getDefault().postSticky(new EventChallenge_CardActivity_Back(true));
+        }else if(v.getId() == R.id.challenge_fifthCard_button){
+            challenge_fifthCard_status = true;
+            Log.d("Ning_Challenge" , "fifthCard : " + challenge_fifthCard_status);
         }
     }
 
