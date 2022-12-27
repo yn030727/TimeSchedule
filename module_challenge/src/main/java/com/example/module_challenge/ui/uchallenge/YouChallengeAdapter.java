@@ -24,7 +24,6 @@ public class YouChallengeAdapter extends RecyclerView.Adapter<YouChallengeViewHo
     @NonNull
     @Override
     public YouChallengeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         return null;
     }
 
