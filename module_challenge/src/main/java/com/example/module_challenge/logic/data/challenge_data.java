@@ -17,8 +17,8 @@ import androidx.room.PrimaryKey;
 public class challenge_data {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id" , typeAffinity = ColumnInfo.TEXT)
-    public String id ;
+    @ColumnInfo(name = "id" , typeAffinity = ColumnInfo.INTEGER)
+    public int id ;
 
     @ColumnInfo(name = "challenge" , typeAffinity = ColumnInfo.INTEGER)
     public int challenge;
@@ -29,7 +29,7 @@ public class challenge_data {
     @ColumnInfo(name = "complete" , typeAffinity = ColumnInfo.INTEGER)
     public int complete;
 
-    public challenge_data(String id , int challenge , int progress , int complete){
+    public challenge_data(int id , int challenge , int progress , int complete){
         this.id = id;
         this.challenge = challenge;
         this.progress = progress;
@@ -48,7 +48,18 @@ public class challenge_data {
         return progress;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "challenge_data{" +
+                "id='" + id + '\'' +
+                ", challenge=" + challenge +
+                ", progress=" + progress +
+                ", complete=" + complete +
+                '}';
     }
 }

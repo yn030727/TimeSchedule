@@ -9,7 +9,8 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {challenge_data.class} , version = 1)
+
+@Database(entities = {challenge_data.class} , version = 1 , exportSchema = false)
 public abstract class challenge_Database extends RoomDatabase {
     //数据库的名称
     private static final String DATABASE_NAME = "challenge_db";
@@ -27,11 +28,12 @@ public abstract class challenge_Database extends RoomDatabase {
     public static synchronized challenge_Database getInstance(Context context){
         if(databaseInstance == null){
             //创建数据库实例
-            databaseInstance = Room.databaseBuilder(context.getApplicationContext(),challenge_Database.class,DATABASE_NAME).build();
+            databaseInstance = Room.databaseBuilder(context.getApplicationContext(),challenge_Database.class,DATABASE_NAME).allowMainThreadQueries().build();
         }
         Room.databaseBuilder(context.getApplicationContext(),challenge_Database.class,DATABASE_NAME)
                 .fallbackToDestructiveMigration()
                 .addMigrations(MIGRATION_1_2)
+                .allowMainThreadQueries()
                 .build();
 
         return databaseInstance;

@@ -16,13 +16,13 @@ import java.util.List;
 public interface challenge_data_dao {
 
     @Insert
-    void insertChallenge_data(challenge_data challengeData);
+    void insertChallenge_data(challenge_data... challengeData);
 
     @Delete
-    void deleteChallenge_data(challenge_data challengeData);
+    void deleteChallenge_data(challenge_data... challengeData);
 
     @Update
-    void updateChallenge_data(challenge_data challengeData);
+    void updateChallenge_data(challenge_data... challengeData);
 
     //在Challenge_DataEntity这张表中，获取所有数据
     @Query("SELECT * FROM Challenge_DataEntity")
@@ -30,6 +30,6 @@ public interface challenge_data_dao {
 
     //在Challenge_DataEntity这张表中根据id查找想要找的数据
     @Query("SELECT * FROM Challenge_DataEntity WHERE id =:id")
-    challenge_data getChallengeById(String id);
+    challenge_data getChallengeById(Integer... id);
 
 }
