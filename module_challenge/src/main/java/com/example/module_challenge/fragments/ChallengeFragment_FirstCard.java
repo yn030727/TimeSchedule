@@ -100,11 +100,13 @@ public class ChallengeFragment_FirstCard extends Fragment implements View.OnClic
             //5.true 正在进行挑战中，可以输出提示信息，并不需要做任何操作
 
             challenge_data data = dao.getChallengeById(1);
-            Log.d("Ning_Room", "FirstCardFragment QueryById id： " + data.id);
-            Log.d("Ning_Room", "FirstCardFragment QueryById challenge： " + data.challenge);
-            Log.d("Ning_Room", "FirstCardFragment QueryById progress： " + data.progress);
-            Log.d("Ning_Room", "FirstCardFragment QueryById complete： " + data.complete);
-            if(data.id == -1){
+            if(data != null){
+                Log.d("Ning_Room", "FirstCardFragment QueryById id： " + data.id);
+                Log.d("Ning_Room", "FirstCardFragment QueryById challenge： " + data.challenge);
+                Log.d("Ning_Room", "FirstCardFragment QueryById progress： " + data.progress);
+                Log.d("Ning_Room", "FirstCardFragment QueryById complete： " + data.complete);
+            }
+            if(data == null){
                 //3.没有
                 dao.insertChallenge_data(new challenge_data(1,1,0,0));
             }else if(data.id == 1){
