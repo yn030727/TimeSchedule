@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eventbus.EventChallengeCard;
+import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
 //这是主模块的第一界面
 // 功能:
@@ -39,6 +40,7 @@ import eventbus.EventChallenge_CardActivity_Back;
 // 3.初始化点击事件
 // 4.EventBus的订阅者事件一:挑战卡片的点击接下挑战
 // 5.EventBus的订阅者事件二:挑战界面的back
+// 6.EventBus的订阅者事件三：挑战界面实时挑战的点击查看
 
 @Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -211,6 +213,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment").navigation());
         }
     }
+
+    //6.EventBus订阅者事件
+    //此事件对应的是实时挑战界面的item点击，跳转到详细的卡片打卡界面
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventYourChallengeCard(EventChallengeYourCard card){
+        Log.d("Ning","showEventYourChallengeCard");
+        if(card.getYour_card_name_event().equals("平旦而出挑战")){
+            replaceFragment((Fragment) ARouter.getInstance().build("/challenge/Challenge_Fragment_FirstCard_carrying").navigation());
+        }
+    }
+
+
+
+
 
 
     //解决第一个关于EventBus的Bug,在onDestroy里面注册EventBus，如果在onStop里面注册会出现bug
