@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +40,12 @@ public class YouChallengeAdapter extends RecyclerView.Adapter<YouChallengeViewHo
         holder.your_card_name.setText(card.getU_challenge_name());
         holder.your_image.setImageResource(card.getU_challenge_image());
         holder.your_progress.setProgress(card.getU_challenge_progress());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -51,10 +58,12 @@ class YouChallengeViewHolder extends RecyclerView.ViewHolder{
     TextView your_card_name;
     ProgressBar your_progress;
     ImageView your_image;
+    View cardView;
     public YouChallengeViewHolder(@NonNull View itemView) {
         super(itemView);
         your_card_name = itemView.findViewById(R.id.challenge_yourName);
         your_progress = itemView.findViewById(R.id.challenge_YourProgressBar);
         your_image = itemView.findViewById(R.id.challenge_yourImageView);
+        cardView = itemView;
     }
 }
