@@ -2,6 +2,7 @@ package com.example.module_challenge.ui.uchallenge;
 
 import android.graphics.Typeface;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.module_challenge.R;
 import com.example.module_challenge.logic.model.YouChallengeCard;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
+
+import eventbus.EventChallengeYourCard;
 
 //这是已经接下挑战的适配器
 public class YouChallengeAdapter extends RecyclerView.Adapter<YouChallengeViewHolder>{
@@ -43,7 +48,8 @@ public class YouChallengeAdapter extends RecyclerView.Adapter<YouChallengeViewHo
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d("ning_yourCard_Event : " , card.getU_challenge_name());
+                EventBus.getDefault().postSticky(new EventChallengeYourCard(card.getU_challenge_name()));
             }
         });
     }
