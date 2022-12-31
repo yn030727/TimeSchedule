@@ -18,6 +18,7 @@ public class FirstFragmentAdapter extends RecyclerView.Adapter<FirstFragmentView
 
     public FirstFragmentAdapter(List<ChallengePunch> list){
         this.punchList = list;
+
     }
 
     @NonNull
