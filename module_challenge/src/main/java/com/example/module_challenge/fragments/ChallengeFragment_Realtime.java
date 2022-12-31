@@ -62,6 +62,8 @@ public class ChallengeFragment_Realtime extends Fragment {
         //设置瘦金体
         challenge_current_text1.setTypeface(typeface);
 
+
+
         return view;
     }
 
@@ -75,4 +77,7 @@ public class ChallengeFragment_Realtime extends Fragment {
         currentChallengeCardList.add(new CurrentChallengeCard("广结益友挑战","相知无远近，万里尚为邻",R.drawable.challenge_card_image8,2,"/challenge/FirstCardActivity"));   //人际关系挑战
         currentChallengeCardList.add(new CurrentChallengeCard("冰消冻释挑战","穷且益坚，不坠青云之志",R.drawable.challenge_card_image1,2,"/challenge/FirstCardActivity"));   //解决困难
     }
+
+    //2.判断是否有挑战正在进行中
+    //查询数据库中的所有元素，如果有则返回true，没有则返回false
 }
