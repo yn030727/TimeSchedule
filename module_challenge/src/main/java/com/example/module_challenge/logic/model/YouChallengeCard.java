@@ -20,6 +20,11 @@ public class YouChallengeCard {
         this.u_challenge_progress = u_challenge_progress;
         this.u_to_challenge_activity = u_to_challenge_activity;
     }
+    public YouChallengeCard(String u_challenge_name , int u_challenge_progress , int u_challenge_image){
+        this.u_challenge_name = u_challenge_name;
+        this.u_challenge_progress = u_challenge_progress;
+        this.u_challenge_image = u_challenge_image;
+    }
 
     public int getU_challenge_image() {
         return u_challenge_image;
