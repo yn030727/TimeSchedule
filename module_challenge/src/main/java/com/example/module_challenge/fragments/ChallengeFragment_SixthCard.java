@@ -77,10 +77,12 @@ public class ChallengeFragment_SixthCard extends Fragment implements View.OnClic
             if(data == null){
                 //3.没有
                 dao.insertChallenge_data(new challenge_data(6,1,0,0));
+                Toast.makeText(getContext(),"您接下了挑战，客官",Toast.LENGTH_SHORT).show();
             }else if(data.id == 6){
                 if(data.challenge == 0){
                     //4.重新挑战
                     dao.updateChallenge_data(new challenge_data(6,1,0,1));
+                    Toast.makeText(getContext(),"您再次接下了挑战",Toast.LENGTH_SHORT).show();
                 }else if(data.challenge == 1){
                     //5.已经在挑战中了
                     Toast.makeText(getContext(),"不需要重复接下挑战哦，小主！",Toast.LENGTH_SHORT).show();
