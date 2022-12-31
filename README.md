@@ -29,3 +29,5 @@
     - Ning:跳转界面点击back发送粘性事件回到主界面
 12. Day12
     - Ning:接下挑战后横向RecyclerView的设计；Room和LiveData的结合使用
+13. Day13
+    - Ning:横向RecyclerView的UI展现
