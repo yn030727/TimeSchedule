@@ -31,3 +31,5 @@
     - Ning:接下挑战后横向RecyclerView的设计；Room和LiveData的结合使用
 13. Day13
     - Ning:横向RecyclerView的UI展现,横向RecyclerView点击进去的打卡界面
+14. Day14
+    - Ning:横向RecyclerView点击进去的打卡界面继续补完
