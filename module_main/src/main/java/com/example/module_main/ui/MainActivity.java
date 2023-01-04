@@ -232,6 +232,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             replaceFragment((Fragment) ARouter.getInstance().build("/challenge/Challenge_Fragment_FifthCard_carrying").navigation());
         }else if(card.getYour_card_name_event().equals("广结益友挑战")){
             replaceFragment((Fragment) ARouter.getInstance().build("/challenge/Challenge_Fragment_SixthCard_carrying").navigation());
+        }else if(card.getYour_card_name_event().equals("冰消冻释挑战")){
+            replaceFragment((Fragment) ARouter.getInstance().build("/challenge/Challenge_Fragment_SeventhCard_carrying").navigation());
         }
     }
 
