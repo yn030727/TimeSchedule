@@ -96,8 +96,6 @@ public class Challenge_Fragment_ThirdCard_carrying extends Fragment {
 
     //1.初始化任务
     public void initPunch(){
-        //获取进度
-        int day = dao.getChallengeById(2).progress;
         //第一个是0
         punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_wenhao,"礼貌的向每个人问好","君子以仁存心，以礼存心"));
         punchList.add(new ChallengePunch("第二天",R.drawable.challenge_cardfragment_carrying_music,"听你最爱的歌","此曲只应天上有,人间能得几回闻"));
