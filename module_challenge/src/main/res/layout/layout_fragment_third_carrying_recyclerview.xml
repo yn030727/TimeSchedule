@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="#e1e1e1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/challenge_thirdFragment_carrying_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.039"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.175"
+            tools:text="第一天" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/challenge_thirdFragment_carrying_constraint"
+            android:layout_width="413dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/challenge_card_shape3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_thirdFragment_carrying_textView">
+
+            <ImageView
+                android:id="@+id/challenge_thirdFragment_carrying_image"
+                android:layout_width="44dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.043"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/challenge_cardfragment_carrying_water" />
+
+            <TextView
+                android:id="@+id/challenge_thirdFragment_carrying_taskName"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="#2c2c2c"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toBottomOf="@+id/challenge_thirdFragment_carrying_image"
+                app:layout_constraintStart_toEndOf="@+id/challenge_thirdFragment_carrying_image"
+                app:layout_constraintTop_toTopOf="@+id/challenge_thirdFragment_carrying_image"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="睡醒后要喝水" />
+
+            <TextView
+                android:id="@+id/challenge_thirdFragment_carrying_taskDescription"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#2c2c2c"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/challenge_thirdFragment_carrying_taskName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/challenge_thirdFragment_carrying_taskName"
+                app:layout_constraintTop_toBottomOf="@+id/challenge_thirdFragment_carrying_taskName"
+                tools:text="以正确的方式开始新的一天" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
