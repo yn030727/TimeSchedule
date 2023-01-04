@@ -48,11 +48,16 @@ public class FirstFragmentAdapter extends RecyclerView.Adapter<FirstFragmentView
     @Override
     public void onBindViewHolder(@NonNull FirstFragmentViewHolder holder, int position) {
         int layer = position;
+        challenge_data data = dao.getChallengeById(1);
+        int progress1 = data.getProgress();
         ChallengePunch punch = punchList.get(position);
         holder.day.setText(punch.getChallenge_day_carrying());
         holder.taskName.setText(punch.getChallenge_name_carrying());
         holder.taskDescription.setText(punch.getChallenge_introduce_carrying());
         holder.imageView.setImageResource(punch.getChallenge_image_carrying());
+        if(layer < progress1){
+            holder.card.setBackgroundResource(R.drawable.challenge_card_shape2);
+        }
         holder.card.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("LongLogTag")
             @Override
@@ -76,8 +81,16 @@ public class FirstFragmentAdapter extends RecyclerView.Adapter<FirstFragmentView
                     Toast.makeText(v.getContext(), "请先完成前面的挑战",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(v.getContext(), "您已经完成了当天挑战",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "您已经完成过挑战了",Toast.LENGTH_SHORT).show();
                     Log.d("Ning_FirstFragmentAdapter  ", holder.card.getBackground()+"");
+                }
+                if(progress == 6){
+                    //完成全部挑战
+
+                    //可以写一个恭喜界面
+
+                    Toast.makeText(v.getContext(), "您已经完成了全部挑战",Toast.LENGTH_SHORT).show();
+                    dao.updateChallenge_data(new challenge_data(1,0,0,1));
                 }
             }
         });

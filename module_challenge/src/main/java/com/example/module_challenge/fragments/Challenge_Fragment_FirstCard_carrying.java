@@ -24,10 +24,13 @@ import com.example.module_challenge.logic.data.challenge_data_dao;
 import com.example.module_challenge.logic.model.ChallengePunch;
 import com.example.module_challenge.ui.fragments_recyclerview.FirstFragmentAdapter;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import eventbus.EventChallenge_CardActivity_Back;
 
 
 //这是第一个挑战开始挑战后的打卡界面(之后几个类似，不会有功能导图)
@@ -73,6 +76,15 @@ public class Challenge_Fragment_FirstCard_carrying extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         challenge_firstCard_recyclerview_carrying.setAdapter(firstFragmentAdapter);
         challenge_firstCard_recyclerview_carrying.setLayoutManager(linearLayoutManager);
+
+        //back_button
+        challenge_firstCard_back_carrying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //点击back按键继续给main模块发送黏性事件，告诉它我要切换回之前的Fragment
+                EventBus.getDefault().postSticky(new EventChallenge_CardActivity_Back(true));
+            }
+        });
 
 
         return view;
