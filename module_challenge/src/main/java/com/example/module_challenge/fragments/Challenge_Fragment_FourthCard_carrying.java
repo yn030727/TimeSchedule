@@ -22,10 +22,7 @@ import com.example.module_challenge.logic.data.challenge_Database;
 import com.example.module_challenge.logic.data.challenge_data;
 import com.example.module_challenge.logic.data.challenge_data_dao;
 import com.example.module_challenge.logic.model.ChallengePunch;
-import com.example.module_challenge.ui.fragments_recyclerview.FirstFragmentAdapter;
 import com.example.module_challenge.ui.fragments_recyclerview.FourthFragmentAdapter;
-import com.example.module_challenge.ui.fragments_recyclerview.SecondFragmentAdapter;
-import com.example.module_challenge.ui.fragments_recyclerview.ThirdFragmentAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
