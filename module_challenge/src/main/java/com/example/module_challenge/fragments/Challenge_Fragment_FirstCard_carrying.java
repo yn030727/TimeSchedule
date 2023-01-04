@@ -77,18 +77,12 @@ public class Challenge_Fragment_FirstCard_carrying extends Fragment {
     public void initPunch(){
         punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
         punchList.add(new ChallengePunch("第二天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第三天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第四天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
+        punchList.add(new ChallengePunch("第三天",R.drawable.challenge_cardfragment_carrying_food,"来一顿健康的朝食","且作吴羹助早餐,饱卧晴檐曝寒背"));
+        punchList.add(new ChallengePunch("第四天",R.drawable.challenge_cardfragment_carrying_exercise,"要开始进行晨练了","东方欲晓,晨练催吾早"));
         punchList.add(new ChallengePunch("第五天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第六天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第七天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
-        punchList.add(new ChallengePunch("第一天",R.drawable.challenge_cardfragment_carrying_water,"睡醒后来一杯水","何时同一瓢,饮水心亦足"));
+        punchList.add(new ChallengePunch("第六天",R.drawable.challenge_cardfragment_carrying_food,"来一顿健康的朝食","且作吴羹助早餐,饱卧晴檐曝寒背"));
+        punchList.add(new ChallengePunch("第七天",R.drawable.challenge_cardfragment_carrying_deliciousfood,"从早晨开始享受这一天","采菊东篱下,悠然见南山"));
+
 
     }
 }

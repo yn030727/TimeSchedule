@@ -1,5 +1,6 @@
 package com.example.module_challenge.ui.fragments_recyclerview;
 
+import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class FirstFragmentAdapter extends RecyclerView.Adapter<FirstFragmentView
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //无论如何，每一次点击都会导致card背景色的变化，和界面内进度文本(获得控件，修改值，值也可以从数据库中获取)，以及界面外进度条的变化(改变数据库内的)
             }
         });
     }
