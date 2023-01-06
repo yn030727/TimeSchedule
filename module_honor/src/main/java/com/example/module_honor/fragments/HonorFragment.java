@@ -30,6 +30,7 @@ public class HonorFragment extends Fragment {
     TextView honor_fragment_textview1;
     TextView honor_fragment_share_text;
     TextView honor_fragment_consecutiveDay_text;
+    TextView honor_fragment_consecutiveDay_KnottedRope;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -42,9 +43,11 @@ public class HonorFragment extends Fragment {
         honor_fragment_textview1 = view.findViewById(R.id.honor_fragment_textview1);
         honor_fragment_share_text = view.findViewById(R.id.honor_fragment_share_text);
         honor_fragment_consecutiveDay_text = view.findViewById(R.id.honor_fragment_consecutiveDay_text);
+        honor_fragment_consecutiveDay_KnottedRope = view.findViewById(R.id.honor_fragment_consecutiveDay_KnottedRope);
         honor_fragment_share_text.setTypeface(typeface);
         honor_fragment_textview1.setTypeface(typeface);
         honor_fragment_consecutiveDay_text.setTypeface(typeface);
+        honor_fragment_consecutiveDay_KnottedRope.setTypeface(typeface);
 
 
         return view;
