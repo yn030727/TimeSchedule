@@ -88,8 +88,8 @@
                 app:layout_constraintHorizontal_bias="0.992"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.02"
-                app:srcCompat="@drawable/challenge_card_chinesekont" />
+                app:layout_constraintVertical_bias="0.02"/>
+                <!--app:srcCompat="@drawable/challenge_card_chinesekont"-->
 
             <TextView
                 android:id="@+id/challenge_current_saying"

@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="430dp"
                 android:layout_height="380dp"
@@ -24,13 +23,63 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp">
 
+
+                <TextView
+                    android:id="@+id/honor_fragment_textview1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="连续结绳天数"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.044" />
+
+                <TextView
+                    android:id="@+id/honor_fragment_share_text"
+                    android:layout_width="67dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="224dp"
+                    android:background="@drawable/honor_layout_shape2"
+                    android:gravity="center"
+                    android:text="分享 ＞"
+                    android:textColor="#f1f1f1"
+                    android:textSize="17dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/honor_fragment_textview1"
+                    app:layout_constraintStart_toEndOf="@+id/honor_fragment_textview1"
+                    app:layout_constraintTop_toTopOf="@+id/honor_fragment_textview1"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/honor_fragment_consecutiveDay_text"
+                    android:layout_width="217dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:gravity="center"
+                    android:text="0天"
+                    android:textColor="#000"
+                    android:textSize="35dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.51"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/honor_fragment_textview1" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当前结绳天数"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintStart_toStartOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintTop_toBottomOf="@+id/honor_fragment_consecutiveDay_text" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
