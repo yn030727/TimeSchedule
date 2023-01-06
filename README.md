@@ -33,3 +33,5 @@
     - Ning:横向RecyclerView的UI展现,横向RecyclerView点击进去的打卡界面
 14. Day14
     - Ning:横向RecyclerView点击进去的打卡界面继续补完
+15. Day15
+    - Ning:写青史界面的UI，module_honor

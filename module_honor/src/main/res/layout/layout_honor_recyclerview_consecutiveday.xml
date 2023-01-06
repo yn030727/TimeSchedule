@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="115dp"
+            android:layout_height="112dp"
+            android:background="@drawable/honor_layout_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/honor_fragment_consecutiveDay_recyclerView_image"
+                android:layout_width="55dp"
+                android:layout_height="54dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.165" />
+
+            <TextView
+                android:id="@+id/honor_fragment_consecutiveDay_recyclerView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#2c2c2c"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/honor_fragment_consecutiveDay_recyclerView_image"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/honor_fragment_consecutiveDay_recyclerView_image"
+                app:layout_constraintTop_toBottomOf="@+id/honor_fragment_consecutiveDay_recyclerView_image"
+                tools:text="一日结绳" />
+
+            <TextView
+                android:id="@+id/honor_fragment_consecutiveDay_recyclerView_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/honor_fragment_consecutiveDay_recyclerView_name"
+                app:layout_constraintStart_toStartOf="@+id/honor_fragment_consecutiveDay_recyclerView_name"
+                app:layout_constraintTop_toBottomOf="@+id/honor_fragment_consecutiveDay_recyclerView_name"
+                tools:text="记录1天" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
