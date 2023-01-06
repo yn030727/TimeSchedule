@@ -79,6 +79,28 @@
                     app:layout_constraintStart_toStartOf="@+id/honor_fragment_consecutiveDay_text"
                     app:layout_constraintTop_toBottomOf="@+id/honor_fragment_consecutiveDay_text" />
 
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="200dp"
+                    android:layout_height="122dp"
+                    android:layout_marginEnd="132dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintEnd_toEndOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintTop_toTopOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintVertical_bias="0.426"
+                    app:srcCompat="@drawable/honor_fragment_consecutiveday_image2" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="200dp"
+                    android:layout_height="122dp"
+                    android:layout_marginStart="132dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintStart_toStartOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintTop_toTopOf="@+id/honor_fragment_consecutiveDay_text"
+                    app:layout_constraintVertical_bias="0.426"
+                    app:srcCompat="@drawable/honor_fragment_consecutiveday_image3" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
