@@ -38,6 +38,8 @@ public class HonorFragment extends Fragment {
     TextView honor_fragment_share_text;
     TextView honor_fragment_consecutiveDay_text;
     TextView honor_fragment_consecutiveDay_KnottedRope;
+    TextView honor_fragment_textview1_challenge;
+    TextView honor_fragment_share_text_challenge;
     RecyclerView honor_fragment_consecutiveDay_recyclerView;
     ConsecutiveDayAdapter consecutiveDayAdapter;
     List<ConsecutiveDay> consecutiveDayList;
@@ -54,6 +56,10 @@ public class HonorFragment extends Fragment {
         honor_fragment_share_text = view.findViewById(R.id.honor_fragment_share_text);
         honor_fragment_consecutiveDay_text = view.findViewById(R.id.honor_fragment_consecutiveDay_text);
         honor_fragment_consecutiveDay_KnottedRope = view.findViewById(R.id.honor_fragment_consecutiveDay_KnottedRope);
+        honor_fragment_share_text_challenge = view.findViewById(R.id.honor_fragment_share_text_challenge);
+        honor_fragment_textview1_challenge = view.findViewById(R.id.honor_fragment_textview1_challenge);
+        honor_fragment_textview1_challenge.setTypeface(typeface);
+        honor_fragment_share_text_challenge.setTypeface(typeface);
         honor_fragment_share_text.setTypeface(typeface);
         honor_fragment_textview1.setTypeface(typeface);
         honor_fragment_consecutiveDay_text.setTypeface(typeface);

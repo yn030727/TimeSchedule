@@ -17,7 +17,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
@@ -156,14 +157,96 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/honor_fragment_consecutiveDay_recyclerView"
-                    android:overScrollMode="never"
                     android:layout_width="415dp"
                     android:layout_height="128dp"
+                    android:overScrollMode="never"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
                     app:layout_constraintVertical_bias="0.827" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="430dp"
+                android:layout_height="380dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/honor_layout_shape1"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                <TextView
+                    android:id="@+id/honor_fragment_textview1_challenge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="挑战记录"
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.044" />
+
+                <TextView
+                    android:id="@+id/honor_fragment_share_text_challenge"
+                    android:layout_width="67dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="224dp"
+                    android:background="@drawable/honor_layout_shape2"
+                    android:gravity="center"
+                    android:text="分享 ＞"
+                    android:textColor="#f1f1f1"
+                    android:textSize="17dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/honor_fragment_textview1_challenge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.686"
+                    app:layout_constraintStart_toEndOf="@+id/honor_fragment_textview1_challenge"
+                    app:layout_constraintTop_toTopOf="@+id/honor_fragment_textview1_challenge"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/honor_fragment_challengeProgress_text"
+                    android:layout_width="217dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textColor="#000"
+                    android:textSize="35dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/honor_fragment_textview1_challenge" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已完成的挑战"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/honor_fragment_challengeProgress_text"
+                    app:layout_constraintStart_toStartOf="@+id/honor_fragment_challengeProgress_text"
+                    app:layout_constraintTop_toBottomOf="@+id/honor_fragment_challengeProgress_text" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/honor_fragment_challengeProgress_recyclerView"
+                    android:layout_width="415dp"
+                    android:layout_height="128dp"
+                    android:layout_marginTop="56dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.533"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
