@@ -18,8 +18,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_challenge.R;
+import com.example.module_challenge.logic.data.challenge_Database;
+import com.example.module_challenge.logic.data.challenge_data;
+import com.example.module_challenge.logic.data.challenge_data_dao;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+
+import eventbus.EventHonor_Challenge_Progress;
 
 
 //第二界面:石以砥焉
@@ -39,6 +46,8 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
     TextView challenge_title_honor_text;
     ArrayList<Fragment> challenge_fragments;
     RecyclerView challenge_recyclerview;
+    challenge_Database database;//在主线程跑数据库(测试环境)
+    private challenge_data_dao dao;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -51,6 +60,8 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
         challenge_title_honor_text = view.findViewById(R.id.challenge_title_honor_text);
         challenge_title_challenge_text.setTypeface(typeface);
         challenge_title_honor_text.setTypeface(typeface);
+        database = challenge_Database.getInstance(getContext());
+        dao = database.getChallenge_data_dao();
         //事件的监听
         challenge_title_challenge_text.setOnClickListener(this);
         challenge_title_honor_text.setOnClickListener(this);
@@ -72,8 +83,23 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
             challenge_title_honor_text.setTextSize(24);
             replaceFragment((Fragment) ARouter.getInstance().build("/challenge/ChallengeFragment_Realtime").navigation());
         } else if (id == R.id.challenge_title_honor_text) {
+            //点击了青史界面
             challenge_title_challenge_text.setTextSize(24);
             challenge_title_honor_text.setTextSize(30);
+            //num的初始值为0
+            int num[] = new int[7];
+            int progress = 0;
+            for(int i=0 ; i<7 ; i++){
+                //查询data(如果没有的话，就是null)
+                challenge_data data = dao.getChallengeById(i+1);
+                if(data != null){
+                    num[i] = data.complete;
+                    if(num[i] == 1){
+                        progress ++;
+                    }
+                }
+            }
+            EventBus.getDefault().postSticky(new EventHonor_Challenge_Progress(num,progress));
             replaceFragment((Fragment) ARouter.getInstance().build("/honor/HonorFragment") .navigation());
         }
     }
@@ -98,4 +124,6 @@ public class ChallengeFragment extends Fragment implements View.OnClickListener 
         challenge_fragments.add(challengeFragment_Realtime);
         challenge_fragments.add(honorFragment);
     }
+
+
 }

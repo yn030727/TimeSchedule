@@ -17,9 +17,13 @@ import java.util.List;
 public class ChallengeProgressAdapter extends  RecyclerView.Adapter<ChallengeProgressViewHolder>{
     List<ChallengeHonor> challengeHonorList;
     Typeface typeface;
-    public ChallengeProgressAdapter(List<ChallengeHonor> challengeHonorList , Typeface typeface){
+    int challenges[];
+    int progress;
+    public ChallengeProgressAdapter(List<ChallengeHonor> challengeHonorList , Typeface typeface , int challenges[] , int progress){
         this.challengeHonorList = challengeHonorList;
         this.typeface = typeface;
+        this.challenges = challenges;
+        this.progress = progress;
     }
     @NonNull
     @Override
@@ -35,8 +39,14 @@ public class ChallengeProgressAdapter extends  RecyclerView.Adapter<ChallengePro
         holder.name.setText(challengeHonor.getChallenge_honor_name());
         holder.name.setTypeface(typeface);
         //根据是否完成当前挑战改变图片
+        if(challenges[position] == 1){
+            holder.imageView.setImageResource(R.drawable.honor_fragment_challengeprogress_image_complete);
+            holder.constraintLayout.setBackgroundResource(R.drawable.honor_layout_shape5);
+        }else {
+            //没有完成
+            holder.imageView.setImageResource(challengeHonor.getChallenge_honor_image());
+        }
 
-        holder.imageView.setImageResource(challengeHonor.getChallenge_honor_image());
     }
 
     @Override

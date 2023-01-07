@@ -3,6 +3,7 @@ package com.example.module_honor.fragments;
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_honor.R;
+import com.example.module_honor.logic.model.ChallengeHonor;
 import com.example.module_honor.logic.model.ConsecutiveDay;
+import com.example.module_honor.ui.ChallengeProgressAdapter;
 import com.example.module_honor.ui.ConsecutiveDayAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import eventbus.EventHonor_Challenge_Progress;
 
 
 //第三界面:石以砥焉-青史界面
@@ -29,7 +38,8 @@ import java.util.List;
 
 //代码目录:
 //  0.声明变量
-//  1.点击事件
+//  1.初始化集合
+//  2.订阅者事件
 @Route(path = "/honor/HonorFragment")
 public class HonorFragment extends Fragment {
     //0.声明变量
@@ -40,9 +50,16 @@ public class HonorFragment extends Fragment {
     TextView honor_fragment_consecutiveDay_KnottedRope;
     TextView honor_fragment_textview1_challenge;
     TextView honor_fragment_share_text_challenge;
+    TextView honor_fragment_challengeProgress_text;
     RecyclerView honor_fragment_consecutiveDay_recyclerView;
     ConsecutiveDayAdapter consecutiveDayAdapter;
     List<ConsecutiveDay> consecutiveDayList;
+    int[] honor_challenge_progress;
+    int challenge_progress;
+    //挑战的RecyclerView
+    RecyclerView honor_fragment_challengeProgress_recyclerView;
+    ChallengeProgressAdapter challengeProgressAdapter;
+    List<ChallengeHonor> challengeHonorList;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -58,12 +75,15 @@ public class HonorFragment extends Fragment {
         honor_fragment_consecutiveDay_KnottedRope = view.findViewById(R.id.honor_fragment_consecutiveDay_KnottedRope);
         honor_fragment_share_text_challenge = view.findViewById(R.id.honor_fragment_share_text_challenge);
         honor_fragment_textview1_challenge = view.findViewById(R.id.honor_fragment_textview1_challenge);
+        honor_fragment_challengeProgress_text = view.findViewById(R.id.honor_fragment_challengeProgress_text);
         honor_fragment_textview1_challenge.setTypeface(typeface);
         honor_fragment_share_text_challenge.setTypeface(typeface);
         honor_fragment_share_text.setTypeface(typeface);
         honor_fragment_textview1.setTypeface(typeface);
         honor_fragment_consecutiveDay_text.setTypeface(typeface);
         honor_fragment_consecutiveDay_KnottedRope.setTypeface(typeface);
+        //初始化EventBus
+        EventBus.getDefault().register(this);
         //RecyclerView
         consecutiveDayList = new ArrayList<>();
         initConsecutiveDayList();
@@ -73,6 +93,22 @@ public class HonorFragment extends Fragment {
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         honor_fragment_consecutiveDay_recyclerView.setAdapter(consecutiveDayAdapter);
         honor_fragment_consecutiveDay_recyclerView.setLayoutManager(linearLayoutManager);
+        //挑战的RecyclerView
+        challengeHonorList = new ArrayList<>();
+        initChallengeProgressList();
+        honor_fragment_challengeProgress_recyclerView = view.findViewById(R.id.honor_fragment_challengeProgress_recyclerView);
+        challengeProgressAdapter = new ChallengeProgressAdapter(challengeHonorList,typeface,honor_challenge_progress,challenge_progress);
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(view.getContext());
+        linearLayoutManager1.setOrientation(RecyclerView.HORIZONTAL);
+        honor_fragment_challengeProgress_recyclerView.setAdapter(challengeProgressAdapter);
+        honor_fragment_challengeProgress_recyclerView.setLayoutManager(linearLayoutManager1);
+
+        double db = (double) challenge_progress/7;
+        int num = (int)(db*100);
+        honor_fragment_challengeProgress_text.setText(num+"%");
+        honor_fragment_challengeProgress_text.setTypeface(typeface);
+
+
         return view;
     }
 
@@ -91,6 +127,35 @@ public class HonorFragment extends Fragment {
         consecutiveDayList.add(new ConsecutiveDay(R.drawable.honor_fragment_consecutiveday_image_nocomplete,"半载结绳","记录182天"));
         consecutiveDayList.add(new ConsecutiveDay(R.drawable.honor_fragment_consecutiveday_image_nocomplete,"结绳而治","记录365天"));
         consecutiveDayList.add(new ConsecutiveDay(R.drawable.honor_fragment_consecutiveday_image2_nocomplete,"史家绝唱","记录1000天"));
+    }
+    //初始化挑战记录集合
+    public void initChallengeProgressList(){
+        challengeHonorList.add(new ChallengeHonor("平旦而出挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+        challengeHonorList.add(new ChallengeHonor("收拾行宫挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+        challengeHonorList.add(new ChallengeHonor("六艺进修挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+        challengeHonorList.add(new ChallengeHonor("佛性禅心挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+        challengeHonorList.add(new ChallengeHonor("五谷为养挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+        challengeHonorList.add(new ChallengeHonor("广结益友挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+        challengeHonorList.add(new ChallengeHonor("冰消冻释挑战",R.drawable.honor_fragment_challengeprogress_image_nocomplete));
+    }
 
+
+
+
+    //2.订阅者事件
+    //接收到事件之后执行，初始化
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void HonorChallengeProgress(EventHonor_Challenge_Progress eventHonorChallengeProgress){
+        Log.d("Ning_Honor " ,"HonorChallengeProgress EventBus start");
+        honor_challenge_progress = eventHonorChallengeProgress.getChallenges();
+        challenge_progress = eventHonorChallengeProgress.getProgress();
+
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
