@@ -16,6 +16,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/honor_fragment_consecutiveDay_recyclerView_layout"
             android:layout_width="115dp"
             android:layout_height="112dp"
             android:background="@drawable/honor_layout_shape"
