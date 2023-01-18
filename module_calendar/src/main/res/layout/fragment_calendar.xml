@@ -9,11 +9,14 @@
     <com.haibin.calendarview.CalendarView
         android:id="@+id/calendar_title_calendarView"
         android:layout_width="match_parent"
-        android:layout_height="317dp"
+        android:layout_height="362dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:lunar_text_size="0dp"
+        app:month_view_show_mode="mode_only_current"
+        app:week_start_with="mon" />
 
     <TextView
         android:id="@+id/textView"
