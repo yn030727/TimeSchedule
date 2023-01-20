@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="#e1e1e1"
     android:fitsSystemWindows="true"
     tools:ignore="RtlHardcoded,HardcodedText,RtlSymmetry,SmallSp">
 
@@ -94,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#fff"
+        android:background="#e1e1e1"
         app:default_status="shrink"
         app:calendar_content_view_id="@+id/recyclerView">
 
@@ -103,6 +103,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            app:week_background="#e1e1e1"
+            app:current_day_text_color="#6f1820"
+            app:current_day_lunar_text_color="#6f1820"
+            app:selected_theme_color="#6f1820"
+            app:selected_text_color="#e1e1e1"
+            app:selected_lunar_text_color="#e1e1e1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -121,6 +127,7 @@
             app:group_padding_right="16dp"
             app:group_text_size="14sp"
             app:group_text_color="#555555"
+            android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/content_background" />

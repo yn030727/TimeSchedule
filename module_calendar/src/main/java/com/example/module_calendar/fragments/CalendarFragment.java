@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,7 +100,7 @@ public class CalendarFragment extends Fragment implements
 
         int year = mCalendarView.getCurYear();
         int month = mCalendarView.getCurMonth();
-
+        Log.d("Ning_Module_Calendar" , " year is "+ year + "  month is " + month);
 
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
