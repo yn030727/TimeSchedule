@@ -37,7 +37,6 @@ public class CalendarFragment extends Fragment implements
         CalendarView.OnYearChangeListener,
         View.OnClickListener{
 
-
     TextView mTextMonthDay;
 
     TextView mTextYear;
@@ -146,7 +145,6 @@ public class CalendarFragment extends Fragment implements
 
     @Override
     public void onYearChange(int year) {
-
     }
 
     @Override
