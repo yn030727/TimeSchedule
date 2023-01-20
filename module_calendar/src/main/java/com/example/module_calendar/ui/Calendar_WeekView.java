@@ -14,6 +14,7 @@ public class Calendar_WeekView extends WeekView{
     private float mRadio;
     private int mPadding;
     private float mSchemeBaseLine;
+    private int mRadius;
 
     public Calendar_WeekView(Context context) {
         super(context);
@@ -34,6 +35,11 @@ public class Calendar_WeekView extends WeekView{
         mSchemeBaseLine = mRadio - metrics.descent + (metrics.bottom - metrics.top) / 2 + dipToPx(getContext(), 1);
     }
 
+    @Override
+    protected void onPreviewHook() {
+        mRadius = Math.min(mItemWidth,mItemHeight)/11*5;
+    }
+
     /**
      * @param canvas    canvas
      * @param calendar  日历日历calendar
@@ -41,10 +47,15 @@ public class Calendar_WeekView extends WeekView{
      * @param hasScheme hasScheme 非标记的日期
      * @return true 则绘制onDrawScheme，因为这里背景色不是是互斥的
      */
+
+
     @Override
     protected boolean onDrawSelected(Canvas canvas, Calendar calendar, int x, boolean hasScheme) {
-        mSelectedPaint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(x + mPadding, mPadding, x + mItemWidth - mPadding, mItemHeight - mPadding, mSelectedPaint);
+        int cx = x + mItemWidth / 2;
+        int cy =mItemHeight / 2;
+        canvas.drawCircle(cx, cy, mRadius, mSelectedPaint);
+//        mSelectedPaint.setStyle(Paint.Style.FILL);
+//        canvas.drawRect(x + mPadding, mPadding, x + mItemWidth - mPadding, mItemHeight - mPadding, mSelectedPaint);
         return true;
     }
 

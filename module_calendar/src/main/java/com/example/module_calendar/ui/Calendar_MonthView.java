@@ -26,7 +26,7 @@ public class Calendar_MonthView extends MonthView {
     private float mRadio;
     private int mPadding;
     private float mSchemeBaseLine;
-
+    private int mRadius;
     public Calendar_MonthView(Context context) {
         super(context);
 
@@ -50,7 +50,10 @@ public class Calendar_MonthView extends MonthView {
 //        mSchemeBasicPaint.setMaskFilter(new BlurMaskFilter(25, BlurMaskFilter.Blur.SOLID));
     }
 
-
+    @Override
+    protected void onPreviewHook() {
+        mRadius = Math.min(mItemWidth,mItemHeight)/11*5;
+    }
 
     /**
      * 绘制选中的日子
@@ -64,8 +67,11 @@ public class Calendar_MonthView extends MonthView {
      */
     @Override
     protected boolean onDrawSelected(Canvas canvas, Calendar calendar, int x, int y, boolean hasScheme) {
-        mSelectedPaint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(x + mPadding, y + mPadding, x + mItemWidth - mPadding, y + mItemHeight - mPadding, mSelectedPaint);
+        int cx = x + mItemWidth / 2;
+        int cy = y + mItemHeight / 2;
+        canvas.drawCircle(cx, cy, mRadius, mSelectedPaint);
+//        mSelectedPaint.setStyle(Paint.Style.FILL);
+//        canvas.drawRect(x + mPadding, y + mPadding, x + mItemWidth - mPadding, y + mItemHeight - mPadding, mSelectedPaint);
         return true;
     }
 
