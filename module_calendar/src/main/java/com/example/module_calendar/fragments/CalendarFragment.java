@@ -57,12 +57,13 @@ public class CalendarFragment extends Fragment implements
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
+
         mTextMonthDay = view.findViewById(R.id.tv_month_day);
         mTextYear = view.findViewById(R.id.tv_year);
         mTextLunar = view.findViewById(R.id.tv_lunar);
         mRelativeTool = view.findViewById(R.id.rl_tool);
         mCalendarView = view.findViewById(R.id.calendarView);
-
+        mCalendarLayout = view.findViewById(R.id.calendarLayout);
         mTextCurrentDay = view.findViewById(R.id.tv_current_day);
         //点击月份切换到年份选择界面
         mTextMonthDay.setOnClickListener(new View.OnClickListener() {
@@ -83,13 +84,14 @@ public class CalendarFragment extends Fragment implements
         });
 
 
+
+
         view.findViewById(R.id.fl_current).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCalendarView.scrollToCurrent();
             }
         });
-        mCalendarLayout = view.findViewById(R.id.calendarLayout);
         mCalendarView.setOnCalendarSelectListener(this);
         mCalendarView.setOnYearChangeListener(this);
         mTextYear.setText(String.valueOf(mCalendarView.getCurYear()));
@@ -97,6 +99,10 @@ public class CalendarFragment extends Fragment implements
         mTextMonthDay.setText(mCalendarView.getCurMonth() + "月" + mCalendarView.getCurDay() + "日");
         mTextLunar.setText("今日");
         mTextCurrentDay.setText(String.valueOf(mCalendarView.getCurDay()));
+
+
+
+       //initData
 
         int year = mCalendarView.getCurYear();
         int month = mCalendarView.getCurMonth();

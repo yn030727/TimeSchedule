@@ -113,6 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:min_year="2004"
+            app:year_view_background="#e1e1e1"
             app:month_view="com.example.module_calendar.ui.Calendar_MonthView"
             app:week_view="com.example.module_calendar.ui.Calendar_WeekView"
             app:month_view_show_mode="mode_only_current"  />
