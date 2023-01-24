@@ -96,44 +96,47 @@
         android:orientation="vertical"
         android:background="#e1e1e1"
         app:default_status="shrink"
-        app:calendar_content_view_id="@+id/recyclerView">
+        app:calendar_content_view_id="@+id/recyclerView"
+        >
 
         <com.haibin.calendarview.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
             app:week_background="#e1e1e1"
             app:current_day_text_color="#6f1820"
             app:current_day_lunar_text_color="#6f1820"
             app:selected_theme_color="#6f1820"
             app:selected_text_color="#e1e1e1"
             app:selected_lunar_text_color="#e1e1e1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
             app:min_year="2004"
             app:year_view_background="#e1e1e1"
             app:month_view="com.example.module_calendar.ui.Calendar_MonthView"
             app:week_view="com.example.module_calendar.ui.Calendar_WeekView"
             app:month_view_show_mode="mode_only_current"  />
 
-        <com.example.module_calendar.ui.GroupRecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            app:group_background="@color/content_background"
-            app:group_center="false"
-            app:group_height="42dp"
-            app:group_has_header="false"
-            app:group_padding_left="16dp"
-            app:group_padding_right="16dp"
-            app:group_text_size="14sp"
-            app:group_text_color="#555555"
             android:overScrollMode="never"
+            android:background="#fff"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/content_background" />
+            android:layout_height="match_parent"/>
+        <com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="niubi"
+                android:textColor="#000"
+                android:textSize="30dp"/>
+        </com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader>
     </com.haibin.calendarview.CalendarLayout>
+
 
 
 </LinearLayout>

@@ -17,13 +17,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
 import com.example.module_calendar.R;
 import com.example.module_calendar.model.Article;
 import com.example.module_calendar.ui.BaseActivity;
 import com.example.module_calendar.ui.GroupItemDecoration;
 import com.example.module_calendar.ui.GroupRecyclerView;
+import com.example.module_calendar.ui.TargetAdapter;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
@@ -50,7 +53,7 @@ public class CalendarFragment extends Fragment implements
     RelativeLayout mRelativeTool;
     private int mYear;
     CalendarLayout mCalendarLayout;
-    GroupRecyclerView mRecyclerView;
+    RecyclerView mRecyclerView;
 
     @Nullable
     @Override
@@ -110,9 +113,12 @@ public class CalendarFragment extends Fragment implements
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.addItemDecoration(new GroupItemDecoration<String, Article>());
-        //mRecyclerView.setAdapter(new ArticleAdapter(this));
-        mRecyclerView.notifyDataSetChanged();
+        //mRecyclerView.addItemDecoration(new GroupItemDecoration<String, Article>());
+        //mRecyclerView.setAdapter(new TargetAdapter());
+        //mRecyclerView.notifyDataSetChanged();
+
+        RecyclerViewHeader recyclerViewHeader = view.findViewById(R.id.header);
+        recyclerViewHeader.attachTo(mRecyclerView);
         return view;
     }
     private Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
