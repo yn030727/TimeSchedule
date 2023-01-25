@@ -33,6 +33,8 @@ import com.haibin.calendarview.CalendarView;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 @Route(path = "/calendar/CalendarFragment")
 public class CalendarFragment extends Fragment implements
@@ -53,7 +55,8 @@ public class CalendarFragment extends Fragment implements
     RelativeLayout mRelativeTool;
     private int mYear;
     CalendarLayout mCalendarLayout;
-    RecyclerView mRecyclerView;
+    //RecyclerView mRecyclerView;
+    List<String> list;
 
     @Nullable
     @Override
@@ -111,14 +114,15 @@ public class CalendarFragment extends Fragment implements
         Log.d("Ning_Module_Calendar" , " year is "+ year + "  month is " + month);
 
 
-        mRecyclerView = view.findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        list = new ArrayList<>();
+        //mRecyclerView = view.findViewById(R.id.recyclerView);
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         //mRecyclerView.addItemDecoration(new GroupItemDecoration<String, Article>());
-        //mRecyclerView.setAdapter(new TargetAdapter());
+        //mRecyclerView.setAdapter(new TargetAdapter(list));
         //mRecyclerView.notifyDataSetChanged();
 
-        RecyclerViewHeader recyclerViewHeader = view.findViewById(R.id.header);
-        recyclerViewHeader.attachTo(mRecyclerView);
+//        RecyclerViewHeader recyclerViewHeader = view.findViewById(R.id.header);
+//        recyclerViewHeader.attachTo(mRecyclerView);
         return view;
     }
     private Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
@@ -160,7 +164,22 @@ public class CalendarFragment extends Fragment implements
 
 
 
+    public void initData(){
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
 
+
+    }
 
 
 

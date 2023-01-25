@@ -105,6 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="5dp"
+            app:calendar_height="50dp"
             app:week_background="#e1e1e1"
             app:current_day_text_color="#6f1820"
             app:current_day_lunar_text_color="#6f1820"
@@ -117,24 +118,23 @@
             app:week_view="com.example.module_calendar.ui.Calendar_WeekView"
             app:month_view_show_mode="mode_only_current"  />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/recyclerView"
+            android:background="#b5b5b5"
             android:overScrollMode="never"
-            android:background="#fff"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        <com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="niubi"
-                android:textColor="#000"
-                android:textSize="30dp"/>
-        </com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#b5b5b5">
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
     </com.haibin.calendarview.CalendarLayout>
 
 
