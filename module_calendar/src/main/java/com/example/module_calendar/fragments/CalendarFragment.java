@@ -2,6 +2,7 @@ package com.example.module_calendar.fragments;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -83,6 +84,10 @@ public class CalendarFragment extends Fragment implements
         calendar_title_imageView = view.findViewById(R.id.calendar_title_imageView);
         calendar_title_add = view.findViewById(R.id.calendar_title_add);
         calendar1 = java.util.Calendar.getInstance();
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
+        calendar_week_textview.setTypeface(typeface);
+        calendar_week_textview2.setTypeface(typeface);
+        mTextMonthDay.setTypeface(typeface);
 
 
 
@@ -231,37 +236,37 @@ public class CalendarFragment extends Fragment implements
     }
     public String JudgeWeek2(int week){
         if(week == 2){
-            return "周一" ;
+            return "-周一" ;
         }else if(week == 3){
-            return "周二" ;
+            return "-周二" ;
         }else if(week == 4){
-            return "周三";
+            return "-周三";
         }else if(week == 5){
-            return "周四";
+            return "-周四";
         }else if(week == 6){
-            return "周五";
+            return "-周五";
         }else if(week == 7){
-            return "周六";
+            return "-周六";
         }else{
-            return "周日";
+            return "-周日";
         }
     }
 
     public String JudgeWeek3(int week){
         if(week == 1){
-            return "周一" ;
+            return "-周一" ;
         }else if(week == 2){
-            return "周二" ;
+            return "-周二" ;
         }else if(week == 3){
-            return "周三";
+            return "-周三";
         }else if(week == 4){
-            return "周四";
+            return "-周四";
         }else if(week == 5){
-            return "周五";
+            return "-周五";
         }else if(week == 6){
-            return "周六";
+            return "-周六";
         }else{
-            return "周日";
+            return "-周日";
         }
     }
 
