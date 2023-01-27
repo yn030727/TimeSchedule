@@ -180,7 +180,7 @@ public class CalendarFragment extends Fragment implements
         mTextYear.setText(String.valueOf(calendar.getYear()));
         mTextLunar.setText(calendar.getLunar());
         calendar_week_textview.setText(JudgeWeek(calendar.getWeek()));
-        calendar_week_textview2.setText(JudgeWeek2(calendar.getWeek()));
+        calendar_week_textview2.setText(JudgeWeek3(calendar.getWeek()));
         mYear = calendar.getYear();
         Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK ) - 1));
     }
@@ -247,6 +247,23 @@ public class CalendarFragment extends Fragment implements
         }
     }
 
+    public String JudgeWeek3(int week){
+        if(week == 1){
+            return "周一" ;
+        }else if(week == 2){
+            return "周二" ;
+        }else if(week == 3){
+            return "周三";
+        }else if(week == 4){
+            return "周四";
+        }else if(week == 5){
+            return "周五";
+        }else if(week == 6){
+            return "周六";
+        }else{
+            return "周日";
+        }
+    }
 
 
 
