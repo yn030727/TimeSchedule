@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -42,6 +43,8 @@ public class CalendarFragment extends Fragment implements
         CalendarView.OnYearChangeListener,
         View.OnClickListener{
 
+
+    //0.定义变量
     TextView mTextMonthDay;
 
     TextView mTextYear;
@@ -57,6 +60,11 @@ public class CalendarFragment extends Fragment implements
     CalendarLayout mCalendarLayout;
     //RecyclerView mRecyclerView;
     List<String> list;
+    TextView calendar_week_textview;
+    TextView calendar_week_textview2;
+    ImageView calendar_title_imageView;
+    ImageView calendar_title_add;
+
 
     @Nullable
     @Override

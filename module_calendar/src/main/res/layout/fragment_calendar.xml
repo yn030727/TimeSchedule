@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#e1e1e1"
+    android:background="#b5b5b5"
     android:fitsSystemWindows="true"
     tools:ignore="RtlHardcoded,HardcodedText,RtlSymmetry,SmallSp">
 
@@ -120,15 +120,133 @@
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/recyclerView"
-            android:background="#b5b5b5"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/calendar_layout_shape2"
             android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#b5b5b5">
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/calendar_week_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="木曜岁星"
+                        android:textColor="#2b2b2b"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.045"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/calendar_week_textview2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="周四"
+                        android:textColor="#2b2b2b"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/calendar_week_textview"
+                        app:layout_constraintStart_toEndOf="@+id/calendar_week_textview"
+                        app:layout_constraintTop_toTopOf="@+id/calendar_week_textview"
+                        app:layout_constraintVertical_bias="0.4" />
+
+                    <ImageView
+                        android:id="@+id/calendar_title_imageView"
+                        android:layout_width="58dp"
+                        android:layout_height="53dp"
+                        android:layout_marginStart="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/calendar_week_textview"
+                        app:layout_constraintStart_toEndOf="@+id/calendar_week_textview2"
+                        app:layout_constraintTop_toTopOf="@+id/calendar_week_textview"
+                        app:layout_constraintVertical_bias="0.521"
+                        app:srcCompat="@drawable/calendar_title_unhappyface" />
+
+                    <ImageView
+                        android:id="@+id/calendar_title_add"
+                        android:layout_width="42dp"
+                        android:layout_height="37dp"
+                        android:layout_marginStart="140dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/calendar_title_imageView"
+                        app:layout_constraintStart_toEndOf="@+id/calendar_title_imageView"
+                        app:layout_constraintTop_toTopOf="@+id/calendar_title_imageView"
+                        app:srcCompat="@drawable/calendar_title_add" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="29dp"
+                        android:layout_height="27dp"
+                        android:layout_marginStart="48dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/calendar_title_imageView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.849"
+                        app:srcCompat="@drawable/calendar_title_jiantou" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:text="点他分享日常"
+                        android:textColor="#6f1820"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                        app:layout_constraintStart_toStartOf="@+id/imageView3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView3"
+                        app:layout_constraintVertical_bias="1.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="1111111"/>
 
 
             </LinearLayout>
