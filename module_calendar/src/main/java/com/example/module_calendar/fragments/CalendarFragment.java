@@ -38,6 +38,16 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//第一界面:计划表
+
+//功能:
+//代码目录:
+//  0.定义变量
+//  1.Fragment内的主要部分
+//  2.相关方法介绍
+
+
 @Route(path = "/calendar/CalendarFragment")
 public class CalendarFragment extends Fragment implements
         CalendarView.OnCalendarSelectListener ,
@@ -67,11 +77,19 @@ public class CalendarFragment extends Fragment implements
     ImageView calendar_title_add;
     java.util.Calendar calendar1;
 
+
+
+    //  1.Fragment内的主要部分
+        // (1).变量声明
+        // (2).左上角日期的点击事件(点击月份切换到年份选择界面)
+        // (3).月份,年份,星期各类信息的初始化
+        // (4).添加计划按钮的点击事件(跳转到添加计划界面)
+        // (5).计划的RecyclerView相关操作
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // (1).变量声明
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
-
         mTextMonthDay = view.findViewById(R.id.tv_month_day);
         mTextYear = view.findViewById(R.id.tv_year);
         mTextLunar = view.findViewById(R.id.tv_lunar);
@@ -92,7 +110,7 @@ public class CalendarFragment extends Fragment implements
 
 
 
-        //点击月份切换到年份选择界面
+        // (2).点击月份切换到年份选择界面
         mTextMonthDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,6 +131,7 @@ public class CalendarFragment extends Fragment implements
 
 
 
+        // (3).月份,年份,星期各类信息的初始化
         view.findViewById(R.id.fl_current).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,14 +148,22 @@ public class CalendarFragment extends Fragment implements
         calendar_week_textview.setText(JudgeWeek(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
         calendar_week_textview2.setText(JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
         Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK )));
-
-       //initData
-
         int year = mCalendarView.getCurYear();
         int month = mCalendarView.getCurMonth();
         Log.d("Ning_Module_Calendar" , " year is "+ year + "  month is " + month);
 
 
+        // (4).添加计划按钮的点击事件(跳转到添加计划界面)
+        calendar_title_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        // (5).计划的RecyclerView相关操作
+        //initData
         list = new ArrayList<>();
         //mRecyclerView = view.findViewById(R.id.recyclerView);
         //mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -147,6 +174,8 @@ public class CalendarFragment extends Fragment implements
 //        RecyclerViewHeader recyclerViewHeader = view.findViewById(R.id.header);
 //        recyclerViewHeader.attachTo(mRecyclerView);
         return view;
+
+
     }
 
 
