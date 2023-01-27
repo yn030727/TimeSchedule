@@ -64,7 +64,7 @@ public class CalendarFragment extends Fragment implements
     TextView calendar_week_textview2;
     ImageView calendar_title_imageView;
     ImageView calendar_title_add;
-
+    java.util.Calendar calendar1;
 
     @Nullable
     @Override
@@ -78,6 +78,15 @@ public class CalendarFragment extends Fragment implements
         mCalendarView = view.findViewById(R.id.calendarView);
         mCalendarLayout = view.findViewById(R.id.calendarLayout);
         mTextCurrentDay = view.findViewById(R.id.tv_current_day);
+        calendar_week_textview = view.findViewById(R.id.calendar_week_textview);
+        calendar_week_textview2 = view.findViewById(R.id.calendar_week_textview2);
+        calendar_title_imageView = view.findViewById(R.id.calendar_title_imageView);
+        calendar_title_add = view.findViewById(R.id.calendar_title_add);
+        calendar1 = java.util.Calendar.getInstance();
+
+
+
+
         //点击月份切换到年份选择界面
         mTextMonthDay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +121,9 @@ public class CalendarFragment extends Fragment implements
         mTextMonthDay.setText(mCalendarView.getCurMonth() + "月" + mCalendarView.getCurDay() + "日");
         mTextLunar.setText("今日");
         mTextCurrentDay.setText(String.valueOf(mCalendarView.getCurDay()));
-
-
+        calendar_week_textview.setText(JudgeWeek(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
+        calendar_week_textview2.setText(JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
+        Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK )));
 
        //initData
 
@@ -133,6 +143,17 @@ public class CalendarFragment extends Fragment implements
 //        recyclerViewHeader.attachTo(mRecyclerView);
         return view;
     }
+
+
+
+
+
+
+
+
+
+    //2.相关方法介绍
+
     private Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
         Calendar calendar = new Calendar();
         calendar.setYear(year);
@@ -158,7 +179,10 @@ public class CalendarFragment extends Fragment implements
         mTextMonthDay.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");
         mTextYear.setText(String.valueOf(calendar.getYear()));
         mTextLunar.setText(calendar.getLunar());
+        calendar_week_textview.setText(JudgeWeek(calendar.getWeek()));
+        calendar_week_textview2.setText(JudgeWeek2(calendar.getWeek()));
         mYear = calendar.getYear();
+        Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK ) - 1));
     }
 
     @Override
@@ -185,8 +209,42 @@ public class CalendarFragment extends Fragment implements
         list.add("1");
         list.add("1");
         list.add("1");
+    }
 
 
+    public String JudgeWeek(int week){
+        if(week == 1){
+            return "月曜太阴" ;
+        }else if(week == 2){
+            return "火曜萤惑" ;
+        }else if(week == 3){
+            return "水曜辰星";
+        }else if(week == 4){
+            return "木曜岁星";
+        }else if(week == 5){
+            return "金曜太白";
+        }else if(week == 6){
+            return "土曜镇星";
+        }else{
+            return "日曜太阳";
+        }
+    }
+    public String JudgeWeek2(int week){
+        if(week == 2){
+            return "周一" ;
+        }else if(week == 3){
+            return "周二" ;
+        }else if(week == 4){
+            return "周三";
+        }else if(week == 5){
+            return "周四";
+        }else if(week == 6){
+            return "周五";
+        }else if(week == 7){
+            return "周六";
+        }else{
+            return "周日";
+        }
     }
 
 
