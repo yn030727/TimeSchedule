@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.metrics.Event;
@@ -30,6 +31,7 @@ import java.util.List;
 import eventbus.EventChallengeCard;
 import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
+import eventbus.EventEditSchedule;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -42,6 +44,7 @@ import eventbus.EventChallenge_CardActivity_Back;
 // 4.EventBus的订阅者事件一:挑战卡片的点击接下挑战
 // 5.EventBus的订阅者事件二:挑战界面的back
 // 6.EventBus的订阅者事件三：挑战界面实时挑战的点击查看
+// 7.EventBus的订阅者事件四：计划界面的计划编辑
 
 @Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -237,7 +240,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //7.订阅事件
+    //此事件对应的是点击添加计划按钮，跳转到计划添加页面
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventEditSchedule(EventEditSchedule eventEditSchedule){
+        Log.d("Ning","showEventEditSchedule");
+        //Intent intent = new Intent(MainActivity.this , EditscheduleActivity.class);
 
+    }
 
 
 

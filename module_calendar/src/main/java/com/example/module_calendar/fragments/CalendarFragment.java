@@ -33,10 +33,14 @@ import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+import eventbus.EventEditSchedule;
 
 
 //第一界面:计划表
@@ -157,7 +161,7 @@ public class CalendarFragment extends Fragment implements
         calendar_title_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                EventBus.getDefault().postSticky(new EventEditSchedule());
             }
         });
 

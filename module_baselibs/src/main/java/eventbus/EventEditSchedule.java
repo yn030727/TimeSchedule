@@ -10,4 +10,9 @@ public class EventEditSchedule {
     public void setClick(boolean click) {
         this.click = click;
     }
+
+    public EventEditSchedule(boolean click){
+        this.click = click;
+    };
+    public EventEditSchedule(){}
 }
