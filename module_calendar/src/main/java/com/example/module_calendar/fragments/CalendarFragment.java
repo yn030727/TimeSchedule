@@ -2,6 +2,7 @@ package com.example.module_calendar.fragments;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -110,6 +111,7 @@ public class CalendarFragment extends Fragment implements
         calendar_week_textview.setTypeface(typeface);
         calendar_week_textview2.setTypeface(typeface);
         mTextMonthDay.setTypeface(typeface);
+        calendar_week_textview.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
 
 

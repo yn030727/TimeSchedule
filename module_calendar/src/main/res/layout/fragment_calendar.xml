@@ -171,7 +171,7 @@
                         app:layout_constraintStart_toEndOf="@+id/calendar_week_textview2"
                         app:layout_constraintTop_toTopOf="@+id/calendar_week_textview"
                         app:layout_constraintVertical_bias="0.521"
-                        app:srcCompat="@drawable/calendar_title_unhappyface" />
+                        app:srcCompat="@drawable/calendar_title_unhappyface2" />
 
                     <ImageView
                         android:id="@+id/calendar_title_add"
