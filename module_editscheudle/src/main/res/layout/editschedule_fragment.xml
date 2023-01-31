@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#b5b5b5">
+
+    <Toolbar
+        android:id="@+id/challenge_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#f1f1f1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editschedule_create_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建"
+        android:textColor="#000"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/challenge_toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/challenge_toolbar"
+        app:layout_constraintStart_toStartOf="@+id/challenge_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/challenge_toolbar" />
+
+    <TextView
+        android:id="@+id/editschedule_cancel_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:textColor="#111111"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editschedule_create_textView"
+        app:layout_constraintEnd_toStartOf="@+id/editschedule_create_textView"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="@+id/challenge_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/editschedule_create_textView"
+        app:layout_constraintVertical_bias="0.315" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
