@@ -18,6 +18,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import org.greenrobot.eventbus.EventBus;
 
 import eventbus.EventChallenge_CardActivity_Back;
+import eventbus.EventEditSchedule_MainActivity_Back;
 
 
 @Route(path = "/editschedule/editschedulefragment")
@@ -49,6 +50,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         if(v.getId() == R.id.editschedule_cancel_textView){
             //点击取消界面
+            EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
         }
     }
 }

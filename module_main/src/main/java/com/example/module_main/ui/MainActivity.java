@@ -29,6 +29,7 @@ import eventbus.EventChallengeCard;
 import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule;
+import eventbus.EventEditSchedule_MainActivity_Back;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -247,6 +248,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //startActivity(intent);
         if(eventEditSchedule.getClick()){
             replaceFragment((Fragment) ARouter.getInstance().build("/editschedule/editschedulefragment").navigation());
+        }
+    }
+
+    //8.订阅事件
+    //此事件对应的是点击编辑计划界面的取消按键，跳转回初始界面
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventEditScheduleMainActivityBack(EventEditSchedule_MainActivity_Back back){
+        Log.d("Ning" , "showEventScheduleMainActivityBack");
+        if(back.getClick_back()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/calendar/CalendarFragment").navigation());
         }
     }
 
