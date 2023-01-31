@@ -5,13 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.metrics.Event;
 import android.os.Bundle;
-import android.util.AndroidRuntimeException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +16,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_main.R;
+
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -246,7 +243,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void showEventEditSchedule(EventEditSchedule eventEditSchedule){
         Log.d("Ning","showEventEditSchedule");
         //Intent intent = new Intent(MainActivity.this , EditscheduleActivity.class);
-
+        //Intent intent = new Intent(MainActivity.this , EditToScheduleActivity.class);
+        //startActivity(intent);
+        if(eventEditSchedule.getClick()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/editschedule/editschedulefragment").navigation());
+        }
     }
 
 
@@ -258,6 +259,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
-
 
 }

@@ -161,7 +161,7 @@ public class CalendarFragment extends Fragment implements
         calendar_title_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().postSticky(new EventEditSchedule());
+                EventBus.getDefault().postSticky(new EventEditSchedule(true));
             }
         });
 
