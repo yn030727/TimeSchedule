@@ -28,6 +28,12 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     TextView edit_schedule_cancel_textView;
     ConstraintLayout edit_schedule_add_function;
     TextView edit_schedule_add_function_textView;
+    TextView edit_schedule_add_normal;
+    TextView edit_schedule_add_study;
+    TextView edit_schedule_add_healthy;
+    TextView edit_schedule_add_sport;
+    TextView edit_schedule_add_life;
+    TextView edit_schedule_add_money;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -39,12 +45,24 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_cancel_textView = view.findViewById(R.id.editschedule_cancel_textView);
         edit_schedule_add_function = view.findViewById(R.id.editschedule_add_function);
         edit_schedule_add_function_textView = view.findViewById(R.id.editschedule_add_function_textView);
+        edit_schedule_add_normal = view.findViewById(R.id.editschedule_add_normal);
+        edit_schedule_add_study = view.findViewById(R.id.editschedule_add_study);
+        edit_schedule_add_healthy = view.findViewById(R.id.editschedule_add_healthy);
+        edit_schedule_add_sport = view.findViewById(R.id.editschedule_add_sport);
+        edit_schedule_add_life = view.findViewById(R.id.editschedule_add_life);
+        edit_schedule_add_money = view.findViewById(R.id.editschedule_add_money);
 
         edit_schedule_create_textView.setTypeface(typeface);
         edit_schedule_cancel_textView.setTypeface(typeface);
         edit_schedule_cancel_textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         edit_schedule_add_function_textView.setTypeface(typeface);
         edit_schedule_add_function_textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        edit_schedule_add_normal.setTypeface(typeface);
+        edit_schedule_add_study.setTypeface(typeface);
+        edit_schedule_add_healthy.setTypeface(typeface);
+        edit_schedule_add_sport.setTypeface(typeface);
+        edit_schedule_add_life.setTypeface(typeface);
+        edit_schedule_add_money.setTypeface(typeface);
 
         edit_schedule_cancel_textView.setOnClickListener(this);
         return view;
