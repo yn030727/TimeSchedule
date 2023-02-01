@@ -43,4 +43,168 @@
         app:layout_constraintTop_toTopOf="@+id/editschedule_create_textView"
         app:layout_constraintVertical_bias="0.315" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="- - - - - - - - - - - - - - - - - - -   创建自定义计划   - - - - - - - - - - - - - - - - - - -"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editschedule_add_function"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/calendar_layout_function"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <TextView
+            android:id="@+id/editschedule_add_function_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义计划"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.52" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="23dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editschedule_add_function_textView"
+            app:layout_constraintEnd_toStartOf="@+id/editschedule_add_function_textView"
+            app:layout_constraintTop_toTopOf="@+id/editschedule_add_function_textView"
+            app:srcCompat="@drawable/editschedule_image_add" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="- - - - - - - - - - - - - - - -   从默认分类中选择计划   - - - - - - - - - - - - - - - -"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editschedule_add_function" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="94dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar">
+
+        <TextView
+            android:id="@+id/editschedule_add_normal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="常用"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/editschedule_add_study"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="登学"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_normal" />
+
+        <TextView
+            android:id="@+id/editschedule_add_healthy"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="健康"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_study" />
+
+        <TextView
+            android:id="@+id/editschedule_add_sport"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="运动"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_healthy" />
+
+        <TextView
+            android:id="@+id/editschedule_add_life"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="生活"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_sport" />
+
+        <TextView
+            android:id="@+id/editschedule_add_money"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="财务"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_life" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

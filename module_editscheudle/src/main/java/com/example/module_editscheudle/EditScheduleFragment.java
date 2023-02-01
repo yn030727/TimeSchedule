@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -24,7 +25,9 @@ import eventbus.EventEditSchedule_MainActivity_Back;
 @Route(path = "/editschedule/editschedulefragment")
 public class EditScheduleFragment extends Fragment implements View.OnClickListener {
     TextView edit_schedule_create_textView;
-    TextView editschedule_cancel_textView;
+    TextView edit_schedule_cancel_textView;
+    ConstraintLayout edit_schedule_add_function;
+    TextView edit_schedule_add_function_textView;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -33,13 +36,17 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         View view = inflater.inflate(R.layout.editschedule_fragment , container , false);
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
         edit_schedule_create_textView = view.findViewById(R.id.editschedule_create_textView);
-        editschedule_cancel_textView = view.findViewById(R.id.editschedule_cancel_textView);
+        edit_schedule_cancel_textView = view.findViewById(R.id.editschedule_cancel_textView);
+        edit_schedule_add_function = view.findViewById(R.id.editschedule_add_function);
+        edit_schedule_add_function_textView = view.findViewById(R.id.editschedule_add_function_textView);
 
         edit_schedule_create_textView.setTypeface(typeface);
-        editschedule_cancel_textView.setTypeface(typeface);
-        editschedule_cancel_textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        edit_schedule_cancel_textView.setTypeface(typeface);
+        edit_schedule_cancel_textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        edit_schedule_add_function_textView.setTypeface(typeface);
+        edit_schedule_add_function_textView.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
-        editschedule_cancel_textView.setOnClickListener(this);
+        edit_schedule_cancel_textView.setOnClickListener(this);
         return view;
     }
 
