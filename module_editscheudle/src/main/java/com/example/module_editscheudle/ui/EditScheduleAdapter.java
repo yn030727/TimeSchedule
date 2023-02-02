@@ -1,6 +1,7 @@
 package com.example.module_editscheudle.ui;
 
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_editscheudle.R;
@@ -43,6 +45,21 @@ public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHo
         holder.edit_schedule_image.setImageResource(sc.getImage());
         holder.edit_schedule_name.setText(sc.getText());
         holder.edit_schedule_name.setTypeface(typeface);
+
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Ning_Module_editSchdule" , "constraintLayout OnClick");
+                stringscheduleHashMap.put(sc.getText(),!stringscheduleHashMap.get(sc.getText()));
+                sc.setComplete(!sc.getComplete());
+                if(sc.getComplete()){
+                    //已经完成
+                    holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_gouxuan);
+                }else{
+                    holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_weigouxuan);
+                }
+            }
+        });
         if(sc.getComplete()){
             //已经完成
             holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_gouxuan);
@@ -63,11 +80,13 @@ public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHo
     }
 }
 class EditScheduleViewHolder extends RecyclerView.ViewHolder{
+    ConstraintLayout constraintLayout;
     ImageView edit_schedule_image;
     TextView edit_schedule_name;
     ImageView edit_schedule_right_image;
     public EditScheduleViewHolder(@NonNull View itemView) {
         super(itemView);
+        constraintLayout = itemView.findViewById(R.id.editschedule_constraint);
         edit_schedule_image = itemView.findViewById(R.id.editschedule_recyclerview_image);
         edit_schedule_name = itemView.findViewById(R.id.editschedule_recyclerview_textview);
         edit_schedule_right_image = itemView.findViewById(R.id.editschedule_recyclerview_right_press);

@@ -58,13 +58,14 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     ArrayList<schedule> curArrayList;
     HashMap<String , Boolean> stringscheduleHashMap;
     RecyclerView scheduleRecyclerView;
+    Typeface typeface;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.editschedule_fragment , container , false);
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
+        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
         edit_schedule_create_textView = view.findViewById(R.id.editschedule_create_textView);
         edit_schedule_cancel_textView = view.findViewById(R.id.editschedule_cancel_textView);
         edit_schedule_add_function = view.findViewById(R.id.editschedule_add_function);
@@ -133,21 +134,65 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             //点击重新加载RecyclerView
             Log.d("Ning_Module_EditSchedule" , "TextView - editschedule_add_normal");
             setEnable(edit_schedule_add_normal);
+
+            //改变RecyclerView
+            init_Data_normal();
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
+            scheduleRecyclerView.setAdapter(editScheduleAdapter);
+            scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
+
         }else if(v.getId() == R.id.editschedule_add_study){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_study");
             setEnable(edit_schedule_add_study);
+
+            //改变RecyclerView
+            init_Data_study();
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
+            scheduleRecyclerView.setAdapter(editScheduleAdapter);
+            scheduleRecyclerView.setLayoutManager(linearLayoutManager);
         }else if(v.getId() == R.id.editschedule_add_healthy){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_healthy");
             setEnable(edit_schedule_add_healthy);
+
+            //改变RecyclerView
+            init_Data_healthy();
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
+            scheduleRecyclerView.setAdapter(editScheduleAdapter);
+            scheduleRecyclerView.setLayoutManager(linearLayoutManager);
         }else if(v.getId() == R.id.editschedule_add_sport){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_sport");
             setEnable(edit_schedule_add_sport);
+
+            //改变RecyclerView
+            init_Data_sport();
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
+            scheduleRecyclerView.setAdapter(editScheduleAdapter);
+            scheduleRecyclerView.setLayoutManager(linearLayoutManager);
         }else if(v.getId() == R.id.editschedule_add_life){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_life");
             setEnable(edit_schedule_add_life);
+
+            //改变RecyclerView
+            init_Data_life();
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
+            scheduleRecyclerView.setAdapter(editScheduleAdapter);
+            scheduleRecyclerView.setLayoutManager(linearLayoutManager);
         }else if(v.getId() == R.id.editschedule_add_money){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_money");
             setEnable(edit_schedule_add_money);
+
+            //改变RecyclerView
+            init_Data_money();
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
+            scheduleRecyclerView.setAdapter(editScheduleAdapter);
+            scheduleRecyclerView.setLayoutManager(linearLayoutManager);
         }
     }
 
@@ -182,6 +227,11 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     public void init_Data_Hash(){
         stringscheduleHashMap = new HashMap<>();
         stringscheduleHashMap.put("取快递", false);
+        stringscheduleHashMap.put("点外卖" , false);
+        stringscheduleHashMap.put("倒垃圾" , false);
+        stringscheduleHashMap.put("早起一杯水" , false);
+        stringscheduleHashMap.put("不熬夜" , false);
+        stringscheduleHashMap.put("每日护肤" , false);
     }
 
 
@@ -189,22 +239,34 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     public void init_Data_normal(){
         scheduleArrayList = new ArrayList<>();
         scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("点外卖",R.drawable.editschedule_image_waimai,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("点外卖")));
+        scheduleArrayList.add(new schedule("倒垃圾",R.drawable.editschedule_image_laji,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("倒垃圾")));
+        scheduleArrayList.add(new schedule("早起一杯水",R.drawable.editschedule_image_heshui,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("早起一杯水")));
+        scheduleArrayList.add(new schedule("不熬夜",R.drawable.editschedule_image_aoye,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("不熬夜")));
+        scheduleArrayList.add(new schedule("每日护肤",R.drawable.editschedule_image_hufu,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每日护肤")));
+    }
 
-
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-
-
+    public void init_Data_study(){
+        scheduleArrayList = new ArrayList<>();
 
     }
 
+    public void init_Data_healthy(){
+        scheduleArrayList = new ArrayList<>();
 
+    }
+    public void init_Data_sport(){
+        scheduleArrayList = new ArrayList<>();
 
+    }
+    public void init_Data_life(){
+        scheduleArrayList = new ArrayList<>();
 
+    }
+    public void init_Data_money(){
+        scheduleArrayList = new ArrayList<>();
+
+    }
 
 
 
