@@ -26,9 +26,18 @@ import java.util.List;
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule_MainActivity_Back;
 
-
+//界面:创建计划界面
+//将计划添加到集合当中，并交给module_calendar
+//功能:
+//代码目录:
+//  0.声明变量，基础设置
+//  1.点击事件
+//  2.默认分类按钮点击变色事件
 @Route(path = "/editschedule/editschedulefragment")
 public class EditScheduleFragment extends Fragment implements View.OnClickListener {
+
+
+    //0.声明变量，基础设置
     TextView edit_schedule_create_textView;
     TextView edit_schedule_cancel_textView;
     ConstraintLayout edit_schedule_add_function;
@@ -92,22 +101,29 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
 
     //1. 点击事件
+    @SuppressLint("LongLogTag")
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.editschedule_cancel_textView){
             //点击取消界面
             EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
         }else if(v.getId() == R.id.editschedule_add_normal){
+            Log.d("Ning_Module_EditSchedule" , "TextView - editschedule_add_normal");
             setEnable(edit_schedule_add_normal);
         }else if(v.getId() == R.id.editschedule_add_study){
+            Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_study");
             setEnable(edit_schedule_add_study);
         }else if(v.getId() == R.id.editschedule_add_healthy){
+            Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_healthy");
             setEnable(edit_schedule_add_healthy);
         }else if(v.getId() == R.id.editschedule_add_sport){
+            Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_sport");
             setEnable(edit_schedule_add_sport);
         }else if(v.getId() == R.id.editschedule_add_life){
+            Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_life");
             setEnable(edit_schedule_add_life);
         }else if(v.getId() == R.id.editschedule_add_money){
+            Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_money");
             setEnable(edit_schedule_add_money);
         }
     }
