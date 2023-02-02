@@ -3,18 +3,18 @@ package com.example.module_editscheudle.model;
 //计划的类
 public class schedule {
     int image;
-    int complete;
-    int leftImage;
+    boolean complete;
+    int rightImage;
     String text;
 
-    public schedule(String text , int image , int leftImage , int complete){
+    public schedule(String text , int image , int rightImage ,  boolean complete){
         this.complete = complete;
         this.image = image;
         this.text = text;
-        this.leftImage = leftImage;
+        this.rightImage = rightImage;
     }
 
-    public int getComplete() {
+    public  boolean getComplete() {
         return complete;
     }
 
@@ -22,15 +22,15 @@ public class schedule {
         return image;
     }
 
-    public int getLeftImage() {
-        return leftImage;
+    public int getRightImage() {
+        return rightImage;
     }
 
     public String getText() {
         return text;
     }
 
-    public void setComplete(int complete) {
+    public void setComplete( boolean complete) {
         this.complete = complete;
     }
 
@@ -38,8 +38,8 @@ public class schedule {
         this.image = image;
     }
 
-    public void setLeftImage(int leftImage) {
-        this.leftImage = leftImage;
+    public void setRightImage(int rightImage) {
+        this.rightImage = rightImage;
     }
 
     public void setText(String text) {
