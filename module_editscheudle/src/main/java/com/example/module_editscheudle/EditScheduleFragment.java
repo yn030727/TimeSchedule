@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,9 @@ import androidx.fragment.app.Fragment;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule_MainActivity_Back;
@@ -34,6 +39,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     TextView edit_schedule_add_sport;
     TextView edit_schedule_add_life;
     TextView edit_schedule_add_money;
+    TextView edit_schedule_add_cur_text;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -51,6 +57,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport = view.findViewById(R.id.editschedule_add_sport);
         edit_schedule_add_life = view.findViewById(R.id.editschedule_add_life);
         edit_schedule_add_money = view.findViewById(R.id.editschedule_add_money);
+        edit_schedule_add_cur_text = view.findViewById(R.id.editschedule_add_normal);
 
         edit_schedule_create_textView.setTypeface(typeface);
         edit_schedule_cancel_textView.setTypeface(typeface);
@@ -64,6 +71,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_life.setTypeface(typeface);
         edit_schedule_add_money.setTypeface(typeface);
 
+
         edit_schedule_cancel_textView.setOnClickListener(this);
         edit_schedule_add_normal.setOnClickListener(this);
         edit_schedule_add_study.setOnClickListener(this);
@@ -71,7 +79,14 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport.setOnClickListener(this);
         edit_schedule_add_life.setOnClickListener(this);
         edit_schedule_add_money.setOnClickListener(this);
+        edit_schedule_add_normal.setEnabled(false);
+        edit_schedule_add_study.setEnabled(true);
+        edit_schedule_add_healthy.setEnabled(true);
+        edit_schedule_add_sport.setEnabled(true);
+        edit_schedule_add_life.setEnabled(true);
+        edit_schedule_add_money.setEnabled(true);
         return view;
+
     }
 
 
@@ -83,17 +98,35 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             //点击取消界面
             EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
         }else if(v.getId() == R.id.editschedule_add_normal){
-
+            setEnable(edit_schedule_add_normal);
         }else if(v.getId() == R.id.editschedule_add_study){
-
+            setEnable(edit_schedule_add_study);
         }else if(v.getId() == R.id.editschedule_add_healthy){
-
+            setEnable(edit_schedule_add_healthy);
         }else if(v.getId() == R.id.editschedule_add_sport){
-
+            setEnable(edit_schedule_add_sport);
         }else if(v.getId() == R.id.editschedule_add_life){
-
+            setEnable(edit_schedule_add_life);
         }else if(v.getId() == R.id.editschedule_add_money){
-
+            setEnable(edit_schedule_add_money);
         }
+    }
+
+    //2.默认分类按钮点击变色事件
+    private void setEnable(TextView textView){
+        List<TextView> buttonList = new ArrayList<>();
+        if(buttonList.size() == 0){
+            buttonList.add(edit_schedule_add_normal);
+            buttonList.add(edit_schedule_add_study);
+            buttonList.add(edit_schedule_add_healthy);
+            buttonList.add(edit_schedule_add_sport);
+            buttonList.add(edit_schedule_add_life);
+            buttonList.add(edit_schedule_add_money);
+        }
+
+        for(int i=0 ; i<buttonList.size() ; i++){
+            buttonList.get(i).setEnabled(true);
+        }
+        textView.setEnabled(false);
     }
 }
