@@ -15,12 +15,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.module_editscheudle.model.schedule;
+import com.example.module_editscheudle.ui.EditScheduleAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import eventbus.EventChallenge_CardActivity_Back;
@@ -49,6 +54,10 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     TextView edit_schedule_add_life;
     TextView edit_schedule_add_money;
     TextView edit_schedule_add_cur_text;
+    ArrayList<schedule> scheduleArrayList;
+    ArrayList<schedule> curArrayList;
+    HashMap<String , Boolean> stringscheduleHashMap;
+    RecyclerView scheduleRecyclerView;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -94,6 +103,19 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport.setEnabled(true);
         edit_schedule_add_life.setEnabled(true);
         edit_schedule_add_money.setEnabled(true);
+
+
+
+        //关于RecyclerView的加载
+        init_Data_Hash();
+        init_Data_normal();  //初始加载normal
+        scheduleRecyclerView = view.findViewById(R.id.editschedule_add_recyclerView);
+        EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
+        scheduleRecyclerView.setAdapter(editScheduleAdapter);
+        scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
+
         return view;
 
     }
@@ -108,6 +130,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             //点击取消界面
             EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
         }else if(v.getId() == R.id.editschedule_add_normal){
+            //点击重新加载RecyclerView
             Log.d("Ning_Module_EditSchedule" , "TextView - editschedule_add_normal");
             setEnable(edit_schedule_add_normal);
         }else if(v.getId() == R.id.editschedule_add_study){
@@ -145,7 +168,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         }
         textView.setEnabled(false);
     }
-}
+
 
 
 /**
@@ -156,3 +179,34 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
  *                  4.打开不同分类的时候，先加载临时集合，如果当前Item在这个集合当中，那么将圆形换成勾选状态
  *                  5.创建之后，将临时集合交给module_calendar ， 同时将当前的状态上交给数据库
  */
+    public void init_Data_Hash(){
+        stringscheduleHashMap = new HashMap<>();
+        stringscheduleHashMap.put("取快递", false);
+    }
+
+
+
+    public void init_Data_normal(){
+        scheduleArrayList = new ArrayList<>();
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+
+
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+
+
+
+    }
+
+
+
+
+
+
+
+}
+

@@ -8,36 +8,34 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="97dp"
         android:background="#d5d5d5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/editschedule_constraint"
-            android:layout_width="413dp"
-            android:layout_height="68dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="340dp"
+            android:layout_height="66dp"
             android:background="@drawable/calendar_layout_shape1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/editschedule_recyclerview_image"
                 android:layout_width="44dp"
                 android:layout_height="48dp"
-                tools:background="@drawable/editschedule_image_kuaidi"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.086"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/editschedule_image_kuaidi" />
 
             <TextView
                 android:id="@+id/editschedule_recyclerview_textview"
@@ -57,10 +55,12 @@
                 android:id="@+id/editschedule_recyclerview_right_press"
                 android:layout_width="21dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="228dp"
-                app:layout_constraintBottom_toBottomOf="@+id/editschedule_recyclerview_image"
+                app:layout_constraintBottom_toBottomOf="@+id/editschedule_recyclerview_textview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.847"
                 app:layout_constraintStart_toEndOf="@+id/editschedule_recyclerview_textview"
-                app:layout_constraintTop_toTopOf="@+id/editschedule_recyclerview_image"
+                app:layout_constraintTop_toTopOf="@+id/editschedule_recyclerview_textview"
+                app:layout_constraintVertical_bias="0.428"
                 app:srcCompat="@drawable/calendar_layout_function" />
 
 
