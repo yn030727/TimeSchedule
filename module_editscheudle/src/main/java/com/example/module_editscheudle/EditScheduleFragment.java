@@ -65,6 +65,12 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_money.setTypeface(typeface);
 
         edit_schedule_cancel_textView.setOnClickListener(this);
+        edit_schedule_add_normal.setOnClickListener(this);
+        edit_schedule_add_study.setOnClickListener(this);
+        edit_schedule_add_healthy.setOnClickListener(this);
+        edit_schedule_add_sport.setOnClickListener(this);
+        edit_schedule_add_life.setOnClickListener(this);
+        edit_schedule_add_money.setOnClickListener(this);
         return view;
     }
 
@@ -76,6 +82,18 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         if(v.getId() == R.id.editschedule_cancel_textView){
             //点击取消界面
             EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
+        }else if(v.getId() == R.id.editschedule_add_normal){
+
+        }else if(v.getId() == R.id.editschedule_add_study){
+
+        }else if(v.getId() == R.id.editschedule_add_healthy){
+
+        }else if(v.getId() == R.id.editschedule_add_sport){
+
+        }else if(v.getId() == R.id.editschedule_add_life){
+
+        }else if(v.getId() == R.id.editschedule_add_money){
+
         }
     }
 }
