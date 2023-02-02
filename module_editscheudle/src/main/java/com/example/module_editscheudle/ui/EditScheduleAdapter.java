@@ -6,10 +6,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.module_editscheudle.model.schedule;
+
+import java.util.ArrayList;
+
 public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHolder>{
+    ArrayList<schedule> scheduleArrayList;
+    ArrayList<schedule> curArrayList;
 
+    public EditScheduleAdapter(ArrayList<schedule> scheduleArrayList , ArrayList<schedule> curArrayList){
+        this.curArrayList = curArrayList;
+        this.scheduleArrayList =scheduleArrayList;
 
-    public EditScheduleAdapter(){}
+    }
     @NonNull
     @Override
     public EditScheduleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

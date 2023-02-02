@@ -152,7 +152,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
  *                            -  关于RecyclerView的相关建设
  *                  1.点击不同的分类，将集合内的数据重新初始化，   initData_noraml();
  *                  2.对于Item来说，需要三个Image，一个Text
- *                  3.点击Item添加到临时集合当中，点击创建后回到之前的界面，并上传临时集合
+ *                  3.点击Item添加到临时集合当中（点击第二次Item，图片切换回去，并从临时集合中删除），点击创建后回到之前的界面，并上传临时集合
  *                  4.打开不同分类的时候，先加载临时集合，如果当前Item在这个集合当中，那么将圆形换成勾选状态
  *                  5.创建之后，将临时集合交给module_calendar ， 同时将当前的状态上交给数据库
  */
