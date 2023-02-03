@@ -251,6 +251,47 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         stringscheduleHashMap.put("每天收能量" , false);
         stringscheduleHashMap.put("听音乐" , false);
         stringscheduleHashMap.put("每天排便" , false);
+
+        stringscheduleHashMap.put("学习" , false);
+        stringscheduleHashMap.put("阅读" , false);
+        stringscheduleHashMap.put("背单词" , false);
+        stringscheduleHashMap.put("写日记" , false);
+        stringscheduleHashMap.put("一周读本书" , false);
+        stringscheduleHashMap.put("练字" , false);
+        stringscheduleHashMap.put("学车" , false);
+        stringscheduleHashMap.put("学编程" , false);
+        stringscheduleHashMap.put("练习乐器" , false);
+        stringscheduleHashMap.put("学习新技能" , false);
+        stringscheduleHashMap.put("绘画" , false);
+        stringscheduleHashMap.put("亲子共学" , false);
+        stringscheduleHashMap.put("学数学" , false);
+        stringscheduleHashMap.put("学英语" , false);
+        stringscheduleHashMap.put("写作业" , false);
+        stringscheduleHashMap.put("英语阅读" , false);
+        stringscheduleHashMap.put("摄影" , false);
+        stringscheduleHashMap.put("学新语言" , false);
+
+        stringscheduleHashMap.put("早起" , false);
+        stringscheduleHashMap.put("喝八杯水" , false);
+        stringscheduleHashMap.put("11点前睡觉" , false);
+        stringscheduleHashMap.put("吃早餐" , false);
+        stringscheduleHashMap.put("吃代餐" , false);
+        stringscheduleHashMap.put("滴眼药水" , false);
+        stringscheduleHashMap.put("记得微笑" , false);
+        stringscheduleHashMap.put("吃水果" , false);
+        stringscheduleHashMap.put("午休30分钟" , false);
+        stringscheduleHashMap.put("自己做饭" , false);
+        stringscheduleHashMap.put("眼保健操" , false);
+        stringscheduleHashMap.put("戒奶茶饮料" , false);
+        stringscheduleHashMap.put("过九不食" , false);
+        stringscheduleHashMap.put("戒糖减脂" , false);
+        stringscheduleHashMap.put("按时吃药" , false);
+        stringscheduleHashMap.put("吃素" , false);
+        stringscheduleHashMap.put("喝牛奶" , false);
+        stringscheduleHashMap.put("跳绳" , false);
+        stringscheduleHashMap.put("打坐" , false);
+        stringscheduleHashMap.put("泡脚" , false);
+        stringscheduleHashMap.put("补充维生素" , false);
     }
 
 
@@ -286,11 +327,49 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
     public void init_Data_study(){
         scheduleArrayList = new ArrayList<>();
-
+        scheduleArrayList.add(new schedule("学习",com.example.module_baselibs.R.drawable.editschedule_image_xuexi,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学习")));
+        scheduleArrayList.add(new schedule("阅读",com.example.module_baselibs.R.drawable.editschedule_image_yuedu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("阅读")));
+        scheduleArrayList.add(new schedule("背单词",com.example.module_baselibs.R.drawable.editschedule_image_beidanci,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("背单词")));
+        scheduleArrayList.add(new schedule("写日记",com.example.module_baselibs.R.drawable.editschedule_image_xiereji,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("写日记")));
+        scheduleArrayList.add(new schedule("一周读本书",com.example.module_baselibs.R.drawable.editschedule_image_dushu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("一周读本书")));
+        scheduleArrayList.add(new schedule("练字",com.example.module_baselibs.R.drawable.editschedule_image_lianzi,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("练字")));
+        scheduleArrayList.add(new schedule("学车",com.example.module_baselibs.R.drawable.editschedule_image_xueche,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学车")));
+        scheduleArrayList.add(new schedule("学编程",com.example.module_baselibs.R.drawable.editschedule_image_biancheng,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学编程")));
+        scheduleArrayList.add(new schedule("练习乐器",com.example.module_baselibs.R.drawable.editschedule_image_yueqi,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("练习乐器")));
+        scheduleArrayList.add(new schedule("学习新技能",com.example.module_baselibs.R.drawable.editschedule_image_xinjineng,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学习新技能")));
+        scheduleArrayList.add(new schedule("绘画",com.example.module_baselibs.R.drawable.editschedule_image_huihua,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("绘画")));
+        scheduleArrayList.add(new schedule("亲子共学",com.example.module_baselibs.R.drawable.editschedule_image_qinzi,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("亲子共学")));
+        scheduleArrayList.add(new schedule("学数学",com.example.module_baselibs.R.drawable.editschedule_image_xueshuxue,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学数学")));
+        scheduleArrayList.add(new schedule("学英语",com.example.module_baselibs.R.drawable.editschedule_image_xueyingyu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学英语")));
+        scheduleArrayList.add(new schedule("写作业",com.example.module_baselibs.R.drawable.editschedule_image_xiezuoye,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("写作业")));
+        scheduleArrayList.add(new schedule("英语阅读",com.example.module_baselibs.R.drawable.editschedule_image_yingyuyuedu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("英语阅读")));
+        scheduleArrayList.add(new schedule("摄影",com.example.module_baselibs.R.drawable.editschedule_image_sheying,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("摄影")));
+        scheduleArrayList.add(new schedule("学新语言",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("学新语言")));
     }
 
     public void init_Data_healthy(){
         scheduleArrayList = new ArrayList<>();
+        scheduleArrayList.add(new schedule("早起",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("早起")));
+        scheduleArrayList.add(new schedule("喝八杯水",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("喝八杯水")));
+        scheduleArrayList.add(new schedule("11点前睡觉",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("11点前睡觉")));
+        scheduleArrayList.add(new schedule("吃早餐",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("吃早餐")));
+        scheduleArrayList.add(new schedule("吃代餐",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("吃代餐")));
+        scheduleArrayList.add(new schedule("滴眼药水",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("滴眼药水")));
+        scheduleArrayList.add(new schedule("记得微笑",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("记得微笑")));
+        scheduleArrayList.add(new schedule("吃水果",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("吃水果")));
+        scheduleArrayList.add(new schedule("午休30分钟",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("午休30分钟")));
+        scheduleArrayList.add(new schedule("自己做饭",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("自己做饭")));
+        scheduleArrayList.add(new schedule("眼保健操",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("眼保健操")));
+        scheduleArrayList.add(new schedule("戒奶茶饮料",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("戒奶茶饮料")));
+        scheduleArrayList.add(new schedule("过九不食",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("过九不食")));
+        scheduleArrayList.add(new schedule("戒糖减脂",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("戒糖减脂")));
+        scheduleArrayList.add(new schedule("按时吃药",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("按时吃药")));
+        scheduleArrayList.add(new schedule("吃素",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("吃素")));
+        scheduleArrayList.add(new schedule("喝牛奶",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("喝牛奶")));
+        scheduleArrayList.add(new schedule("跳绳",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("跳绳")));
+        scheduleArrayList.add(new schedule("打坐",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("打坐")));
+        scheduleArrayList.add(new schedule("泡脚",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("泡脚")));
+        scheduleArrayList.add(new schedule("补充维生素",com.example.module_baselibs.R.drawable.editschedule_image_xuexinyuyan,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("补充维生素")));
 
     }
     public void init_Data_sport(){
