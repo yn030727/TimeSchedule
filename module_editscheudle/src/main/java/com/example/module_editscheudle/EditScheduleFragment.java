@@ -238,12 +238,12 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
     public void init_Data_normal(){
         scheduleArrayList = new ArrayList<>();
-        scheduleArrayList.add(new schedule("取快递",R.drawable.editschedule_image_kuaidi,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
-        scheduleArrayList.add(new schedule("点外卖",R.drawable.editschedule_image_waimai,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("点外卖")));
-        scheduleArrayList.add(new schedule("倒垃圾",R.drawable.editschedule_image_laji,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("倒垃圾")));
-        scheduleArrayList.add(new schedule("早起一杯水",R.drawable.editschedule_image_heshui,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("早起一杯水")));
-        scheduleArrayList.add(new schedule("不熬夜",R.drawable.editschedule_image_aoye,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("不熬夜")));
-        scheduleArrayList.add(new schedule("每日护肤",R.drawable.editschedule_image_hufu,R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每日护肤")));
+        scheduleArrayList.add(new schedule("取快递",com.example.module_baselibs.R.drawable.editschedule_image_kuaidi,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("取快递")));
+        scheduleArrayList.add(new schedule("点外卖",com.example.module_baselibs.R.drawable.editschedule_image_waimai,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("点外卖")));
+        scheduleArrayList.add(new schedule("倒垃圾",com.example.module_baselibs.R.drawable.editschedule_image_laji,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("倒垃圾")));
+        scheduleArrayList.add(new schedule("早起一杯水",com.example.module_baselibs.R.drawable.editschedule_image_heshui,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("早起一杯水")));
+        scheduleArrayList.add(new schedule("不熬夜",com.example.module_baselibs.R.drawable.editschedule_image_aoye,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("不熬夜")));
+        scheduleArrayList.add(new schedule("每日护肤",com.example.module_baselibs.R.drawable.editschedule_image_hufu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每日护肤")));
     }
 
     public void init_Data_study(){

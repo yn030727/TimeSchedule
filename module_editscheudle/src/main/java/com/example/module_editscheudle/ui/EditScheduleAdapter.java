@@ -54,17 +54,17 @@ public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHo
                 sc.setComplete(!sc.getComplete());
                 if(sc.getComplete()){
                     //已经完成
-                    holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_gouxuan);
+                    holder.edit_schedule_right_image.setImageResource(com.example.module_baselibs.R.drawable.editschedule_image_gouxuan);
                 }else{
-                    holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_weigouxuan);
+                    holder.edit_schedule_right_image.setImageResource(com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan);
                 }
             }
         });
         if(sc.getComplete()){
             //已经完成
-            holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_gouxuan);
+            holder.edit_schedule_right_image.setImageResource(com.example.module_baselibs.R.drawable.editschedule_image_gouxuan);
         }else{
-            holder.edit_schedule_right_image.setImageResource(R.drawable.editschedule_image_weigouxuan);
+            holder.edit_schedule_right_image.setImageResource(com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan);
         }
 
         //        for(int i=0 ; i<curArrayList.size() ; i++){
