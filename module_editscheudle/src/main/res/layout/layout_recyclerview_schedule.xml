@@ -57,10 +57,9 @@
                 android:id="@+id/editschedule_recyclerview_right_press"
                 android:layout_width="21dp"
                 android:layout_height="20dp"
+                android:layout_marginEnd="28dp"
                 app:layout_constraintBottom_toBottomOf="@+id/editschedule_recyclerview_textview"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.847"
-                app:layout_constraintStart_toEndOf="@+id/editschedule_recyclerview_textview"
                 app:layout_constraintTop_toTopOf="@+id/editschedule_recyclerview_textview"
                 app:layout_constraintVertical_bias="0.428"
                 app:srcCompat="@drawable/calendar_layout_function" />
