@@ -320,6 +320,11 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         stringscheduleHashMap.put("美甲" , false);
         stringscheduleHashMap.put("美发" , false);
 
+        stringscheduleHashMap.put("不乱花钱" , false);
+        stringscheduleHashMap.put("记账" , false);
+        stringscheduleHashMap.put("每天攒钱" , false);
+        stringscheduleHashMap.put("每月存钱" , false);
+
 
     }
 
@@ -426,17 +431,20 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     }
     public void init_Data_life(){
         scheduleArrayList = new ArrayList<>();
-        scheduleArrayList.add(new schedule("约会",com.example.module_baselibs.R.drawable.editschedule_image_tubu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("约会")));
-        scheduleArrayList.add(new schedule("剃头发",com.example.module_baselibs.R.drawable.editschedule_image_tubu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("剃头发")));
-        scheduleArrayList.add(new schedule("掏耳朵",com.example.module_baselibs.R.drawable.editschedule_image_tubu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("掏耳朵")));
-        scheduleArrayList.add(new schedule("修理指甲",com.example.module_baselibs.R.drawable.editschedule_image_tubu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("修理指甲")));
-        scheduleArrayList.add(new schedule("美甲",com.example.module_baselibs.R.drawable.editschedule_image_tubu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("美甲")));
-        scheduleArrayList.add(new schedule("美发",com.example.module_baselibs.R.drawable.editschedule_image_tubu,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("美发")));
+        scheduleArrayList.add(new schedule("约会",com.example.module_baselibs.R.drawable.editschedule_image_yuehui,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("约会")));
+        scheduleArrayList.add(new schedule("剃头发",com.example.module_baselibs.R.drawable.editschedule_image_titoufa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("剃头发")));
+        scheduleArrayList.add(new schedule("掏耳朵",com.example.module_baselibs.R.drawable.editschedule_image_erduo,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("掏耳朵")));
+        scheduleArrayList.add(new schedule("修理指甲",com.example.module_baselibs.R.drawable.editschedule_image_xiuzhijia,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("修理指甲")));
+        scheduleArrayList.add(new schedule("美甲",com.example.module_baselibs.R.drawable.editschedule_image_meijai,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("美甲")));
+        scheduleArrayList.add(new schedule("美发",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("美发")));
 
     }
     public void init_Data_money(){
         scheduleArrayList = new ArrayList<>();
-
+        scheduleArrayList.add(new schedule("不乱花钱",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("不乱花钱")));
+        scheduleArrayList.add(new schedule("记账",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("记账")));
+        scheduleArrayList.add(new schedule("每天攒钱",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每天攒钱")));
+        scheduleArrayList.add(new schedule("每月存钱",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每月存钱")));
     }
 
 
