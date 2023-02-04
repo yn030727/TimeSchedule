@@ -61,7 +61,8 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     HashMap<String , Boolean> stringscheduleHashMap;
     RecyclerView scheduleRecyclerView;
     Typeface typeface;
-    TextView edit_schedule__add_create_text;
+    TextView edit_schedule_add_create_text;
+    Button edit_schedule_add_create_btn;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -80,7 +81,8 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_life = view.findViewById(R.id.editschedule_add_life);
         edit_schedule_add_money = view.findViewById(R.id.editschedule_add_money);
         edit_schedule_add_cur_text = view.findViewById(R.id.editschedule_add_normal);
-        edit_schedule__add_create_text = view.findViewById(R.id.editschedule_add_create_text);
+        edit_schedule_add_create_text = view.findViewById(R.id.editschedule_add_create_text);
+        edit_schedule_add_create_btn = view.findViewById(R.id.editschedule_add_create_button);
         curHashSet = new HashSet<>();
 
         edit_schedule_create_textView.setTypeface(typeface);
@@ -94,8 +96,8 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport.setTypeface(typeface);
         edit_schedule_add_life.setTypeface(typeface);
         edit_schedule_add_money.setTypeface(typeface);
-        edit_schedule__add_create_text.setTypeface(typeface);
-        edit_schedule__add_create_text.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        edit_schedule_add_create_text.setTypeface(typeface);
+        edit_schedule_add_create_text.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
 
         edit_schedule_cancel_textView.setOnClickListener(this);
@@ -105,6 +107,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport.setOnClickListener(this);
         edit_schedule_add_life.setOnClickListener(this);
         edit_schedule_add_money.setOnClickListener(this);
+        edit_schedule_add_create_btn.setOnClickListener(this);
         edit_schedule_add_normal.setEnabled(false);
         edit_schedule_add_study.setEnabled(true);
         edit_schedule_add_healthy.setEnabled(true);
@@ -118,7 +121,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         init_Data_Hash();
         init_Data_normal();  //初始加载normal
         scheduleRecyclerView = view.findViewById(R.id.editschedule_add_recyclerView);
-        EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text , curHashSet);
+        EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text , curHashSet);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         scheduleRecyclerView.setAdapter(editScheduleAdapter);
         scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -143,7 +146,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
             //改变RecyclerView
             init_Data_normal();
-            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text ,  curHashSet);
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text ,  curHashSet);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -155,7 +158,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
             //改变RecyclerView
             init_Data_study();
-            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text ,  curHashSet);
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text ,  curHashSet);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -166,7 +169,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
             //改变RecyclerView
             init_Data_healthy();
-            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text ,  curHashSet);
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text ,  curHashSet);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -177,7 +180,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
             //改变RecyclerView
             init_Data_sport();
-            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text , curHashSet);
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text , curHashSet);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -188,7 +191,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
             //改变RecyclerView
             init_Data_life();
-            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text , curHashSet);
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text , curHashSet);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
@@ -199,11 +202,13 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
             //改变RecyclerView
             init_Data_money();
-            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule__add_create_text ,  curHashSet);
+            EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text ,  curHashSet);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
 
+        }else if(v.getId() == R.id.editschedule_add_create_button){
+            Log.d("Ning_Module_EditSchedule" , "创建计划");
         }
     }
 
