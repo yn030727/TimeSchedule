@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,6 +60,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     HashMap<String , Boolean> stringscheduleHashMap;
     RecyclerView scheduleRecyclerView;
     Typeface typeface;
+    TextView edit_schedule__add_create_text;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -77,6 +79,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_life = view.findViewById(R.id.editschedule_add_life);
         edit_schedule_add_money = view.findViewById(R.id.editschedule_add_money);
         edit_schedule_add_cur_text = view.findViewById(R.id.editschedule_add_normal);
+        edit_schedule__add_create_text = view.findViewById(R.id.editschedule_add_create_text);
 
         edit_schedule_create_textView.setTypeface(typeface);
         edit_schedule_cancel_textView.setTypeface(typeface);
@@ -89,6 +92,8 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport.setTypeface(typeface);
         edit_schedule_add_life.setTypeface(typeface);
         edit_schedule_add_money.setTypeface(typeface);
+        edit_schedule__add_create_text.setTypeface(typeface);
+        edit_schedule__add_create_text.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
 
         edit_schedule_cancel_textView.setOnClickListener(this);
@@ -153,6 +158,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
         }else if(v.getId() == R.id.editschedule_add_healthy){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_healthy");
             setEnable(edit_schedule_add_healthy);
@@ -163,6 +169,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
         }else if(v.getId() == R.id.editschedule_add_sport){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_sport");
             setEnable(edit_schedule_add_sport);
@@ -173,6 +180,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
         }else if(v.getId() == R.id.editschedule_add_life){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_life");
             setEnable(edit_schedule_add_life);
@@ -183,6 +191,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
         }else if(v.getId() == R.id.editschedule_add_money){
             Log.d("Ning_Module_EditSchedule","TextView - editschedule_add_money");
             setEnable(edit_schedule_add_money);
@@ -193,6 +202,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext());
             scheduleRecyclerView.setAdapter(editScheduleAdapter);
             scheduleRecyclerView.setLayoutManager(linearLayoutManager);
+
         }
     }
 
