@@ -246,7 +246,10 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/editschedule_add_create_button"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -258,20 +261,21 @@
         android:background="@drawable/editschedule_layout_shape2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" >
+        <TextView
+            android:id="@+id/editschedule_add_create_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/editschedule_add_create_button"
+            app:layout_constraintEnd_toEndOf="@+id/editschedule_add_create_button"
+            app:layout_constraintStart_toStartOf="@+id/editschedule_add_create_button"
+            app:layout_constraintTop_toTopOf="@+id/editschedule_add_create_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/editschedule_add_create_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="创建"
-        android:textColor="#000"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editschedule_add_create_button"
-        app:layout_constraintEnd_toEndOf="@+id/editschedule_add_create_button"
-        app:layout_constraintStart_toStartOf="@+id/editschedule_add_create_button"
-        app:layout_constraintTop_toTopOf="@+id/editschedule_add_create_button" />
 
 
 

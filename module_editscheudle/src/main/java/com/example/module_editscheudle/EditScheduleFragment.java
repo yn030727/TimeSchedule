@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -62,7 +63,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     RecyclerView scheduleRecyclerView;
     Typeface typeface;
     TextView edit_schedule_add_create_text;
-    Button edit_schedule_add_create_btn;
+    ConstraintLayout edit_schedule_add_create_btn;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
