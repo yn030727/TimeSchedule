@@ -17,16 +17,21 @@ import com.example.module_editscheudle.model.schedule;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHolder>{
     ArrayList<schedule> scheduleArrayList;
     HashMap<String , Boolean> stringscheduleHashMap;
     Typeface typeface;
+    TextView edit_schedule__add_create_text;
+    HashSet<String> curHashSet;
 
-    public EditScheduleAdapter(ArrayList<schedule> scheduleArrayList , HashMap<String , Boolean> stringscheduleHashMap , Typeface typeface){
+    public EditScheduleAdapter(ArrayList<schedule> scheduleArrayList , HashMap<String , Boolean> stringscheduleHashMap , Typeface typeface , TextView edit_schedule__add_create_text , HashSet<String> curHashSet){
         this.stringscheduleHashMap = stringscheduleHashMap;
         this.scheduleArrayList =scheduleArrayList;
         this.typeface = typeface;
+        this.edit_schedule__add_create_text = edit_schedule__add_create_text;
+        this.curHashSet = curHashSet;
     }
     @NonNull
     @Override
@@ -55,8 +60,16 @@ public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHo
                 if(sc.getComplete()){
                     //已经完成
                     holder.edit_schedule_right_image.setImageResource(com.example.module_baselibs.R.drawable.editschedule_image_gouxuan);
+                    curHashSet.add(sc.getText());
+                    edit_schedule__add_create_text.setText("创建("+curHashSet.size()+")");
                 }else{
                     holder.edit_schedule_right_image.setImageResource(com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan);
+                    curHashSet.remove(sc.getText());
+                    if(curHashSet.size() == 0){
+                        edit_schedule__add_create_text.setText("创建");
+                    }else{
+                        edit_schedule__add_create_text.setText("创建("+curHashSet.size()+")");
+                    }
                 }
             }
         });
@@ -78,6 +91,8 @@ public class EditScheduleAdapter extends RecyclerView.Adapter<EditScheduleViewHo
     public int getItemCount() {
         return scheduleArrayList.size();
     }
+
+
 }
 class EditScheduleViewHolder extends RecyclerView.ViewHolder{
     ConstraintLayout constraintLayout;
