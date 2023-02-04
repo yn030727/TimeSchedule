@@ -441,10 +441,10 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     }
     public void init_Data_money(){
         scheduleArrayList = new ArrayList<>();
-        scheduleArrayList.add(new schedule("不乱花钱",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("不乱花钱")));
-        scheduleArrayList.add(new schedule("记账",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("记账")));
-        scheduleArrayList.add(new schedule("每天攒钱",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每天攒钱")));
-        scheduleArrayList.add(new schedule("每月存钱",com.example.module_baselibs.R.drawable.editschedule_image_meifa,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每月存钱")));
+        scheduleArrayList.add(new schedule("不乱花钱",com.example.module_baselibs.R.drawable.editschedule_image_buluanhuaqian,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("不乱花钱")));
+        scheduleArrayList.add(new schedule("记账",com.example.module_baselibs.R.drawable.editschedule_image_jizhang,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("记账")));
+        scheduleArrayList.add(new schedule("每天攒钱",com.example.module_baselibs.R.drawable.editschedule_image_zanqian,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每天攒钱")));
+        scheduleArrayList.add(new schedule("每月存钱",com.example.module_baselibs.R.drawable.editschedule_image_cunqian,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每月存钱")));
     }
 
 
