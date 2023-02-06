@@ -36,4 +36,14 @@
 15. Day15
     - Ning:写青史界面的UI，module_honor
 16. Day16
-    - Ning:写完第三界面(青史界面) 
+    - Ning:写完第三界面(青史界面)
+17. Day17
+    - Ning:规划第一界面
+18. Day18
+    - Ning:基本完成第一节界面的日历
+19. Day19
+    - Ning:日历打卡事项界面的设计
+20. Day20
+    - Ning:开始写添加计划界面
+21. Day21 Day22 Day23
+    - Ning:完成添加计划界面

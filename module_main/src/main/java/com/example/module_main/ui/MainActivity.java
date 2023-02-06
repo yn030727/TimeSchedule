@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.metrics.Event;
 import android.os.Bundle;
-import android.util.AndroidRuntimeException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +16,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_main.R;
+
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -30,6 +28,8 @@ import java.util.List;
 import eventbus.EventChallengeCard;
 import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
+import eventbus.EventEditSchedule;
+import eventbus.EventEditSchedule_MainActivity_Back;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -42,6 +42,7 @@ import eventbus.EventChallenge_CardActivity_Back;
 // 4.EventBus的订阅者事件一:挑战卡片的点击接下挑战
 // 5.EventBus的订阅者事件二:挑战界面的back
 // 6.EventBus的订阅者事件三：挑战界面实时挑战的点击查看
+// 7.EventBus的订阅者事件四：计划界面的计划编辑
 
 @Route(path="/main/MainActivity")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -237,7 +238,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //7.订阅事件
+    //此事件对应的是点击添加计划按钮，跳转到计划添加页面
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventEditSchedule(EventEditSchedule eventEditSchedule){
+        Log.d("Ning","showEventEditSchedule");
+        //Intent intent = new Intent(MainActivity.this , EditscheduleActivity.class);
+        //Intent intent = new Intent(MainActivity.this , EditToScheduleActivity.class);
+        //startActivity(intent);
+        if(eventEditSchedule.getClick()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/editschedule/editschedulefragment").navigation());
+        }
+    }
 
+    //8.订阅事件
+    //此事件对应的是点击编辑计划界面的取消按键，跳转回初始界面
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventEditScheduleMainActivityBack(EventEditSchedule_MainActivity_Back back){
+        Log.d("Ning" , "showEventScheduleMainActivityBack");
+        if(back.getClick_back()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/calendar/CalendarFragment").navigation());
+        }
+    }
 
 
 
@@ -248,6 +270,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
-
 
 }

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b5b5b5">
+
+    <Toolbar
+        android:id="@+id/challenge_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#f1f1f1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editschedule_create_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建"
+        android:textColor="#000"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/challenge_toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/challenge_toolbar"
+        app:layout_constraintStart_toStartOf="@+id/challenge_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/challenge_toolbar" />
+
+    <TextView
+        android:id="@+id/editschedule_cancel_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:textColor="#111111"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editschedule_create_textView"
+        app:layout_constraintEnd_toStartOf="@+id/editschedule_create_textView"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="@+id/challenge_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/editschedule_create_textView"
+        app:layout_constraintVertical_bias="0.315" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="- - - - - - - - - - - - - - - - - - -   创建自定义计划   - - - - - - - - - - - - - - - - - - -"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editschedule_add_function"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/calendar_layout_function"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <TextView
+            android:id="@+id/editschedule_add_function_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义计划"
+            android:textColor="#111111"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.52" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="23dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editschedule_add_function_textView"
+            app:layout_constraintEnd_toStartOf="@+id/editschedule_add_function_textView"
+            app:layout_constraintTop_toTopOf="@+id/editschedule_add_function_textView"
+            app:srcCompat="@drawable/editschedule_image_add" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="- - - - - - - - - - - - - - - -   从默认分类中选择计划   - - - - - - - - - - - - - - - -"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editschedule_add_function" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="94dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar">
+
+        <TextView
+            android:id="@+id/editschedule_add_normal"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="常用"
+            android:textColor="#111111"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/calendar_layout_text_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/editschedule_add_study"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="登学"
+            android:textColor="#111111"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/calendar_layout_text_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_normal" />
+
+        <TextView
+            android:id="@+id/editschedule_add_healthy"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="健康"
+            android:textColor="#111111"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/calendar_layout_text_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_study" />
+
+        <TextView
+            android:id="@+id/editschedule_add_sport"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="运动"
+            android:textColor="#111111"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/calendar_layout_text_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_healthy" />
+
+        <TextView
+            android:id="@+id/editschedule_add_life"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="生活"
+            android:textColor="#111111"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/calendar_layout_text_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_sport" />
+
+        <TextView
+            android:id="@+id/editschedule_add_money"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="财务"
+            android:textColor="#111111"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@drawable/calendar_layout_text_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editschedule_add_life" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="94dp"
+        android:background="#d5d5d5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar">
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/editschedule_add_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:paddingBottom="85dp"
+                    android:clipToPadding="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editschedule_add_create_button"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:alpha="0.8"
+        android:background="@drawable/editschedule_layout_shape2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+        <TextView
+            android:id="@+id/editschedule_add_create_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/editschedule_add_create_button"
+            app:layout_constraintEnd_toEndOf="@+id/editschedule_add_create_button"
+            app:layout_constraintStart_toStartOf="@+id/editschedule_add_create_button"
+            app:layout_constraintTop_toTopOf="@+id/editschedule_add_create_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
