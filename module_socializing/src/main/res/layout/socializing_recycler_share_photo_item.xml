@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/socializing_recycler_share_photo_item_head_portrait"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/socializing_head_portrait"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundPercent="0.2"/>
+
+    <TextView
+        android:id="@+id/socializing_recycler_share_photo_item_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="挺有道理的程小曼"
+        app:layout_constraintBottom_toBottomOf="@+id/socializing_recycler_share_photo_item_head_portrait"
+        app:layout_constraintStart_toEndOf="@+id/socializing_recycler_share_photo_item_head_portrait"
+        app:layout_constraintTop_toTopOf="@+id/socializing_recycler_share_photo_item_head_portrait" />
+
+    <ImageView
+        android:id="@+id/socializing_recycler_share_photo_item_imageview"
+        android:layout_width="359dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:maxWidth="439dp"
+        android:maxHeight="100dp"
+        android:src="@drawable/socializing_recycler_share_photo_item_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/socializing_recycler_share_photo_item_head_portrait" />
+
+    <TextView
+        android:id="@+id/socializing_recycler_share_photo_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="xx月xx日"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/socializing_recycler_share_photo_item_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/socializing_recycler_share_photo_item_imageview" />
+
+    <TextView
+        android:id="@+id/socializing_recycler_share_photo_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="00:00"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/socializing_recycler_share_photo_item_date"
+        app:layout_constraintTop_toTopOf="@+id/socializing_recycler_share_photo_item_date" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="147dp"
+        android:layout_height="145dp"
+        app:srcCompat="@drawable/socializing_recycler_share_good_gray"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="307dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

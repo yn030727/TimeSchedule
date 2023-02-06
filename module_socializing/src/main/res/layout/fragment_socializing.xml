@@ -3,15 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F1F1F1">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="210dp"
-        android:layout_height="175dp"
-        android:text="socializing"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/socializing_main_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="朋友圈"
+        android:textColor="@color/theme"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.module_socializing.fragments.SocializingShareFragment"
+        android:layout_width="410dp"
+        android:layout_height="681dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/socializing_main_title_tv"
+        tools:layout="@layout/fragment_socializing_share" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
