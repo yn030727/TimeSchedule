@@ -14,8 +14,11 @@ import android.widget.TextView;
 import com.example.module_individual.R;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import GeneralInformation.LoginInformation;
+import eventbus.EventLoginInformation;
 
 public class IndividualLoginFragment extends Fragment {
 
@@ -37,12 +40,12 @@ public class IndividualLoginFragment extends Fragment {
         TextView login_users = view.findViewById(R.id.individual_login_user);
         login_users.setText(getArguments().getString("user"));
 
-        EventBus.getDefault().register(this);
-        LoginInformation loginInformation = new LoginInformation();
-        loginInformation.setUser(getArguments().getString("user"));
-        loginInformation.setAccount(getArguments().getString("account"));
-        loginInformation.isLogin = getArguments().getBoolean("isLogin");
-        EventBus.getDefault().post(loginInformation);
+//        LoginInformation loginInformation = new LoginInformation();
+//        loginInformation.setUser(getArguments().getString("user"));
+//        loginInformation.setAccount(getArguments().getString("account"));
+//        loginInformation.isLogin = getArguments().getBoolean("isLogin");
+//        EventBus.getDefault().postSticky(loginInformation);
+        EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
 
         return view;
     }

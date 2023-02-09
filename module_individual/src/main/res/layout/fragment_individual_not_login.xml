@@ -13,4 +13,10 @@
         android:text="Not Login"
         tools:textSize="34sp" />
 
+    <Button
+        android:id="@+id/individual_not_login_tologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击登录" />
+
 </FrameLayout>
