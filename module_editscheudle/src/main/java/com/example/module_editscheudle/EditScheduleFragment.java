@@ -33,6 +33,7 @@ import java.util.List;
 
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule_MainActivity_Back;
+import eventbus.EventLoginInformation;
 
 //界面:创建计划界面
 //将计划添加到集合当中，并交给module_calendar
@@ -64,6 +65,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     Typeface typeface;
     TextView edit_schedule_add_create_text;
     ConstraintLayout edit_schedule_add_create_btn;
+
 
     @SuppressLint("MissingInflatedId")
     @Nullable

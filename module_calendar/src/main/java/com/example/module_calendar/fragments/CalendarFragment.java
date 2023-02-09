@@ -35,6 +35,8 @@ import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -42,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eventbus.EventEditSchedule;
+import eventbus.EventLoginInformation;
 
 
 //第一界面:计划表
@@ -81,6 +84,7 @@ public class CalendarFragment extends Fragment implements
     ImageView calendar_title_imageView;
     ImageView calendar_title_add;
     java.util.Calendar calendar1;
+    EventLoginInformation schedule_login_information;
 
 
 
@@ -112,7 +116,8 @@ public class CalendarFragment extends Fragment implements
         calendar_week_textview2.setTypeface(typeface);
         mTextMonthDay.setTypeface(typeface);
         calendar_week_textview.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
-
+        //初始化EventBus
+        EventBus.getDefault().register(this);
 
 
 
@@ -151,7 +156,7 @@ public class CalendarFragment extends Fragment implements
         mTextMonthDay.setText(mCalendarView.getCurMonth() + "月" + mCalendarView.getCurDay() + "日");
         mTextLunar.setText("今日");
         mTextCurrentDay.setText(String.valueOf(mCalendarView.getCurDay()));
-        calendar_week_textview.setText(JudgeWeek(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
+        calendar_week_textview.setText(JudgeWeek4(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
         calendar_week_textview2.setText(JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
         Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK )));
         int year = mCalendarView.getCurYear();
@@ -269,6 +274,23 @@ public class CalendarFragment extends Fragment implements
             return "日曜太阳";
         }
     }
+    public String JudgeWeek4(int week){
+        if(week == 2){
+            return "月曜太阴" ;
+        }else if(week == 3){
+            return "火曜萤惑" ;
+        }else if(week == 4){
+            return "水曜辰星";
+        }else if(week == 5){
+            return "木曜岁星";
+        }else if(week == 6){
+            return "金曜太白";
+        }else if(week == 7){
+            return "土曜镇星";
+        }else{
+            return "日曜太阳";
+        }
+    }
     public String JudgeWeek2(int week){
         if(week == 2){
             return "-周一" ;
@@ -306,6 +328,21 @@ public class CalendarFragment extends Fragment implements
     }
 
 
+    //2.订阅事件
+    //此事件对应的是接收到个人界面传过来的登录信息，然后改变
+    //回到Fragment之后，才会调用当前方法
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventLoginInformation(EventLoginInformation eventLoginInformation){
+        Log.d("Ning","showEventLoginInformation");
 
 
+        Log.d("Ning" , eventLoginInformation.getUser());
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }
