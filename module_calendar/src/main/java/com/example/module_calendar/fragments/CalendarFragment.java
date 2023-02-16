@@ -1,6 +1,8 @@
 package com.example.module_calendar.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -15,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,6 +57,7 @@ import eventbus.EventLoginInformation;
 //  0.定义变量
 //  1.Fragment内的主要部分
 //  2.相关方法介绍
+//  3.EventBus订阅事件
 
 
 @Route(path = "/calendar/CalendarFragment")
@@ -85,6 +89,14 @@ public class CalendarFragment extends Fragment implements
     ImageView calendar_title_add;
     java.util.Calendar calendar1;
     EventLoginInformation schedule_login_information;
+    //账号
+    String calendar_account;   //用来标识当前是否存在账号
+    int calendar_enter_count;  //标识第几次进入当前组件
+
+
+
+
+
 
 
 
@@ -94,6 +106,11 @@ public class CalendarFragment extends Fragment implements
         // (3).月份,年份,星期各类信息的初始化
         // (4).添加计划按钮的点击事件(跳转到添加计划界面)
         // (5).计划的RecyclerView相关操作
+
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -168,7 +185,11 @@ public class CalendarFragment extends Fragment implements
         calendar_title_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().postSticky(new EventEditSchedule(true));
+                if(!calendar_account.equals("NULL")){
+                    EventBus.getDefault().postSticky(new EventEditSchedule(true));
+                }else{
+                    Toast.makeText(getContext(),"请先登陆账号!" , Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -184,6 +205,17 @@ public class CalendarFragment extends Fragment implements
 
 //        RecyclerViewHeader recyclerViewHeader = view.findViewById(R.id.header);
 //        recyclerViewHeader.attachTo(mRecyclerView);
+
+
+        // (6).从其他界面跳转过来，更新登录信息
+        SharedPreferences pref = getContext().getSharedPreferences("calendar_account" , Context.MODE_PRIVATE);
+        calendar_account = pref.getString("account", "NULL");
+        Log.d("Ning_module_calendar" , "onCreateView : " + calendar_account);
+
+
+
+
+
         return view;
 
 
@@ -329,14 +361,21 @@ public class CalendarFragment extends Fragment implements
 
 
     //2.订阅事件
-    //此事件对应的是接收到个人界面传过来的登录信息，然后改变
+    //此事件对应的是接收到个人界面传过来的登录信息，然后改变(必须点开过个人主页界面，才会将数据传递过来)
     //回到Fragment之后，才会调用当前方法
+    //通过数据库存储一个用来表示账号的数据，进入第一个界面之后，就先获取账号，如果不符合要求，那么、之后的点击添加计划操作就提醒不合理
+    //重复进入第一界面重复读取数据库，只要登录了账号那么，数据库内的数据就一定是正确的
     @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
     public void showEventLoginInformation(EventLoginInformation eventLoginInformation){
         Log.d("Ning","showEventLoginInformation");
-
-
         Log.d("Ning" , eventLoginInformation.getUser());
+        //打开数据库，只要从个人界面回来
+        //读取登录状态，更新数据库，更新本地变量
+        SharedPreferences.Editor editor = getContext().getSharedPreferences("calendar_account",Context.MODE_PRIVATE).edit();
+        calendar_account = eventLoginInformation.getAccount();
+        editor.putString("account",calendar_account);
+        Log.d("Ning_module_calendar","showEventLoginInformation : " + calendar_account);
+        editor.apply();
 
     }
 
