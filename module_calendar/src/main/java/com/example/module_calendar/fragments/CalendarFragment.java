@@ -29,7 +29,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
 import com.example.module_calendar.R;
 import com.example.module_calendar.model.Article;
+import com.example.module_calendar.model.CalendarSchedule;
 import com.example.module_calendar.ui.BaseActivity;
+import com.example.module_calendar.ui.CalendarScheduleAdapter;
 import com.example.module_calendar.ui.GroupItemDecoration;
 import com.example.module_calendar.ui.GroupRecyclerView;
 import com.example.module_calendar.ui.TargetAdapter;
@@ -98,9 +100,10 @@ public class CalendarFragment extends Fragment implements
     //计划
     HashMap<String , Boolean> receiveHashMap;
     HashMap<String , Integer> imageHashMap;
-
-
-
+    ArrayList<CalendarSchedule> scheduleArrayList = new ArrayList<>(); //放到RecyclerView里面的更新集合
+    HashMap<String , Boolean> scheduleStateHashMap = new HashMap<>(); //用来判断选中计划的完成情况
+    RecyclerView calendar_schedule_recylcerview;
+    Typeface typeface;
 
 
 
@@ -116,6 +119,7 @@ public class CalendarFragment extends Fragment implements
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -219,6 +223,14 @@ public class CalendarFragment extends Fragment implements
 
 
 
+        //(7).加载RecyclerView
+        initScheduleArrayList();
+        initImageHashMap();
+        calendar_schedule_recylcerview = view.findViewById(R.id.Calendar_recyclerview);
+        CalendarScheduleAdapter calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
+        calendar_schedule_recylcerview.setAdapter(calendarScheduleAdapter);
+        calendar_schedule_recylcerview.setLayoutManager(linearLayoutManager);
 
 
         return view;
@@ -364,6 +376,7 @@ public class CalendarFragment extends Fragment implements
         }
     }
 
+    //初始化图片集合
     public void initImageHashMap(){
         imageHashMap = new HashMap<>();
         imageHashMap.put("取快递", com.example.module_baselibs.R.drawable.editschedule_image_kuaidi);
@@ -465,6 +478,11 @@ public class CalendarFragment extends Fragment implements
         imageHashMap.put("每天攒钱" , com.example.module_baselibs.R.drawable.editschedule_image_zanqian);
         imageHashMap.put("每月存钱" , com.example.module_baselibs.R.drawable.editschedule_image_cunqian);
     }
+    //初始化RecyclerView集合
+    public void initScheduleArrayList(){
+        //1.从数据库中获取已经存在的计划
+        // 2.从数据库中获取计划的完成信息(HashMap)
+    }
 
 
     //2.订阅事件
@@ -493,10 +511,16 @@ public class CalendarFragment extends Fragment implements
         Log.d("Ning_module_calendar", "showEventSchedule");
         receiveHashMap = eventSchedule.getHashMap();
         Set<String> strings = receiveHashMap.keySet();
+        initImageHashMap();
         for(String s : strings){
             if(receiveHashMap.get(s)){
                 //为true表示被选中
                 Log.d("Ning_module_calendar" , "receiveHashMap : " + s + " " + "true" );
+                //选中计划之后一定会添加
+                //添加会在原有的集合中进行添加
+                //判断是否存在计划，是放在编辑模块，所以这边的计划一定是还未添加过的，那么直接添加即可
+                scheduleArrayList.add(new CalendarSchedule(s,imageHashMap.get(s),false));
+                scheduleStateHashMap.put(s,false);
             }
         }
     }
