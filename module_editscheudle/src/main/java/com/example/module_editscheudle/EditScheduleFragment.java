@@ -34,6 +34,7 @@ import java.util.List;
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule_MainActivity_Back;
 import eventbus.EventLoginInformation;
+import eventbus.EventSchedule;
 
 //界面:创建计划界面
 //将计划添加到集合当中，并交给module_calendar
@@ -65,6 +66,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     Typeface typeface;
     TextView edit_schedule_add_create_text;
     ConstraintLayout edit_schedule_add_create_btn;
+    HashMap<String , Boolean> eventScheduleHashMap;
 
 
     @SuppressLint("MissingInflatedId")
@@ -122,6 +124,10 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
         //关于RecyclerView的加载
         init_Data_Hash();
+
+        //临时初始化传递的HashMap
+        eventScheduleHashMap = stringscheduleHashMap;
+
         init_Data_normal();  //初始加载normal
         scheduleRecyclerView = view.findViewById(R.id.editschedule_add_recyclerView);
         EditScheduleAdapter editScheduleAdapter = new EditScheduleAdapter(scheduleArrayList , stringscheduleHashMap ,typeface , edit_schedule_add_create_text , curHashSet);
@@ -212,6 +218,8 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
         }else if(v.getId() == R.id.editschedule_add_create_button){
             Log.d("Ning_Module_EditSchedule" , "创建计划");
+            EventBus.getDefault().postSticky(new EventSchedule(eventScheduleHashMap));
+            EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
         }
     }
 
