@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,11 +23,13 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
     ArrayList<CalendarSchedule> scheduleArrayList;
     Typeface typeface;
     HashMap<String , Boolean> scheduleStateHashMap;
+    ImageView title;
 
-    public CalendarScheduleAdapter(ArrayList<CalendarSchedule> scheduleArrayList , Typeface typeface , HashMap<String , Boolean> scheduleStateHashMap){
+    public CalendarScheduleAdapter(ArrayList<CalendarSchedule> scheduleArrayList , Typeface typeface , HashMap<String , Boolean> scheduleStateHashMap , ImageView title){
         this.scheduleArrayList = scheduleArrayList;
         this.typeface = typeface;
         this.scheduleStateHashMap = scheduleStateHashMap;
+        this.title = title;
     }
 
     @NonNull
@@ -58,13 +61,22 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
                     holder.constraintLayout.setBackgroundResource(R.drawable.calendar_layout_shape3);
                     scheduleStateHashMap.put(calendarSchedule.getText(),false);
                     calendarSchedule.setComplete(false);
+                    if(scheduleStateHashMap.size() == 1){
+                        //添加后变为1，表示之前是已经全部完成了
+                        title.setImageResource(R.drawable.calendar_title_unhappyface2);
+                    }
                     Log.d("Ning_module_calendar","CalendarScheduleAdapter " + calendarSchedule.getText() + "改变了状态为未完成");
                 }else{
                     //如果当前计划还没有完成
                     //变成完成，并且改变颜色
                     holder.constraintLayout.setBackgroundResource(R.drawable.calendar_layout_shape4);
-                    scheduleStateHashMap.put(calendarSchedule.getText(),true);
+                    //计划，完成先从Map集合中删除
+                    scheduleStateHashMap.remove(calendarSchedule.getText());
                     calendarSchedule.setComplete(true);
+                    if(scheduleStateHashMap.size() == 0){
+                        title.setImageResource(R.drawable.calendar_title_happyface2);
+                        Toast.makeText(v.getContext(), "您已经完成了今日所有的目标" , Toast.LENGTH_SHORT).show();
+                    }
                     Log.d("Ning_module_calendar","CalendarScheduleAdapter " + calendarSchedule.getText() + "改变了状态为已完成");
                 }
             }
