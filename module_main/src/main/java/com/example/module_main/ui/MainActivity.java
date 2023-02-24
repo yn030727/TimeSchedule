@@ -30,6 +30,7 @@ import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule;
 import eventbus.EventEditSchedule_MainActivity_Back;
+import eventbus.EventEnrollBackToIndividual;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -261,6 +262,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventEnrollBackToIndividual(EventEnrollBackToIndividual back){
+        Log.d("Ning" , "EventEnrollBackToIndividual");
+        if(back.getClick()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/individual/IndividualFragment").navigation());
+        }
+    }
 
 
 

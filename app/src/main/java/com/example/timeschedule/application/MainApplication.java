@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.timeschedule.BuildConfig;
 
 public class MainApplication extends Application {
+    private AccountInformation accountInformation;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -18,6 +19,9 @@ public class MainApplication extends Application {
         }
         ARouter.init(this);
         Log.d("Ning","ARouter init");
+        if(accountInformation == null){
+            accountInformation = new AccountInformation();
+        }
     }
 
     private boolean isDebug(){

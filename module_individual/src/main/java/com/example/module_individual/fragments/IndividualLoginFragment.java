@@ -4,6 +4,8 @@ import android.media.metrics.Event;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.module_individual.R;
+import com.example.module_individual.adapter.IndividualLoginRecyclerAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -47,6 +50,13 @@ public class IndividualLoginFragment extends Fragment {
 //        EventBus.getDefault().postSticky(loginInformation);
         EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
 
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.individual_login_recycler);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        IndividualLoginRecyclerAdapter adapter1 = new IndividualLoginRecyclerAdapter();
+        recyclerView.setAdapter(adapter1);
+//        MyListItemDecoration decoration = new MyListItemDecoration();
+//        recyclerView.addItemDecoration(decoration);
         return view;
     }
 

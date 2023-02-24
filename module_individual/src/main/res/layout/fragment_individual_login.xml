@@ -11,14 +11,24 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView"
-        android:layout_width="102dp"
-        android:layout_height="103dp"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/individual_head_portrait"
+        android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundPercent="1" />
+        app:roundPercent="1"/>
+
+<!--    <com.example.module_individual.CircleImageView-->
+<!--        android:id="@+id/imageFilterView"-->
+<!--        android:layout_width="95dp"-->
+<!--        android:layout_height="95dp"-->
+<!--        android:src="@drawable/ic_launcher_background"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
     <TextView
         android:id="@+id/individual_login_user"
@@ -32,15 +42,15 @@
         app:layout_constraintTop_toTopOf="@+id/imageFilterView"
         app:layout_constraintVertical_bias="0.491" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="446dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="16dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/individual_login_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageFilterView">
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

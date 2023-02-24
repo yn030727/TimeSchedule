@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f1f1f1">
+    <ImageView
+        android:id="@+id/note_picture"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/socializing_recycler_share_photo_item_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/note_picture"
+        android:text="课间小碎片"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/note_title">
+
+<!--        <com.example.module_socializing.CircleImageView-->
+<!--            android:id="@+id/note_head_profile"-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/ic_launcher_background" />-->
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/note_head_profile"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:roundPercent="1"/>
+
+
+        <TextView
+            android:id="@+id/note_id"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="用户id"
+            android:textSize="15dp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/note_like"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/no_like" />
+        <TextView
+            android:id="@+id/note_like_number"
+            android:layout_width="wrap_content"
+            android:text="点赞"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

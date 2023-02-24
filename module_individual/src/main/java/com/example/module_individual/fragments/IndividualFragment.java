@@ -27,6 +27,7 @@ public class IndividualFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_individual,container,false);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+        Log.d("1111111111111111111111", "IndividualFragment");
 
         //判断登录状态，不同状态跳转不同的fragment
 //        LoginInformation loginInformation = new LoginInformation();
@@ -40,6 +41,7 @@ public class IndividualFragment extends Fragment {
 
         LoginInformation loginInformation = new LoginInformation();
         loginInformation.setUser("程小曼");
+        loginInformation.isLogin = true;
         if(loginInformation.isLogin){
             Log.d("HERE", "onCreateView: login111111111111");
             Bundle nBundle = new Bundle();
