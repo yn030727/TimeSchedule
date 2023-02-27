@@ -42,6 +42,22 @@ public class SocializingShareItemAdapter extends RecyclerView.Adapter<Socializin
         Log.d("Here", "id =  " + data.getName());
         Log.d("Here", "like =  " + data.getLike());
         holder.noteId.setText(data.getName());
+        if(position == 0){
+            holder.notePicture.setImageResource(R.drawable.ic_launcher_background);
+            holder.noteHeadProfile.setImageResource(R.drawable.head2);
+        }else if(position == 1){
+            holder.notePicture.setImageResource(R.drawable.picture2);
+            holder.noteHeadProfile.setImageResource(R.drawable.head1);
+        }else if(position == 2){
+            holder.noteHeadProfile.setImageResource(R.drawable.head1);
+            holder.notePicture.setImageResource(R.drawable.picture3);
+        }else if(position == 3){
+            holder.notePicture.setImageResource(R.drawable.picture4);
+            holder.noteHeadProfile.setImageResource(R.drawable.head2);
+        }else if(position == 4){
+            holder.notePicture.setImageResource(R.drawable.picture5);
+            holder.noteHeadProfile.setImageResource(R.drawable.head1);
+        }
         //holder.notePicture.setImageResource(data.photo);
         holder.likeNum.setText(data.getLike());
         //holder.noteTitle.setText(data.title);

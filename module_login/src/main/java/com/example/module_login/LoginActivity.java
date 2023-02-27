@@ -1,6 +1,7 @@
 package com.example.module_login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.app.DownloadManager;
 import android.os.Bundle;
@@ -15,8 +16,15 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_login.util.JSONLogin;
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.io.IOException;
 
+import eventbus.EventEditLogin;
+import eventbus.EventEditSchedule_MainActivity_Back;
+import eventbus.EventLoginInformation;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -70,19 +78,22 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("Here", "logincode = "+login.code);
                             //有异常情况，切回主线程弹toast
                             JSONLogin finalLogin = login;
-                            Log.d("Here", "loginmsg = "+login.mag);
-                            Log.d("Here", "finloginmsg = "+finalLogin.mag);
+                            Log.d("Here", "loginmsg = "+login.msg);
+                            Log.d("Here", "finloginmsg = "+finalLogin.msg);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(LoginActivity.this, finalLogin.mag, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, finalLogin.msg, Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else{
-                            //登录成功，切回individualFragment
+                            //登录成功，发送eventbus通知登录然后切回individualFragment
+                            JSONLogin finalLogin = login;
+                            EventBus.getDefault().postSticky(new EventLoginInformation(true, finalLogin.telephone, finalLogin.username));
+                            EventBus.getDefault().postSticky(new EventEditLogin(true,finalLogin.telephone,finalLogin.username));
                             Log.d("Here", "登录成功");
-                            finish();
 
+                            finish();
                         }
 
                     }
@@ -106,4 +117,5 @@ public class LoginActivity extends AppCompatActivity {
         JSONLogin login = gson.fromJson(jsonData,JSONLogin.class);
         return login;
     }
+
 }

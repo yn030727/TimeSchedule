@@ -21,6 +21,9 @@ public class MainApplication extends Application {
         Log.d("Ning","ARouter init");
         if(accountInformation == null){
             accountInformation = new AccountInformation();
+            accountInformation.setAccount("null");
+            accountInformation.setUser("null");
+            accountInformation.setIsLogin(false);
         }
     }
 

@@ -4,7 +4,7 @@ import org.greenrobot.eventbus.EventBus;
 
 public class EventLoginInformation
 {
-    private boolean isLogin = true;
+    private boolean isLogin = false;
     private String account;
     private String user;
 

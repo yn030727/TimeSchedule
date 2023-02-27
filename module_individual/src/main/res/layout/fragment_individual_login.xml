@@ -8,27 +8,34 @@
     tools:context=".fragments.IndividualLoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView"
-        android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundPercent="1"/>
-
-<!--    <com.example.module_individual.CircleImageView-->
+<!--    <androidx.constraintlayout.utils.widget.ImageFilterView-->
 <!--        android:id="@+id/imageFilterView"-->
 <!--        android:layout_width="95dp"-->
 <!--        android:layout_height="95dp"-->
-<!--        android:src="@drawable/ic_launcher_background"-->
 <!--        android:layout_marginStart="32dp"-->
 <!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:src="@drawable/ic_launcher_background"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:roundPercent="1"/>-->
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageFilterView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="38dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/head1"/>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/individual_login_user"
