@@ -30,7 +30,6 @@ import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
 import eventbus.EventEditSchedule;
 import eventbus.EventEditSchedule_MainActivity_Back;
-import eventbus.EventLoginInformation;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView app_navigation_social_text;
     TextView app_navigation_person_text;
     ArrayList<Fragment> fragmentArrayList; //存放各组件Fragment的集合
-    EventLoginInformation edit_schedule_login_information;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,6 +260,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             replaceFragment((Fragment) ARouter.getInstance().build("/calendar/CalendarFragment").navigation());
         }
     }
+
+
 
 
     //解决第一个关于EventBus的Bug,在onDestroy里面注册EventBus，如果在onStop里面注册会出现bug

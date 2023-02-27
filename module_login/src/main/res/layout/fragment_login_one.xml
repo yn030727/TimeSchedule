@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".fragments.LoginOneFragment"
     android:background="#f1f1f1">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/login_one_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="200dp"
         android:backgroundTint="#6f1820"
         android:ems="10"
         android:hint="请输入账号"
@@ -20,7 +20,7 @@
         android:maxLines="1"
         android:textColorHint="#b5b5b5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,21 +40,21 @@
         app:layout_constraintTop_toBottomOf="@+id/login_one_account" />
 
     <Button
-        android:id="@+id/login_activity_tologin"
+        android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/btn_login_background"
         android:text="点 击 登 录"
         android:textColor="#f1f1f1"
         android:textSize="16sp"
+        android:background="@drawable/btn_login_background"
         app:layout_constraintEnd_toEndOf="@+id/login_one_password"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/login_one_password"
         app:layout_constraintTop_toBottomOf="@+id/login_one_password" />
 
     <Button
-        android:id="@+id/login_activity_toenroll"
+        android:id="@+id/bn2"
         android:layout_width="91dp"
         android:layout_height="33dp"
         android:background="@null"
@@ -63,28 +63,9 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="28dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/login_one_account"
-        app:layout_constraintEnd_toStartOf="@+id/login_one_account"
-        app:layout_constraintTop_toTopOf="@+id/login_one_account"
-        app:srcCompat="@drawable/login_account" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/login_one_password"
-        app:layout_constraintEnd_toStartOf="@+id/login_one_password"
-        app:layout_constraintTop_toTopOf="@+id/login_one_password"
-        app:srcCompat="@drawable/login_password" />
+        app:layout_constraintVertical_bias="0.59" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

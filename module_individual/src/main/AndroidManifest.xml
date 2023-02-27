@@ -3,7 +3,10 @@
     package="com.example.module_individual">
 
     <application
-        android:theme="@style/Theme.TimeSchedule">
+        android:theme="@style/Theme.TimeSchedule"
+
+        android:largeHeap="true"
+        android:hardwareAccelerated="false">
         <activity
             android:name=".IndividualActivity"
             android:exported="true">

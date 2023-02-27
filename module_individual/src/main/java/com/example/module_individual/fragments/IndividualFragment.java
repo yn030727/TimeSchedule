@@ -40,8 +40,7 @@ public class IndividualFragment extends Fragment {
 
         LoginInformation loginInformation = new LoginInformation();
         loginInformation.setUser("程小曼");
-        //Ning ： 临时账号(仅供测试使用)
-        loginInformation.setAccount("123456789");
+        loginInformation.isLogin = true;
         if(loginInformation.isLogin){
             Log.d("HERE", "onCreateView: login111111111111");
             Bundle nBundle = new Bundle();
