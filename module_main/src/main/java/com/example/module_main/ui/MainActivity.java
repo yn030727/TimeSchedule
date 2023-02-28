@@ -28,8 +28,11 @@ import java.util.List;
 import eventbus.EventChallengeCard;
 import eventbus.EventChallengeYourCard;
 import eventbus.EventChallenge_CardActivity_Back;
+import eventbus.EventEditLogin;
 import eventbus.EventEditSchedule;
 import eventbus.EventEditSchedule_MainActivity_Back;
+import eventbus.EventEnrollBackToIndividual;
+import eventbus.EventLoginInformation;
 //这是主模块的第一界面
 // 功能:
 // 1. 初始化其他界面提供的Fragment
@@ -56,12 +59,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView app_navigation_social_text;
     TextView app_navigation_person_text;
     ArrayList<Fragment> fragmentArrayList; //存放各组件Fragment的集合
+    EventLoginInformation edit_schedule_login_information;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d("Ning","Main");
         //1.设置瘦金体
         Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/main_font_shoujin.ttf");
         //设置方式案例
@@ -261,8 +266,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+    public void showEventEnrollBackToIndividual(EventEnrollBackToIndividual back){
+        Log.d("Ning" , "EventEnrollBackToIndividual");
+        if(back.getClick()){
+            replaceFragment((Fragment) ARouter.getInstance().build("/individual/IndividualFragment").navigation());
+        }
+    }
 
-
+//    @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
+//    public void showEventEditLogin(EventEditLogin back){
+//        if(back.getClick()){
+//            replaceFragment((Fragment) ARouter.getInstance().build("/individual/IndividualFragment").navigation());
+//        }
+//    }
 
     //解决第一个关于EventBus的Bug,在onDestroy里面注册EventBus，如果在onStop里面注册会出现bug
     @Override

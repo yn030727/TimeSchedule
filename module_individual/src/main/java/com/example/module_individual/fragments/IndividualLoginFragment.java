@@ -37,10 +37,11 @@ public class IndividualLoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_individual_login, container, false);
 
-        Log.d("HERE", "onCreateView: intologinfragment111111111111");
+        Log.d("FUFU:ILoginFragment", "IndividualLoginFragment");
 
 
         TextView login_users = view.findViewById(R.id.individual_login_user);
+        //这里还差一个头像
         login_users.setText(getArguments().getString("user"));
 
 //        LoginInformation loginInformation = new LoginInformation();
@@ -48,7 +49,7 @@ public class IndividualLoginFragment extends Fragment {
 //        loginInformation.setAccount(getArguments().getString("account"));
 //        loginInformation.isLogin = getArguments().getBoolean("isLogin");
 //        EventBus.getDefault().postSticky(loginInformation);
-        EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
+//        EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.individual_login_recycler);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());

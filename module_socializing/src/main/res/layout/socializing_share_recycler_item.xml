@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/socializing_recycler_share_photo_item_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +46,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:background="@drawable/ic_launcher_background"
             app:roundPercent="1"/>
 
 

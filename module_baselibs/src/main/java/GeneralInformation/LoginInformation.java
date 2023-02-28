@@ -2,7 +2,7 @@ package GeneralInformation;
 
 public class LoginInformation
 {
-    public boolean isLogin = true;
+    public boolean isLogin = false;
     private String account;
     private String user;
 
