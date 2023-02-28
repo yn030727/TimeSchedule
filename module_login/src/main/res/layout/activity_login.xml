@@ -12,7 +12,7 @@
         android:id="@+id/login_one_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="268dp"
         android:backgroundTint="#6f1820"
         android:ems="10"
         android:hint="请输入账号"
@@ -43,13 +43,13 @@
         android:id="@+id/login_activity_tologin"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_login_background"
         android:text="点 击 登 录"
         android:textColor="#f1f1f1"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/login_one_password"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/login_one_password" />
 
@@ -60,12 +60,14 @@
         android:background="@null"
         android:gravity="center"
         android:text="注册账号"
-        android:textSize="12sp"
+        android:textSize="22sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
+        app:layout_constraintEnd_toEndOf="@+id/login_activity_tologin"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/login_activity_tologin"
+        app:layout_constraintTop_toBottomOf="@+id/login_activity_tologin"
+        app:layout_constraintVertical_bias="0.236" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -86,5 +88,19 @@
         app:layout_constraintEnd_toStartOf="@+id/login_one_password"
         app:layout_constraintTop_toTopOf="@+id/login_one_password"
         app:srcCompat="@drawable/login_password" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:text="登    录"
+        android:textColor="#6f1820"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/login_one_account"
+        app:layout_constraintEnd_toEndOf="@+id/login_activity_tologin"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/login_activity_tologin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

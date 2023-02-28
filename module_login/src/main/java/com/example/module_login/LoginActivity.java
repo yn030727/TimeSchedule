@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.DownloadManager;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         EditText et_account = findViewById(R.id.login_one_account);
         EditText et_password = findViewById(R.id.login_one_password);
+        Typeface typeface = Typeface.createFromAsset(this.getAssets(), "fonts/main_font_shoujin.ttf");
 
         //点击登录部分
         Button btn_login = findViewById(R.id.login_activity_tologin);
@@ -105,6 +108,8 @@ public class LoginActivity extends AppCompatActivity {
 
         //点击跳转注册页面
         Button btn_to_enroll = findViewById(R.id.login_activity_toenroll);
+        btn_to_enroll.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        btn_to_enroll.setTypeface(typeface);
         btn_to_enroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

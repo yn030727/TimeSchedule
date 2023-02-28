@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:text="点击登录"
+        android:textStyle="bold"
         android:textColor="#6f1820"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
