@@ -21,6 +21,7 @@ dependencyResolutionManagement {
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
         maven { url "https://jitpack.io" }
+        maven { url "https://repo1.maven.org/maven6" }
     }
 }
 rootProject.name = "Time Schedule"
