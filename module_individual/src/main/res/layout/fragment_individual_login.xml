@@ -8,47 +8,40 @@
     tools:context=".fragments.IndividualLoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
-<!--    <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--        android:id="@+id/imageFilterView"-->
-<!--        android:layout_width="95dp"-->
-<!--        android:layout_height="95dp"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:src="@drawable/ic_launcher_background"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:roundPercent="1"/>-->
+    <!--    <androidx.constraintlayout.utils.widget.ImageFilterView-->
+    <!--        android:id="@+id/imageFilterView"-->
+    <!--        android:layout_width="95dp"-->
+    <!--        android:layout_height="95dp"-->
+    <!--        android:layout_marginStart="32dp"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:layout_gravity="center_horizontal"-->
+    <!--        android:src="@drawable/ic_launcher_background"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:roundPercent="1"/>-->
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/imageFilterView"
+    <com.example.module_individual.ui.CircleView
+        android:id="@+id/individual_login_profit"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="38dp"
-        app:cardCornerRadius="50dp"
+        android:layout_marginStart="44dp"
+        android:background="@drawable/editschedule_image_add"
+        app:layout_constraintBottom_toTopOf="@+id/individual_login_recycler"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/individual_login_profit"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/head1"/>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491" />
 
     <TextView
         android:id="@+id/individual_login_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="88dp"
         android:text="userName"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageFilterView"
-        app:layout_constraintStart_toEndOf="@+id/imageFilterView"
-        app:layout_constraintTop_toTopOf="@+id/imageFilterView"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
+        app:layout_constraintStart_toEndOf="@+id/individual_login_profit"
+        app:layout_constraintTop_toTopOf="@+id/individual_login_profit" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/individual_login_recycler"
@@ -58,8 +51,7 @@
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

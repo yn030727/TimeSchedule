@@ -33,6 +33,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_individual.IndividualActivity;
 import com.example.module_individual.R;
 import com.example.module_individual.adapter.IndividualLoginRecyclerAdapter;
+import com.example.module_individual.ui.CircleView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,7 +45,7 @@ public class IndividualLoginFragment extends Fragment {
     private String TAG = "LoginFragment";
     private Uri imageUri;
     private static final int TAKE_PHOTO = 1;
-    ImageView profit;
+    CircleView profit;
 
     Dialog dialog;
     View inflate;

@@ -58,6 +58,7 @@ public class IndividualFragment extends Fragment {
 //        }
 
         Log.d("FUFU:IndividualFragment", "islogin = "+loginInformation.isLogin);
+        loginInformation.isLogin = true;
         if(loginInformation.isLogin){
             Log.d("FUFU:IndividualFragment", "islogin = true");
             Bundle nBundle = new Bundle();
