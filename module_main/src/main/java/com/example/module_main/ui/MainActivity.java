@@ -1,10 +1,12 @@
 package com.example.module_main.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -288,4 +290,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EventBus.getDefault().unregister(this);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("FUFUMLoginFragment", "onActivityResult: MainActivity");
+        Fragment IndividualLoginFragment = (Fragment) ARouter.getInstance().build("/individual/IndividualLoginFragment").navigation();
+        IndividualLoginFragment.onActivityResult(requestCode,resultCode,data);
+    }
 }

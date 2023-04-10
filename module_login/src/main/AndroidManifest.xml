@@ -9,6 +9,7 @@
             android:name=".LoginActivity"
             android:exported="true">
         </activity>
+
     </application>
 
 </manifest>

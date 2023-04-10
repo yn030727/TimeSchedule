@@ -57,15 +57,15 @@ public class EnrollActivity extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            //在这里把账号密码传入后台进行验证
+                            //在这里把账号密码传入后台进行注册
                             OkHttpClient client = new OkHttpClient();
                             FormBody formBody = new FormBody.Builder()
                                     .add("telephone", account)
                                     .add("password", password)
-                                    .add("user", user)
+                                    .add("username", user)
                                     .build();
                             Request request = new Request.Builder()
-                                    .url("http://8.130.23.45:8082/api/auth/register")
+                                    .url("http://120.79.186.191:8082/api/auth/register")
                                     .post(formBody)
                                     .build();
                             Response response = null;

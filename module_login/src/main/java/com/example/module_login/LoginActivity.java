@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .add("password", password)
                                 .build();
                         Request request = new Request.Builder()
-                                .url("http://8.130.23.45:8082/api/auth/login")
+                                .url("http://120.79.186.191:8082/api/auth/login")
                                 .post(formBody)
                                 .build();
                         Response response = null;
@@ -89,6 +89,9 @@ public class LoginActivity extends AppCompatActivity {
                         }else{
                             //登录成功，发送eventbus通知登录然后切回individualFragment
                             JSONLogin finalLogin = login;
+                            Log.d("LoginActicity", "username = " + finalLogin.username);
+                            Log.d("LoginActicity", "telephone = " + finalLogin.telephone);
+                            Log.d("LoginActicity", "code = " + finalLogin.code);
                             EventBus.getDefault().postSticky(new EventLoginInformation(true, finalLogin.telephone, finalLogin.username));
                             EventBus.getDefault().postSticky(new EventEditLogin(true,finalLogin.telephone,finalLogin.username));
                             Log.d("Here", "登录成功");
