@@ -11,6 +11,16 @@
             android:name=".IndividualActivity"
             android:exported="true">
         </activity>
+        <provider
+            android:authorities="com.example.module_individual.fileProvider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:requestLegacyExternalStorage="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>

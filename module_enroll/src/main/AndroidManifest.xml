@@ -4,7 +4,8 @@
 
     <application
 
-        android:theme="@style/Theme.TimeSchedule">
+        android:theme="@style/Theme.TimeSchedule"
+        android:usesCleartextTraffic="true" >
         <activity
             android:name=".EnrollActivity"
             android:exported="true">
