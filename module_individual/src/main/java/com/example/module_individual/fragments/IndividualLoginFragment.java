@@ -6,12 +6,14 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,14 +41,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
+//个人界面模块
+//1.定义变量
 @Route(path = "/individual/IndividualLoginFragment")
 public class IndividualLoginFragment extends Fragment {
 
+    //1.定义变量
     private String TAG = "LoginFragment";
     private Uri imageUri;
     private static final int TAKE_PHOTO = 1;
-    CircleView profit;
-
+    CircleImageView profit;
+    ConstraintLayout individual_head_background;
+    Typeface typeface;
     Dialog dialog;
     View inflate;
 
@@ -66,7 +74,13 @@ public class IndividualLoginFragment extends Fragment {
 
         TextView login_users = view.findViewById(R.id.individual_login_user);
         //这里还差一个头像
+        //暂时注销，使用测试账户
+        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
+        login_users.setTypeface(typeface);
         login_users.setText(getArguments().getString("user"));
+        login_users.setText("测试用户1");
+        individual_head_background = (ConstraintLayout)view.findViewById(R.id.individual_head_layout);
+        individual_head_background.getBackground().setAlpha(125);
 
 //        LoginInformation loginInformation = new LoginInformation();
 //        loginInformation.setUser(getArguments().getString("user"));

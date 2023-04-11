@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/individual_head_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1"
+    android:background="@drawable/individual_head_background"
+
     tools:context=".fragments.IndividualLoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -20,38 +22,111 @@
     <!--        app:layout_constraintTop_toTopOf="parent"-->
     <!--        app:roundPercent="1"/>-->
 
-
-    <com.example.module_individual.ui.CircleView
-        android:id="@+id/individual_login_profit"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="44dp"
-        android:background="@drawable/editschedule_image_add"
-        app:layout_constraintBottom_toTopOf="@+id/individual_login_recycler"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/individual_login_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:text="userName"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
-        app:layout_constraintStart_toEndOf="@+id/individual_login_profit"
-        app:layout_constraintTop_toTopOf="@+id/individual_login_profit" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/individual_login_profit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="28dp"
+            android:src="@drawable/individual_head_iamge1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.133" />
+
+        <TextView
+            android:id="@+id/individual_login_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="userName"
+            android:textColor="#000000"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
+            app:layout_constraintStart_toEndOf="@+id/individual_login_profit"
+            app:layout_constraintTop_toTopOf="@+id/individual_login_profit"
+            app:layout_constraintVertical_bias="0.222" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/individual_head_cardView"
+            android:layout_width="415dp"
+            android:layout_height="216dp"
+            android:layout_marginTop="28dp"
+            android:alpha="0.3"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/individual_login_profit">
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/individual_head_introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="简介：暂无简介"
+            app:layout_constraintEnd_toEndOf="@+id/individual_login_user"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/individual_login_user"
+            app:layout_constraintTop_toBottomOf="@+id/individual_login_user" />
+
+        <ImageView
+            android:id="@+id/individual_head_vip"
+            android:layout_width="21dp"
+            android:layout_height="24dp"
+            android:src="@drawable/individual_head_vip"
+            app:layout_constraintBottom_toBottomOf="@+id/individual_login_user"
+            app:layout_constraintStart_toEndOf="@+id/individual_login_user"
+            app:layout_constraintTop_toTopOf="@+id/individual_login_user" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="128dp"
+            android:background="@drawable/individual_head_card_background"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
+            app:layout_constraintStart_toEndOf="@+id/individual_head_introduce"
+            app:layout_constraintTop_toTopOf="@+id/individual_login_profit"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <ImageView
+                android:id="@+id/individual_head_setting_image"
+                android:layout_width="32dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:src="@drawable/induvidual_recycler_setting"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/individual_login_recycler"
         android:layout_width="match_parent"
-        android:layout_height="580dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="328dp"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

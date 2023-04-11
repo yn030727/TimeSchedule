@@ -25,6 +25,7 @@ ext {
             //Room数据库的依赖
 /*            "room" : 'androidx.room:room-runtime:2.4.3' ,
             "room_common" : 'androidx.room:room-common:2.4.3',*/
+            "circleImageView" :  'de.hdodenhof:circleimageview:3.1.0'
     ]
     //3.组件化交互的基础依赖
     commonDesps = [
