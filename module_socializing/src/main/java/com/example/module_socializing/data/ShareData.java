@@ -1,55 +1,67 @@
 package com.example.module_socializing.data;
 
+
 public class ShareData {
-    //这个头像的数据类型待定  不好说
-    public String profit;
-    public String account;//
-    public String title; //小标题（20字最多）
-    public String photo; //也是图片  待定
-    public String time; //发帖时间 (看能不能后台根据传过去的时间自动生成  不能就我这获取然后传过去
-    public String name; //发帖人的用户名
-    public String content; //帖子内容（长的）
-    public String like; //点赞数量
 
-    public ShareData(String like , String title , String name){
-        this.like = like;
-        this.title = title;
+    public int head; //头像
+    public String name; //账号名
+    public String text; //文本内容
+    public int image;   //图片
+    public String time; //发布时间
+
+
+    public ShareData(int head , String name , String text , int image , String time){
+        this.head = head;
         this.name = name;
-
+        this.text = text;
+        this.image = image;
+        this.time = time;
+    }
+    public ShareData(int head , String name , String text , String time){
+        this.head = head;
+        this.name = name;
+        this.text = text;
+        this.image = -1;
+        this.time = time;
     }
 
     public String getName() {
         return name;
     }
 
+    public int getImage() {
+        return image;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public int getHead() {
+        return head;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getProfit() {
-        return profit;
+    public void setImage(int image) {
+        this.image = image;
     }
 
-    public void setProfit(String profit) {
-        this.profit = profit;
+    public void setText(String text) {
+        this.text = text;
     }
 
-
-    public String getTitle() {
-        return title;
+    public void setHead(int head) {
+        this.head = head;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTime(String time) {
+        this.time = time;
     }
-
-
-    public String getLike() {
-        return like;
-    }
-
-    public void setLike(String like) {
-        this.like = like;
-    }
-
 }

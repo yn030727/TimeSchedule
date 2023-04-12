@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -42,14 +43,19 @@ public class SocializingFragment extends Fragment {
 
         //RecyclerView的初始化相关操作
         RecyclerView recyclerView = view.findViewById(R.id.socializing_recycler);
+
         recyclerView.setPadding(8,8,8,8);
+
         SpacesItemDecoration decoration = new SpacesItemDecoration(8);
         recyclerView.addItemDecoration(decoration);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         initData();
         SocializingShareItemAdapter socializingShareItemAdapter = new SocializingShareItemAdapter(mList);
-        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(socializingShareItemAdapter);
+
+        //常用对象的初始化配置
+        socializing_main_title.setTypeface(typeface);
 
 
 
@@ -64,10 +70,11 @@ public class SocializingFragment extends Fragment {
     //(1).初始化和RecyclerView有关的集合
     public void initData(){
         mList = new ArrayList<>();
-        mList.add(new ShareData("2","title222","用户2"));
-        mList.add(new ShareData("3","这是一个很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的标题","用户1"));
-        mList.add(new ShareData("3","title55333333","用户2"));
-        mList.add(new ShareData("46","title4625","用户5"));
-        mList.add(new ShareData("3","title555","用户51"));
+        mList.add(new ShareData(R.drawable.socializing_head_iamge1_test,"测试用户1","今日打卡完成进度(3/3)\n1.完成老师剩下的作业\n2.完成项目UI的改善\n3.学习一些新的Android知识" , R.drawable.socializing_head_iamge1_test , "1天前"));
+        mList.add(new ShareData(R.drawable.socializing_head_portrait,"测试用户1", "孔子创立儒家学派。孔子的思想核心是“仁”。他认为仁就是爱人，人与人之间要互相爱护，融洽相处；要做到待人宽容，“已所不欲，勿施于人”。孔子强调统治者要以德治民，爱惜民力，取信于民，反对苛政和任意刑杀。孔子首创私人讲学，主张“有教无类”，打破了贵族垄断文化教育的局面。\n" +
+                "（2）孟子和荀子是儒家学派的两位重要代表人物。孟子发展了孔子“仁”的思想，主张实行“仁政”，进一步提出“民为贵，社稷次之，君为轻”的民本思想。在伦理观上，孟子主张“性本善”。"  , "1天前"));
+        mList.add(new ShareData(R.drawable.socializing_head_portrait,"小傅同学","孔子创立儒家学派。孔子的思想核心是“仁”。他认为仁就是爱人，人与人之间要互相爱护，融洽相处；要做到待人宽容，“已所不欲，勿施于人”。孔子强调统治者要以德治民，爱惜民力，取信于民，反对苛政和任意刑杀。孔子首创私人讲学，主张“有教无类”，打破了贵族垄断文化教育的局面。\n" +
+                "（2）孟子和荀子是儒家学派的两位重要代表人物。孟子发展了孔子“仁”的思想，主张实行“仁政”，进一步提出“民为贵，社稷次之，君为轻”的民本思想。在伦理观上，孟子主张“性本善”。" , R.drawable.socializing_head_portrait , "2天前") );
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.module_socializing.adapter;
 
+import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_socializing.R;
 import com.example.module_socializing.data.ShareData;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -35,33 +38,13 @@ public class SocializingShareItemAdapter extends RecyclerView.Adapter<ShareItemH
     @Override
     public void onBindViewHolder(@NonNull ShareItemHolder holder, int position) {
         ShareData data = mShareDataList.get(position);
-        //holder.noteHeadProfile.setImageResource(data.profit);
-        holder.noteTitle.setText(data.getTitle());
-        Log.d("Here", "position =  " + position);
-        Log.d("Here", "Title =  " + data.getTitle());
-        Log.d("Here", "id =  " + data.getName());
-        Log.d("Here", "like =  " + data.getLike());
-        holder.noteId.setText(data.getName());
-        if(position == 0){
-            holder.notePicture.setImageResource(R.drawable.ic_launcher_background);
-            holder.noteHeadProfile.setImageResource(R.drawable.head2);
-        }else if(position == 1){
-            holder.notePicture.setImageResource(R.drawable.picture2);
-            holder.noteHeadProfile.setImageResource(R.drawable.head1);
-        }else if(position == 2){
-            holder.noteHeadProfile.setImageResource(R.drawable.head1);
-            holder.notePicture.setImageResource(R.drawable.picture3);
-        }else if(position == 3){
-            holder.notePicture.setImageResource(R.drawable.picture4);
-            holder.noteHeadProfile.setImageResource(R.drawable.head2);
-        }else if(position == 4){
-            holder.notePicture.setImageResource(R.drawable.picture5);
-            holder.noteHeadProfile.setImageResource(R.drawable.head1);
+        holder.note_headProfile.setImageResource(data.getHead());
+        holder.note_id.setText(data.getName());
+        holder.note_text.setText(data.getText());
+        if(data.getImage() != -1){
+            holder.note_image.setImageResource(data.getImage());
         }
-        //holder.notePicture.setImageResource(data.photo);
-        holder.likeNum.setText(data.getLike());
-        //holder.noteTitle.setText(data.title);
-
+        holder.note_time.setText(data.getTime());
     }
 
     @Override
@@ -71,20 +54,24 @@ public class SocializingShareItemAdapter extends RecyclerView.Adapter<ShareItemH
 
 }
 class ShareItemHolder extends RecyclerView.ViewHolder{
-    ImageView notePicture;
-    TextView noteTitle;
-    ImageFilterView noteHeadProfile;
-    TextView noteId;
-    ImageView noteLike;
-    TextView likeNum;
+    ImageView note_image;
+    TextView note_text;
+    ImageFilterView note_headProfile;
+    TextView note_id;
+    TextView note_time;
+    ImageView note_chat;
+    ImageView note_good;
+    ImageView note_share;
 
     public ShareItemHolder(@NonNull View itemView) {
         super(itemView);
-        notePicture = itemView.findViewById(R.id.note_picture);
-        noteTitle = itemView.findViewById(R.id.note_title);
-        noteHeadProfile = itemView.findViewById(R.id.note_head_profile);
-        noteId = itemView.findViewById(R.id.note_id);
-        noteLike = itemView.findViewById(R.id.note_like);
-        likeNum = itemView.findViewById(R.id.note_like_number);
+        note_headProfile = itemView.findViewById(R.id.note_head_profile);
+        note_id = itemView.findViewById(R.id.note_id);
+        note_text = itemView.findViewById(R.id.note_text);
+        note_image = itemView.findViewById(R.id.imageView2);
+        note_time = itemView.findViewById(R.id.note_time);
+        note_good = itemView.findViewById(R.id.note_good);
+        note_chat = itemView.findViewById(R.id.note_chat);
+        note_share = itemView.findViewById(R.id.note_share);
     }
 }

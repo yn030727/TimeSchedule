@@ -4,37 +4,211 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1">
+    android:background="#d2d2d2">
 
-    <TextView
-        android:id="@+id/socializing_main_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="朋友圈"
-        android:textColor="@color/theme"
-        android:textSize="20sp"
-        android:textStyle="bold"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#f1f1f1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/socializing_recycler"
+        <TextView
+            android:id="@+id/socializing_main_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="朋友圈"
+            android:textColor="#000"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="26dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="124dp"
+            app:layout_constraintBottom_toBottomOf="@+id/socializing_main_title_tv"
+            app:layout_constraintStart_toEndOf="@+id/socializing_main_title_tv"
+            app:layout_constraintTop_toTopOf="@+id/socializing_main_title_tv"
+            app:srcCompat="@drawable/editschedule_image_add" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="44dp"
+            android:layout_height="41dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/socializing_image_kont" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="58dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:overScrollMode="never"
-        app:layout_constraintTop_toBottomOf="@+id/socializing_main_title_tv" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        app:layout_constraintBottom_toBottomOf="@+id/socializing_main_title_tv"
-        app:layout_constraintStart_toEndOf="@+id/socializing_main_title_tv"
-        app:srcCompat="@drawable/editschedule_image_add" />
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/socializing_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            tools:ignore="MissingConstraints">
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/socializing_collapsing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/socializing_settings_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_collapseMode="parallax"
+                    android:background="#f1f1f1">
+
+                    <ImageView
+                        android:id="@+id/socializing_settings_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/socializing_settings_date"
+                        app:layout_constraintEnd_toStartOf="@+id/socializing_settings_date"
+                        app:layout_constraintTop_toTopOf="@+id/socializing_settings_date"
+                        app:layout_constraintVertical_bias="1.0"
+                        app:srcCompat="@drawable/socializing_setting_zhaopian" />
+
+                    <ImageView
+                        android:id="@+id/socializing_settings_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintEnd_toStartOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintTop_toTopOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/socializing_setting_shuju" />
+
+                    <ImageView
+                        android:id="@+id/socializing_settings_kefu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintStart_toEndOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintTop_toTopOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/socializing_setting_lainxi" />
+
+                    <ImageView
+                        android:id="@+id/socializing_settings_wenti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/socializing_settings_kefu"
+                        app:layout_constraintStart_toEndOf="@+id/socializing_settings_kefu"
+                        app:layout_constraintTop_toTopOf="@+id/socializing_settings_kefu"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/socializing_setting_shuoming" />
+
+                    <ImageView
+                        android:id="@+id/socializing_settings_gexinghua"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.288"
+                        app:srcCompat="@drawable/socializing_setting_gexinghua" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="个性化"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintStart_toStartOf="@+id/socializing_settings_gexinghua"
+                        app:layout_constraintTop_toBottomOf="@+id/socializing_settings_gexinghua" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="社交统计"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/socializing_settings_date"
+                        app:layout_constraintStart_toStartOf="@+id/socializing_settings_date"
+                        app:layout_constraintTop_toBottomOf="@+id/socializing_settings_date" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="相册"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/socializing_settings_photo"
+                        app:layout_constraintStart_toStartOf="@+id/socializing_settings_photo"
+                        app:layout_constraintTop_toBottomOf="@+id/socializing_settings_photo" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系客服"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/socializing_settings_kefu"
+                        app:layout_constraintStart_toStartOf="@+id/socializing_settings_kefu"
+                        app:layout_constraintTop_toBottomOf="@+id/socializing_settings_kefu" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="相关"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/socializing_settings_wenti"
+                        app:layout_constraintStart_toStartOf="@+id/socializing_settings_wenti"
+                        app:layout_constraintTop_toBottomOf="@+id/socializing_settings_wenti" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/socializing_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

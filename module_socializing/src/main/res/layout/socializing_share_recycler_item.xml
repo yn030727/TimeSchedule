@@ -1,84 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#f1f1f1">
+    android:background="@drawable/socializing_recycler_background">
+
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/note_head_profile"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/socializing_head_iamge1_test"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundPercent="1" />
+
+    <TextView
+        android:id="@+id/note_id"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="12dp"
+        android:gravity="center"
+        android:text="测试用户1"
+        android:textColor="#6f1820"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/note_head_profile"
+        app:layout_constraintStart_toEndOf="@+id/note_head_profile"
+        app:layout_constraintTop_toTopOf="@+id/note_head_profile" />
+
+    <TextView
+        android:id="@+id/note_text"
+        android:layout_width="381dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#2c2c2c"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/note_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/note_id"
+        app:layout_constraintTop_toBottomOf="@+id/note_id"
+        tools:text="今日打卡完成进度(3/3)\n1.完成老师剩下的作业\n2.完成项目UI的改善\n3.学习一些新的Android知识" />
+
     <ImageView
-        android:id="@+id/note_picture"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="16dp"
+        android:maxWidth="200dp"
+        android:maxHeight="200dp"
+        android:minHeight="100dp"
+        android:minWidth="100dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/picture1"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="@+id/note_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/note_text"
+        app:layout_constraintTop_toBottomOf="@+id/note_text" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/note_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/note_picture"
-        android:text="课间小碎片"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="11dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/note_title">
-
-<!--        <com.example.module_socializing.CircleImageView-->
-<!--            android:id="@+id/note_head_profile"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/ic_launcher_background" />-->
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/note_head_profile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/ic_launcher_background"
-            app:roundPercent="1"/>
-
-
-        <TextView
-            android:id="@+id/note_id"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:text="用户id"
-            android:textSize="15dp" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <ImageView
-            android:id="@+id/note_like"
-            android:layout_width="25dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right|center"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/no_like" />
+            android:id="@+id/note_chat"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/note_good"
+            app:layout_constraintEnd_toStartOf="@+id/note_good"
+            app:layout_constraintTop_toTopOf="@+id/note_good"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/socializing_recycler_chat" />
+
+        <ImageView
+            android:id="@+id/note_good"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/note_share"
+            app:layout_constraintEnd_toStartOf="@+id/note_share"
+            app:layout_constraintTop_toTopOf="@+id/note_share"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/socializing_recycler_good" />
+
+        <ImageView
+            android:id="@+id/note_share"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517"
+            app:srcCompat="@drawable/socializing_recycler_share" />
+
         <TextView
-            android:id="@+id/note_like_number"
+            android:id="@+id/note_time"
             android:layout_width="wrap_content"
-            android:text="点赞"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="13sp"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="2天前"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.476" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
