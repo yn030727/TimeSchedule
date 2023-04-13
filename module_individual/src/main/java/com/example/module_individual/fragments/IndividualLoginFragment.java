@@ -2,6 +2,7 @@ package com.example.module_individual.fragments;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
@@ -34,12 +36,18 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_individual.IndividualActivity;
 import com.example.module_individual.R;
+import com.example.module_individual.adapter.ImageBeanAdapter;
 import com.example.module_individual.adapter.IndividualLoginRecyclerAdapter;
+import com.example.module_individual.logic.model.ImageBean;
 import com.example.module_individual.ui.CircleView;
+import com.youth.banner.Banner;
+import com.youth.banner.indicator.CircleIndicator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -54,6 +62,11 @@ public class IndividualLoginFragment extends Fragment {
     private static final int TAKE_PHOTO = 1;
     CircleImageView profit;
     ConstraintLayout individual_head_background;
+    CardView individual_head_cardView;
+    //轮播图
+    Banner banner;
+    private List<ImageBean> beanList;
+    //字体样式
     Typeface typeface;
     Dialog dialog;
     View inflate;
@@ -64,6 +77,7 @@ public class IndividualLoginFragment extends Fragment {
         return individualLoginFragment;
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,7 +94,20 @@ public class IndividualLoginFragment extends Fragment {
         login_users.setText(getArguments().getString("user"));
         login_users.setText("测试用户1");
         individual_head_background = (ConstraintLayout)view.findViewById(R.id.individual_head_layout);
-        individual_head_background.getBackground().setAlpha(125);
+        individual_head_background.getBackground().setAlpha(155);
+        individual_head_cardView = view.findViewById(R.id.individual_head_cardView);
+        individual_head_cardView.getBackground().setAlpha(55);
+        banner = view.findViewById(R.id.individual_card2_banner);
+
+
+        //加载轮播图
+        beanList = new ArrayList<>();
+        initBeadData();
+        banner.setAdapter(new ImageBeanAdapter(getActivity() , beanList));
+        banner.isAutoLoop(true);
+        banner.setIndicator(new CircleIndicator(getActivity()));
+        banner.start();
+
 
 //        LoginInformation loginInformation = new LoginInformation();
 //        loginInformation.setUser(getArguments().getString("user"));
@@ -89,6 +116,8 @@ public class IndividualLoginFragment extends Fragment {
 //        EventBus.getDefault().postSticky(loginInformation);
 //        EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
 
+
+        //1.RecyclerView的加载
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.individual_login_recycler);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -109,6 +138,14 @@ public class IndividualLoginFragment extends Fragment {
         
         return view;
     }
+
+
+
+
+    //  方法导航
+    //1.show_dialog: 展示更换头像的弹窗
+    //2.onActivityResult: 完成更换头像后的回调
+    //3.initBeadData: 初始化轮播图界面集合
 
     private void show_dialog(){
         dialog = new Dialog(getContext(), R.style.ActionSheetDialogStyle);
@@ -204,6 +241,14 @@ public class IndividualLoginFragment extends Fragment {
             default:
                 break;
         }
+    }
+
+    public void initBeadData(){
+        beanList.add(new ImageBean(R.drawable.individual_banner_image1));
+        beanList.add(new ImageBean(R.drawable.individual_banner_image2));
+        beanList.add(new ImageBean(R.drawable.individual_banner_image3));
+        beanList.add(new ImageBean(R.drawable.individual_banner_image4));
+        beanList.add(new ImageBean(R.drawable.individual_banner_image5));
     }
 }
 

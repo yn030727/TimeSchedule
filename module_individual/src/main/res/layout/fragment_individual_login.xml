@@ -22,111 +22,392 @@
     <!--        app:layout_constraintTop_toTopOf="parent"-->
     <!--        app:roundPercent="1"/>-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/individual_login_profit"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="28dp"
-            android:src="@drawable/individual_head_iamge1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.133" />
-
-        <TextView
-            android:id="@+id/individual_login_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="userName"
-            android:textColor="#000000"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
-            app:layout_constraintStart_toEndOf="@+id/individual_login_profit"
-            app:layout_constraintTop_toTopOf="@+id/individual_login_profit"
-            app:layout_constraintVertical_bias="0.222" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/individual_head_cardView"
-            android:layout_width="415dp"
-            android:layout_height="216dp"
-            android:layout_marginTop="28dp"
-            android:alpha="0.3"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/individual_login_profit">
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/individual_head_introduce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="简介：暂无简介"
-            app:layout_constraintEnd_toEndOf="@+id/individual_login_user"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/individual_login_user"
-            app:layout_constraintTop_toBottomOf="@+id/individual_login_user" />
-
-        <ImageView
-            android:id="@+id/individual_head_vip"
-            android:layout_width="21dp"
-            android:layout_height="24dp"
-            android:src="@drawable/individual_head_vip"
-            app:layout_constraintBottom_toBottomOf="@+id/individual_login_user"
-            app:layout_constraintStart_toEndOf="@+id/individual_login_user"
-            app:layout_constraintTop_toTopOf="@+id/individual_login_user" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:overScrollMode="never">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="128dp"
-            android:background="@drawable/individual_head_card_background"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
-            app:layout_constraintStart_toEndOf="@+id/individual_head_introduce"
-            app:layout_constraintTop_toTopOf="@+id/individual_login_profit"
-            app:layout_constraintVertical_bias="1.0">
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/individual_login_profit"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/individual_head_iamge1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.018" />
+
+            <TextView
+                android:id="@+id/individual_login_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="userName"
+                android:textColor="#000000"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
+                app:layout_constraintStart_toEndOf="@+id/individual_login_profit"
+                app:layout_constraintTop_toTopOf="@+id/individual_login_profit"
+                app:layout_constraintVertical_bias="0.222" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/individual_head_cardView"
+                android:layout_width="412dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="28dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/individual_login_profit">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/individual_card1_yiju"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/individual_card1_yiju"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.105"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.15" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_zhuangshi"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="56dp"
+                        android:src="@drawable/individual_card1_zhuangshi"
+                        app:layout_constraintBottom_toBottomOf="@+id/individual_card1_yiju"
+                        app:layout_constraintStart_toEndOf="@+id/individual_card1_yiju"
+                        app:layout_constraintTop_toTopOf="@+id/individual_card1_yiju"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_quyue"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="56dp"
+                        android:src="@drawable/individual_card1_quyue"
+                        app:layout_constraintBottom_toBottomOf="@+id/individual_card1_zhuangshi"
+                        app:layout_constraintStart_toEndOf="@+id/individual_card1_zhuangshi"
+                        app:layout_constraintTop_toTopOf="@+id/individual_card1_zhuangshi"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_zhoubian"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="56dp"
+                        android:src="@drawable/individual_card1_zhoubian"
+                        app:layout_constraintBottom_toBottomOf="@+id/individual_card1_quyue"
+                        app:layout_constraintStart_toEndOf="@+id/individual_card1_quyue"
+                        app:layout_constraintTop_toTopOf="@+id/individual_card1_quyue"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_zhuomian"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="32dp"
+                        android:src="@drawable/individual_card1_zhuomian"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_yiju"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_yiju"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_yiju" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_jinian"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="56dp"
+                        android:src="@drawable/individual_card1_jinian"
+                        app:layout_constraintBottom_toBottomOf="@+id/individual_card1_zhuomian"
+                        app:layout_constraintStart_toEndOf="@+id/individual_card1_zhuomian"
+                        app:layout_constraintTop_toTopOf="@+id/individual_card1_zhuomian" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_bianqian"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="56dp"
+                        android:src="@drawable/individual_card1_bianqian"
+                        app:layout_constraintBottom_toBottomOf="@+id/individual_card1_jinian"
+                        app:layout_constraintStart_toEndOf="@+id/individual_card1_jinian"
+                        app:layout_constraintTop_toTopOf="@+id/individual_card1_jinian" />
+
+                    <ImageView
+                        android:id="@+id/individual_card1_jizhang"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="56dp"
+                        android:src="@drawable/individual_card1_jizhang"
+                        app:layout_constraintBottom_toBottomOf="@+id/individual_card1_bianqian"
+                        app:layout_constraintStart_toEndOf="@+id/individual_card1_bianqian"
+                        app:layout_constraintTop_toTopOf="@+id/individual_card1_bianqian" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="每日一句"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_yiju"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_yiju"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_yiju" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="文化周边"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_zhuangshi"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_zhuangshi"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_zhuangshi" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="文化曲乐"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_quyue"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_quyue"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_quyue" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="周边名胜"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_zhoubian"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_zhoubian"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_zhoubian" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="桌面组件"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_zhuomian"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_zhuomian"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_zhuomian" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="纪念日"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_jinian"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_jinian"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_jinian" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="笺牒纸"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_bianqian"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_bianqian"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_bianqian" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="算经商笔"
+                        android:textColor="#2c2c2c"
+                        app:layout_constraintEnd_toEndOf="@+id/individual_card1_jizhang"
+                        app:layout_constraintStart_toStartOf="@+id/individual_card1_jizhang"
+                        app:layout_constraintTop_toBottomOf="@+id/individual_card1_jizhang" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/individual_head_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="简介：暂无简介"
+                app:layout_constraintEnd_toEndOf="@+id/individual_login_user"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/individual_login_user"
+                app:layout_constraintTop_toBottomOf="@+id/individual_login_user" />
 
             <ImageView
-                android:id="@+id/individual_head_setting_image"
-                android:layout_width="32dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/induvidual_recycler_setting"
+                android:id="@+id/individual_head_vip"
+                android:layout_width="21dp"
+                android:layout_height="24dp"
+                android:src="@drawable/individual_head_vip"
+                app:layout_constraintBottom_toBottomOf="@+id/individual_login_user"
+                app:layout_constraintStart_toEndOf="@+id/individual_login_user"
+                app:layout_constraintTop_toTopOf="@+id/individual_login_user" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="128dp"
+                android:background="@drawable/individual_head_card_background"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/individual_login_profit"
+                app:layout_constraintStart_toEndOf="@+id/individual_head_introduce"
+                app:layout_constraintTop_toTopOf="@+id/individual_login_profit"
+                app:layout_constraintVertical_bias="1.0">
+
+
+                <ImageView
+                    android:id="@+id/individual_head_setting_image"
+                    android:layout_width="32dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/induvidual_recycler_setting"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="412dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/individual_head_cardView"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintStart_toStartOf="@+id/individual_head_cardView"
+                app:layout_constraintTop_toBottomOf="@+id/individual_history_card1_layout">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/individual_card2_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/individual_login_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="328dp"
+                android:overScrollMode="never"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                app:layout_constraintVertical_bias="0.039" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="阿西莫夫《日暮》一个星球的文明从来没见过黑夜，只是有神秘恐怖的传说，所形成的社会结构形态，以及宗教信仰特点，黑夜来临，秩序崩坏，文明重启。
+
+西奥多斯特金《微宇宙的上帝》用营养液进化出小人，自己扮演上帝，用最为残酷的法则逼迫小人产生文明，发明新事物供自己使用，对整个人类世界带来的连锁反应。
+
+雷布拉德伯里《火星是天堂》人类第一批开拓殖民者到达火星，发现火星上有一个小镇，有舰上人员每一个人已故的亲人，亲人说被人挽救，统一住在这里，然后相认，泪流满面场面感人，大联欢，后来发现是火星人的圈套，大意的地球人被火星人各个击破，消灭。
+
+何夕《异域》一个时间比其他地方要快好多倍的农场，人类用来迅速生成粮食，但是里边生物进化飞快，人类放置了好多清理生物怪兽的机器人，但是还是敌不过飞速进化的生物。
+
+王晋康《水星播种》人类创造了可以进化的硅基生命，被播种在特别炎热的水星上面，几千万几亿年后进化出硅基生命组成的文明，奇怪的社会生态，盲目而扭曲的崇拜他们的上帝，也就是播种火星那那个人类。
+
+柳文扬《一日囚》一个罪犯被判处一日囚，终生轮回在一天里，描写了在别人眼中他的古怪行为，以及他自己如何度过这永远重复的一天，如何保证自己的心理健康。
+
+罗隆翔《在他乡》神作神作神作！！！！！！！！！！不剧透，自己去看。
+
+夏笳《永夏之梦》时空跳跃者与永生者的爱恨情仇，烧脑。
+
+江波《湿婆之舞》病菌细胞吞噬占领了所有大陆，只剩南极，人类反攻，后来发现病菌细胞存储了多有死去的人类意识，并在病菌所构成的赛博网络（虚拟世界）中快乐永生，幸存人类开始思考生命的意义。
+
+何夕《人生不相见》人类派基因改造过的先驱殖民天蝎座渤海星，是一个只有大海的星球，奇怪的水下生活方式和文化，当人类准备大规模移民殖民的时候，发现先驱已经有了生殖隔离，不能跟人类生育，为了不被母文明也就是人类文明抹掉，开始反抗，最后还是被人类消灭。
+
+阿西莫夫《永恒的终结》时间规划局，通过微微调整人类一件小事情，导致蝴蝶效应改变历史进程，使未来的人类避免各种风险，远离战争和毁灭。比如让一个工程师迟到，就将一个科技成果推迟了十年，避免了200年后的世界大战。结果大逆转，因为人类生活的安稳，科技无法爆炸性进步，失去了开拓太空的机会，自己凋零消亡。最后又大逆转很炫酷！
+
+莫名其妙这个答案时隔一年又火了，再加三篇：刘慈欣的《吞食者》，外星人入侵地球，外星人竟然是曾经地球上的恐龙，后来人类以诡计取胜，很棒，不剧透。
+
+《赡养上帝》《赡养人类》设定很有意思，可以去看。
+
+《三体》《三体》《三体》重要的事情说三遍！！！！
+
+都是靠记忆力手写，如有错误，请不要骂，批评指正，我来修改。"
+                app:layout_constraintTop_toBottomOf="@+id/individual_login_recycler"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/individual_history_card1_layout"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/individual_card2_background"
+                app:layout_constraintStart_toStartOf="@+id/individual_head_cardView"
+                app:layout_constraintTop_toBottomOf="@+id/individual_head_cardView">
+
+                <TextView
+                    android:id="@+id/individual_history_card1_text"
+                    android:layout_width="82dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="4dp"
+                    android:gravity="center"
+                    android:text="历史上的今天"
+                    android:textColor="#2c2c2c"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.042" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/individual_history_card2_layout"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/individual_card2_background"
+                app:layout_constraintEnd_toEndOf="@+id/individual_head_cardView"
+                app:layout_constraintHorizontal_bias="0.918"
+                app:layout_constraintStart_toEndOf="@+id/individual_history_card1_layout"
+                app:layout_constraintTop_toBottomOf="@+id/individual_head_cardView">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/individual_login_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="328dp"
-        android:overScrollMode="never"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0" />
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
