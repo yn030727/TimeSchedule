@@ -70,8 +70,13 @@ public class IndividualLoginFragment extends Fragment {
     Typeface typeface;
     //历史上的今天板块
     ConstraintLayout individual_history_card1_layout;
-    //历史上的你
+    TextView individual_history_card1_title;
+    TextView individual_history_card1_time;
+    TextView individual_history_card1_dayName;
+    TextView individual_history_card1_description;
+    //历史上的你模块
     ConstraintLayout individual_history_card2_layout;
+    TextView individual_history_card2_title;
     Dialog dialog;
     View inflate;
 
@@ -106,6 +111,13 @@ public class IndividualLoginFragment extends Fragment {
         individual_history_card2_layout = view.findViewById(R.id.individual_history_card2_layout);
         individual_history_card1_layout.getBackground().setAlpha(55);
         individual_history_card2_layout.getBackground().setAlpha(55);
+        individual_history_card1_title = view.findViewById(R.id.individual_history_card1_title);
+        individual_history_card1_title.setTypeface(typeface);
+        individual_history_card2_title = view.findViewById(R.id.individual_history_card2_title);
+        individual_history_card2_title.setTypeface(typeface);
+        individual_history_card1_dayName = view.findViewById(R.id.individual_history_card1_dayName);
+        individual_history_card1_description = view.findViewById(R.id.individual_history_card1_description);
+        individual_history_card1_dayName.setTypeface(typeface);
 
 
         //加载轮播图

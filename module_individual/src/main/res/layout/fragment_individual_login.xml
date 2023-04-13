@@ -331,19 +331,63 @@
                 app:layout_constraintTop_toBottomOf="@+id/individual_head_cardView">
 
                 <TextView
-                    android:id="@+id/individual_history_card1_text"
-                    android:layout_width="82dp"
-                    android:layout_height="27dp"
-                    android:layout_marginStart="4dp"
+                    android:id="@+id/individual_history_card1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
                     android:gravity="center"
                     android:text="历史上的今天"
-                    android:textColor="#2c2c2c"
-                    android:textSize="13dp"
+                    android:textColor="#000"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.042" />
+                    app:layout_constraintVertical_bias="0.098" />
+
+
+                <TextView
+                    android:id="@+id/individual_history_card1_dayName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="隋炀帝下令开凿大运河"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/individual_history_card1_title"
+                    app:layout_constraintStart_toStartOf="@+id/individual_history_card1_title"
+                    app:layout_constraintTop_toBottomOf="@+id/individual_history_card1_title" />
+
+                <TextView
+                    android:id="@+id/individual_history_card1_description"
+                    android:layout_width="169dp"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="5"
+                    android:text="隋炀帝修建大运河的工程分4段进行。\n公元605年4月14日（隋大业元年三月二十一日）隋炀帝『命尚书右丞皇甫议发河南、淮北诸郡民，前后百余万，开通济渠』。通济渠起于洛阳城，西引榖（即涧水）、洛水入黄河；又从极清（今河南荥阳县把水镇东北周黄河水向东到洋州（今河南开封），再顺汴水经商丘，折向东南，接通蕲水，经皖北至淮阴入淮水。第一段工程沟通了洛水、黄河和淮河。"
+                    android:textColor="#2c2c2c"
+                    app:layout_constraintEnd_toEndOf="@+id/individual_history_card1_title"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="@+id/individual_history_card1_title"
+                    app:layout_constraintTop_toBottomOf="@+id/individual_history_card1_dayName" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="25dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/individual_history_image1"
+                    app:layout_constraintEnd_toEndOf="@+id/individual_history_card1_description"
+                    app:layout_constraintTop_toBottomOf="@+id/individual_history_card1_description" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="25dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/individual_history_image1"
+                    app:layout_constraintStart_toStartOf="@+id/individual_history_card1_description"
+                    app:layout_constraintTop_toBottomOf="@+id/individual_history_card1_description" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -356,6 +400,43 @@
                 app:layout_constraintHorizontal_bias="0.918"
                 app:layout_constraintStart_toEndOf="@+id/individual_history_card1_layout"
                 app:layout_constraintTop_toBottomOf="@+id/individual_head_cardView">
+
+                <TextView
+                    android:id="@+id/individual_history_card2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:text="你是哪个古人？"
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.098" />
+
+                <ImageView
+                    android:id="@+id/individual_history_card2_image"
+                    android:layout_width="117dp"
+                    android:layout_height="85dp"
+                    android:src="@drawable/individual_history_card2_image"
+                    app:layout_constraintEnd_toEndOf="@+id/individual_history_card2_title"
+                    app:layout_constraintStart_toStartOf="@+id/individual_history_card2_title"
+                    app:layout_constraintTop_toBottomOf="@+id/individual_history_card2_title" />
+
+                <TextView
+                    android:id="@+id/individual_history_card2_description"
+                    android:layout_width="166dp"
+                    android:layout_height="57dp"
+                    android:text="李白，字太白，号青莲居士，祖籍陇西成纪（今甘肃省秦安县），出生于绵州昌隆县青莲乡。唐朝伟大的浪漫主义诗人，凉武昭王李暠九世孙。"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textColor="#2c2c2c"
+                    app:layout_constraintEnd_toEndOf="@+id/individual_history_card2_image"
+                    app:layout_constraintHorizontal_bias="0.51"
+                    app:layout_constraintStart_toStartOf="@+id/individual_history_card2_image"
+                    app:layout_constraintTop_toBottomOf="@+id/individual_history_card2_image" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
