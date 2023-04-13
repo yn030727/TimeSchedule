@@ -68,6 +68,10 @@ public class IndividualLoginFragment extends Fragment {
     private List<ImageBean> beanList;
     //字体样式
     Typeface typeface;
+    //历史上的今天板块
+    ConstraintLayout individual_history_card1_layout;
+    //历史上的你
+    ConstraintLayout individual_history_card2_layout;
     Dialog dialog;
     View inflate;
 
@@ -98,6 +102,10 @@ public class IndividualLoginFragment extends Fragment {
         individual_head_cardView = view.findViewById(R.id.individual_head_cardView);
         individual_head_cardView.getBackground().setAlpha(55);
         banner = view.findViewById(R.id.individual_card2_banner);
+        individual_history_card1_layout = view.findViewById(R.id.individual_history_card1_layout);
+        individual_history_card2_layout = view.findViewById(R.id.individual_history_card2_layout);
+        individual_history_card1_layout.getBackground().setAlpha(55);
+        individual_history_card2_layout.getBackground().setAlpha(55);
 
 
         //加载轮播图
