@@ -3,23 +3,78 @@
     package="com.example.module_individual">
 
     <application
-        android:theme="@style/Theme.TimeSchedule"
-
+        android:hardwareAccelerated="false"
         android:largeHeap="true"
-        android:hardwareAccelerated="false">
+        android:theme="@style/Theme.TimeSchedule">
+        <activity
+            android:name=".AccountingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NotesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CommemorateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DesktopActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PlacesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MusicActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PerimeterActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".VerseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".IndividualActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
+
         <provider
-            android:authorities="com.example.module_individual.fileProvider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.module_individual.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
             android:requestLegacyExternalStorage="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 

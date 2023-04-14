@@ -34,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_individual.IndividualActivity;
 import com.example.module_individual.R;
 import com.example.module_individual.adapter.ImageBeanAdapter;
@@ -54,7 +55,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 //个人界面模块
 //1.定义变量
 @Route(path = "/individual/IndividualLoginFragment")
-public class IndividualLoginFragment extends Fragment {
+public class IndividualLoginFragment extends Fragment implements View.OnClickListener {
 
     //1.定义变量
     private String TAG = "LoginFragment";
@@ -83,11 +84,12 @@ public class IndividualLoginFragment extends Fragment {
     //个人界面卡片1上功能模块
     ImageView individual_card1_yiju;
     ImageView individual_card1_zhuangshi;
-    ImageView Individual_card1_quyue;
-    ImageView Individual_card1_zhoubian;
+    ImageView individual_card1_quyue;
+    ImageView individual_card1_zhoubian;
     ImageView individual_card1_zhuomian;
     ImageView individual_card1_jinian;
     ImageView individual_card1_bianqian;
+    ImageView individual_card1_jizhang;
 
 
     public static IndividualLoginFragment getInstance(Bundle bundle) {
@@ -128,9 +130,24 @@ public class IndividualLoginFragment extends Fragment {
         individual_history_card1_dayName = view.findViewById(R.id.individual_history_card1_dayName);
         individual_history_card1_description = view.findViewById(R.id.individual_history_card1_description);
         individual_history_card1_dayName.setTypeface(typeface);
+        individual_card1_yiju = view.findViewById(R.id.individual_card1_yiju);
+        individual_card1_zhoubian = view.findViewById(R.id.individual_card1_zhoubian);
+        individual_card1_quyue = view.findViewById(R.id.individual_card1_quyue);
+        individual_card1_zhuangshi = view.findViewById(R.id.individual_card1_zhuangshi);
+        individual_card1_zhuomian = view.findViewById(R.id.individual_card1_zhuomian);
+        individual_card1_jinian = view.findViewById(R.id.individual_card1_jinian);
+        individual_card1_bianqian = view.findViewById(R.id.individual_card1_bianqian);
+        individual_card1_jizhang = view.findViewById(R.id.individual_card1_jizhang);
+        individual_card1_yiju.setOnClickListener(this);
+        individual_card1_zhoubian.setOnClickListener(this);
+        individual_card1_quyue.setOnClickListener(this);
+        individual_card1_zhuangshi.setOnClickListener(this);
+        individual_card1_zhuomian.setOnClickListener(this);
+        individual_card1_jinian.setOnClickListener(this);
+        individual_card1_bianqian.setOnClickListener(this);
+        individual_card1_jizhang.setOnClickListener(this);
 
-
-        //加载轮播图
+        //加载轮播图e
         beanList = new ArrayList<>();
         initBeadData();
         banner.setAdapter(new ImageBeanAdapter(getActivity() , beanList));
@@ -279,6 +296,28 @@ public class IndividualLoginFragment extends Fragment {
         beanList.add(new ImageBean(R.drawable.individual_banner_image3));
         beanList.add(new ImageBean(R.drawable.individual_banner_image4));
         beanList.add(new ImageBean(R.drawable.individual_banner_image5));
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.individual_card1_yiju){
+            ARouter.getInstance().build("/individual/VerseActivity").navigation();
+        }else if(id == R.id.individual_card1_zhoubian){
+
+        }else if(id == R.id.individual_card1_quyue){
+
+        }else if(id == R.id.individual_card1_zhoubian){
+
+        }else if(id == R.id.individual_card1_zhuomian){
+
+        }else if(id == R.id.individual_card1_jinian){
+
+        }else if(id == R.id.individual_card1_bianqian){
+
+        }else if(id == R.id.individual_card1_jizhang){
+
+        }
     }
 }
 
