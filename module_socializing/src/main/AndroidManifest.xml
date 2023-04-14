@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.module_socializing">
+    package="com.example.module_socializing" >
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -9,10 +9,16 @@
         android:hardwareAccelerated="false"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TimeSchedule">
+        android:theme="@style/Theme.TimeSchedule" >
+        <activity
+            android:name=".fragments.StatsticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlbumActivity"
+            android:exported="false" />
         <activity
             android:name=".ArticleActivity"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
