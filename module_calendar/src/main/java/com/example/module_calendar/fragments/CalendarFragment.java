@@ -207,11 +207,13 @@ public class CalendarFragment extends Fragment implements
         calendar_title_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!calendar_account.equals("NULL")){
-                    EventBus.getDefault().postSticky(new EventEditSchedule(true));
-                }else{
-                    Toast.makeText(getContext(),"请先登陆账号!" , Toast.LENGTH_SHORT).show();
-                }
+                //测试账号测试
+//                if(!calendar_account.equals("NULL")){
+//                    EventBus.getDefault().postSticky(new EventEditSchedule(true));
+//                }else{
+//                    Toast.makeText(getContext(),"请先登陆账号!" , Toast.LENGTH_SHORT).show();
+//                }
+                EventBus.getDefault().postSticky(new EventEditSchedule(true));
             }
         });
 

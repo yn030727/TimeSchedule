@@ -80,6 +80,15 @@ public class IndividualLoginFragment extends Fragment {
     //RecyclerView功能模块
     Dialog dialog;
     View inflate;
+    //个人界面卡片1上功能模块
+    ImageView individual_card1_yiju;
+    ImageView individual_card1_zhuangshi;
+    ImageView Individual_card1_quyue;
+    ImageView Individual_card1_zhoubian;
+    ImageView individual_card1_zhuomian;
+    ImageView individual_card1_jinian;
+    ImageView individual_card1_bianqian;
+
 
     public static IndividualLoginFragment getInstance(Bundle bundle) {
         IndividualLoginFragment individualLoginFragment = new IndividualLoginFragment();
