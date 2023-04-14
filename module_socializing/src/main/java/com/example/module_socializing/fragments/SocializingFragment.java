@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_socializing.R;
 import com.example.module_socializing.SpacesItemDecoration;
 import com.example.module_socializing.adapter.SocializingShareItemAdapter;
@@ -29,9 +32,13 @@ import java.util.List;
 //2.相关方法
 
 @Route( path = "/socializing/SocializingFragment")
-public class SocializingFragment extends Fragment {
+public class SocializingFragment extends Fragment implements View.OnClickListener {
     //1.变量声明
     List<ShareData> mList;
+    ImageView individual_add_article;
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,7 +63,8 @@ public class SocializingFragment extends Fragment {
 
         //常用对象的初始化配置
         socializing_main_title.setTypeface(typeface);
-
+        individual_add_article = view.findViewById(R.id.imageView);
+        individual_add_article.setOnClickListener(this);
 
 
         return view;
@@ -76,5 +84,13 @@ public class SocializingFragment extends Fragment {
         mList.add(new ShareData(R.drawable.socializing_head_portrait,"小傅同学","孔子创立儒家学派。孔子的思想核心是“仁”。他认为仁就是爱人，人与人之间要互相爱护，融洽相处；要做到待人宽容，“已所不欲，勿施于人”。孔子强调统治者要以德治民，爱惜民力，取信于民，反对苛政和任意刑杀。孔子首创私人讲学，主张“有教无类”，打破了贵族垄断文化教育的局面。\n" +
                 "（2）孟子和荀子是儒家学派的两位重要代表人物。孟子发展了孔子“仁”的思想，主张实行“仁政”，进一步提出“民为贵，社稷次之，君为轻”的民本思想。在伦理观上，孟子主张“性本善”。" , R.drawable.socializing_head_portrait , "2天前") );
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.imageView){
+            ARouter.getInstance().build("/socializing/ArticleActivity").navigation();
+        }
     }
 }

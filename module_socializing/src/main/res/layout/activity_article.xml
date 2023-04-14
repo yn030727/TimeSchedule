@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b5b5b5"
+    tools:context=".ArticleActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#f1f1f1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/socializing_article_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="取消"
+            android:textColor="#000"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529" />
+
+        <TextView
+            android:id="@+id/socializing_article_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分享"
+            android:textColor="#2c2c2c"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/socializing_article_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/socializing_article_back"
+            app:layout_constraintVertical_bias="0.454" />
+
+        <Button
+            android:id="@+id/socializing_article_fabu"
+            android:layout_width="72dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/socializing_article_background"
+            android:text="发表"
+            android:textColor="#f1f1f1"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/socializing_article_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/socializing_article_share"
+            app:layout_constraintVertical_bias="0.6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="356dp"
+        android:layout_marginTop="12dp"
+        android:background="#f1f1f1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <TextView
+            android:id="@+id/socializing_article_text"
+            android:layout_width="440dp"
+            android:layout_height="154dp"
+            android:layout_marginTop="4dp"
+            android:hint=" 分享新鲜事..."
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="152dp"
+            android:layout_height="149dp"
+            android:background="#c5c5c5"
+            app:layout_constraintStart_toStartOf="@+id/socializing_article_text"
+            app:layout_constraintTop_toBottomOf="@+id/socializing_article_text">
+
+            <ImageView
+                android:id="@+id/socializing_article_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/socializing_article_photo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="75dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/socializing_article_background2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+            <TextView
+                android:id="@+id/socializing_article_addbiaoqian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="添加标签"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/socializing_article_addbiaoqian_image"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/socializing_article_addbiaoqian"
+                app:layout_constraintEnd_toStartOf="@+id/socializing_article_addbiaoqian"
+                app:layout_constraintTop_toTopOf="@+id/socializing_article_addbiaoqian"
+                app:srcCompat="@drawable/socializing_article_addbiaoqian" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="75dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/socializing_article_background2"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout4"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/socializing_article_addposition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="添加地点"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/socializing_article_addposition_image"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/socializing_article_addposition"
+                app:layout_constraintEnd_toStartOf="@+id/socializing_article_addposition"
+                app:layout_constraintTop_toTopOf="@+id/socializing_article_addposition"
+                app:srcCompat="@drawable/socializing_article_addposition" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="50dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/socializing_article_background2"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout5"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                android:id="@+id/socializing_article_quanxian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="权限"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/socializing_article_quanxian_image"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/socializing_article_quanxian"
+                app:layout_constraintEnd_toStartOf="@+id/socializing_article_quanxian"
+                app:layout_constraintTop_toTopOf="@+id/socializing_article_quanxian"
+                app:srcCompat="@drawable/socializing_article_quanxian" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
