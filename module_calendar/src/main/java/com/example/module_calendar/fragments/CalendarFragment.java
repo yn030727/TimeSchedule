@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,7 @@ import com.example.module_calendar.model.Article;
 import com.example.module_calendar.model.CalendarSchedule;
 import com.example.module_calendar.model.Schedule_Data_Dao;
 import com.example.module_calendar.model.Schedule_Database;
+import com.example.module_calendar.model.Schedule_data;
 import com.example.module_calendar.ui.BaseActivity;
 import com.example.module_calendar.ui.CalendarScheduleAdapter;
 import com.example.module_calendar.ui.GroupItemDecoration;
@@ -89,6 +91,7 @@ public class CalendarFragment extends Fragment implements
     private int mYear;
     CalendarLayout mCalendarLayout;
     //RecyclerView mRecyclerView;
+    CalendarScheduleAdapter calendarScheduleAdapter;
     List<String> list;
     TextView calendar_week_textview;
     TextView calendar_week_textview2;
@@ -109,6 +112,9 @@ public class CalendarFragment extends Fragment implements
     //数据库相关
     Schedule_Database schedule_database;
     private Schedule_Data_Dao dao;
+    int year;
+    int month;
+    int day;
 
 
     //  1.Fragment内的主要部分
@@ -191,9 +197,9 @@ public class CalendarFragment extends Fragment implements
         calendar_week_textview.setText(JudgeWeek4(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
         calendar_week_textview2.setText(JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK)));
         Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK )));
-        int year = mCalendarView.getCurYear();
-        int month = mCalendarView.getCurMonth();
-        int day = mCalendarView.getCurDay();
+        year = mCalendarView.getCurYear();
+        month = mCalendarView.getCurMonth();
+        day = mCalendarView.getCurDay();
         Log.d("Ning_Module_Calendar" , " year is "+ year + "  month is " + month + " Day is " + day);
 
 
@@ -230,11 +236,14 @@ public class CalendarFragment extends Fragment implements
 
 
 
+
+
         //(7).加载RecyclerView
         initScheduleArrayList();
         initImageHashMap();
         calendar_schedule_recylcerview = view.findViewById(R.id.Calendar_recyclerview);
-        CalendarScheduleAdapter calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap,calendar_title_imageView,receiveHashMap);
+        Log.d("Ning_module_calendar" , "recyclerview begin");
+        calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap,calendar_title_imageView,receiveHashMap);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         calendar_schedule_recylcerview.setAdapter(calendarScheduleAdapter);
         calendar_schedule_recylcerview.setLayoutManager(linearLayoutManager);
@@ -282,8 +291,14 @@ public class CalendarFragment extends Fragment implements
         mTextLunar.setText(calendar.getLunar());
         calendar_week_textview.setText(JudgeWeek(calendar.getWeek()));
         calendar_week_textview2.setText(JudgeWeek3(calendar.getWeek()));
-        mYear = calendar.getYear();
+        year = calendar.getYear();
+        month = calendar.getMonth();
+        day = calendar.getDay();
+        Log.d("Ning_Module_Calendar" , "Click ：  year is "+ year + "  month is " + month + " Day is " + day);
         Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK ) - 1));
+        new MidScheduleTask().execute();
+        calendarScheduleAdapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -487,8 +502,7 @@ public class CalendarFragment extends Fragment implements
     }
     //初始化RecyclerView集合
     public void initScheduleArrayList(){
-        //1.从数据库中获取已经存在的计划
-        // 2.从数据库中获取计划的完成信息(HashMap)
+        new StartScheduleTask().execute();
     }
 
 
@@ -531,13 +545,158 @@ public class CalendarFragment extends Fragment implements
                 scheduleStateHashMap.put(s,false);
             }
         }
+        new EndScheduleTask().execute();
     }
 
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("Ning_module_calendar" , "onDestro");
+        Log.d("Ning_module_calendar" , "onDestroy");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("Ning_module_calendar" , "onDestroyView");
+        new EndScheduleTask().execute();
         EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("Ning_module_calendar" , "onDetach");
+    }
+
+    //执行耗时任务，打开数据库读取数据库内当天的计划
+    //本质上也是给集合进行赋值
+    private class StartScheduleTask extends AsyncTask<Void ,Void,String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+
+            //1.从数据库中获取已经存在的计划
+            // 2.从数据库中获取计划的完成信息(HashMap)
+            if (scheduleArrayList.size() == 0) {
+                scheduleArrayList = new ArrayList<>();
+                Log.d("Ning_module_calendar", "您读取了数据库内容");
+
+                String str = year + "/" + month + "/" + day;
+
+                Schedule_data schedule_data = dao.getSchedule_Data_ById(str);
+
+                //已经存过当天计划了
+                if (schedule_data != null) {
+                    Log.d("Ning_module_calendar", "数据库不为null");
+                    List<Schedule_data.Schedule_Day> schedule_days = schedule_data.getSchedule_days();
+                    for (int i = 0; i < schedule_days.size(); i++) {
+                        Log.d("Ning_module_calendar", "start： 当前计划叫：" + schedule_days.get(i).text);
+                        String text = schedule_days.get(i).text;
+                        int image = schedule_days.get(i).image;
+                        boolean complete = schedule_days.get(i).complete;
+                        scheduleArrayList.add(new CalendarSchedule(text, image, complete));
+                        if (!complete) {
+                            scheduleStateHashMap.put(text, false);
+                        }
+                    }
+                    if (scheduleStateHashMap.size() == 0) {
+                        calendar_title_imageView.setImageResource(R.drawable.calendar_title_happyface2);
+                    }
+                }
+            }
+
+            //没有存过当天计划，没有影响
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap,calendar_title_imageView,receiveHashMap);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+            calendar_schedule_recylcerview.setAdapter(calendarScheduleAdapter);
+            calendar_schedule_recylcerview.setLayoutManager(linearLayoutManager);
+        }
+    }
+
+
+    //执行耗时任务，跳转到其他界面，在存储一遍当前的计划
+    private class EndScheduleTask extends AsyncTask<Void , Void ,String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            //跳转其他界面的时候，将当前的打卡计划信息加载到数据库中
+            String str = year + "/" + month + "/" + day;
+            Log.d("Ning_module_calendar" ,  "today is : " + str);
+
+            //从数据库中读取当天的计划表
+            Schedule_data scheduleData = dao.getSchedule_Data_ById(str);
+            //列出集合,将当前的集合初始化
+            List<Schedule_data.Schedule_Day> list = new ArrayList<>();
+            if(scheduleArrayList.size() != 0){
+                for(int i = 0 ; i < scheduleArrayList.size() ; i++){
+                    //遍历前面保存计划的集合
+                    String text = scheduleArrayList.get(i).getText();
+                    int image = scheduleArrayList.get(i).getImage();
+                    boolean complete = scheduleArrayList.get(i).getComplete();
+                    list.add(new Schedule_data.Schedule_Day(text , image , complete));
+                    if(!complete){
+                        scheduleStateHashMap.put(text , false);
+                    }
+                }
+                if(scheduleStateHashMap.size() == 0){
+                    calendar_title_imageView.setImageResource(R.drawable.calendar_title_happyface2);
+                }
+            }
+
+            if(scheduleData == null){
+                //数据库没有当天的计划内容
+                //那么就将当前的计划内容添加到数据库中
+                dao.insert_Schedule(new Schedule_data(str , list));
+                Log.d("Ning_module_calendar" , "您已经成功添加当天数据库内容");
+            }else{
+                //数据库中有当天内容
+                //那么将当前内容更新到数据库
+                dao.update_Schedule(new Schedule_data(str , list));
+                Log.d("Ning_module_calendar" , "您已经成功更新当天数据库内容");
+            }
+            return null;
+        }
+
+
+    }
+
+
+
+    private class MidScheduleTask extends AsyncTask<Void , Void ,String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String str = year + "/" + month + "/" + day;
+            Log.d("Ning_module_calendar" ,  "today is : " + str);
+            Schedule_data schedule_data = dao.getSchedule_Data_ById(str);
+            scheduleArrayList = new ArrayList<>();
+            //已经存过当天计划了
+            if(schedule_data != null) {
+                Log.d("Ning_module_calendar", "数据库不为null");
+                List<Schedule_data.Schedule_Day> schedule_days = schedule_data.getSchedule_days();
+                for (int i = 0; i < schedule_days.size(); i++) {
+                    Log.d("Ning_module_calendar", "start： 当前计划叫：" + schedule_days.get(i).text);
+                    String text = schedule_days.get(i).text;
+                    int image = schedule_days.get(i).image;
+                    boolean complete = schedule_days.get(i).complete;
+                    scheduleArrayList.add(new CalendarSchedule(text, image, complete));
+                }
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap,calendar_title_imageView,receiveHashMap);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+            calendar_schedule_recylcerview.setAdapter(calendarScheduleAdapter);
+            calendar_schedule_recylcerview.setLayoutManager(linearLayoutManager);
+        }
     }
 }

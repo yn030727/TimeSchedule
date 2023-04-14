@@ -57,6 +57,11 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
         holder.calendar_schedule_name.setTypeface(typeface);
         int randomColor = Color.rgb(111 , 24 , 32);
         holder.constraintLayout_biaoqian.setBackgroundColor(randomColor);
+        if(calendarSchedule.getComplete()){
+            holder.constraintLayout.setBackgroundResource(R.drawable.calendar_layout_shape4);
+        }else{
+            holder.constraintLayout.setBackgroundResource(R.drawable.calendar_layout_shape3);
+        }
 
         //点击事件，表示事情的完成
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +74,7 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
                     holder.constraintLayout.setBackgroundResource(R.drawable.calendar_layout_shape3);
                     scheduleStateHashMap.put(calendarSchedule.getText(),false);
                     calendarSchedule.setComplete(false);
-                    if(scheduleStateHashMap.size() == 1){
+                    if(scheduleStateHashMap.size() != 0){
                         //添加后变为1，表示之前是已经全部完成了
                         title.setImageResource(R.drawable.calendar_title_unhappyface2);
                     }
@@ -98,7 +103,9 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
                 calendarSchedule.setComplete(false);
                 scheduleStateHashMap.remove(calendarSchedule.getText());
                 scheduleArrayList.remove(position);
-                receiveHashMap.put(calendarSchedule.getText() , false);
+                if(receiveHashMap != null){
+                    receiveHashMap.put(calendarSchedule.getText() , false);
+                }
                 notifyDataSetChanged();
             }
         });
