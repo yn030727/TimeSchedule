@@ -1,5 +1,6 @@
 package com.example.module_calendar.ui;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.example.module_calendar.model.CalendarSchedule;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarScheduleViewHolder>{
     ArrayList<CalendarSchedule> scheduleArrayList;
@@ -49,6 +51,8 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
         holder.calendar_schedule_name.setText(calendarSchedule.getText());
         holder.calendar_schedule_image.setImageResource(calendarSchedule.getImage());
         holder.calendar_schedule_name.setTypeface(typeface);
+        int randomColor = Color.rgb(new Random().nextInt(256) , new Random().nextInt(256) , new Random().nextInt(256) );
+        holder.constraintLayout_biaoqian.setBackgroundColor(randomColor);
 
         //点击事件，表示事情的完成
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +98,12 @@ class CalendarScheduleViewHolder extends RecyclerView.ViewHolder{
     ConstraintLayout constraintLayout;
     ImageView calendar_schedule_image;
     TextView calendar_schedule_name;
+    ConstraintLayout constraintLayout_biaoqian;
     public CalendarScheduleViewHolder(@NonNull View itemView) {
         super(itemView);
         constraintLayout = itemView.findViewById(R.id.Calendar_constraint);
         calendar_schedule_image = itemView.findViewById(R.id.Calendar_recyclerview_image);
         calendar_schedule_name = itemView.findViewById(R.id.Calendar_recyclerview_textview);
+        constraintLayout_biaoqian = itemView.findViewById(R.id.Calendar_recyclerview_biaoqian);
     }
 }

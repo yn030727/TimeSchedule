@@ -30,6 +30,7 @@ import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
 import com.example.module_calendar.R;
 import com.example.module_calendar.model.Article;
 import com.example.module_calendar.model.CalendarSchedule;
+import com.example.module_calendar.model.Schedule_Database;
 import com.example.module_calendar.ui.BaseActivity;
 import com.example.module_calendar.ui.CalendarScheduleAdapter;
 import com.example.module_calendar.ui.GroupItemDecoration;
@@ -104,8 +105,8 @@ public class CalendarFragment extends Fragment implements
     HashMap<String , Boolean> scheduleStateHashMap = new HashMap<>(); //用来判断选中计划的完成情况
     RecyclerView calendar_schedule_recylcerview;
     Typeface typeface;
-
-
+    //数据库相关
+    Schedule_Database myDatabase = Schedule_Database.getInstance(getContext());
 
 
     //  1.Fragment内的主要部分
@@ -187,7 +188,8 @@ public class CalendarFragment extends Fragment implements
         Log.d("Ning_Module_Calendar" , "week is "+JudgeWeek2(calendar1.get(java.util.Calendar.DAY_OF_WEEK )));
         int year = mCalendarView.getCurYear();
         int month = mCalendarView.getCurMonth();
-        Log.d("Ning_Module_Calendar" , " year is "+ year + "  month is " + month);
+        int day = mCalendarView.getCurDay();
+        Log.d("Ning_Module_Calendar" , " year is "+ year + "  month is " + month + " Day is " + day);
 
 
         // (4).添加计划按钮的点击事件(跳转到添加计划界面)

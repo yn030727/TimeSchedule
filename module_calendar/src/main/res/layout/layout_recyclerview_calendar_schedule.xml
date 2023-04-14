@@ -53,6 +53,26 @@
                 app:layout_constraintVertical_bias="0.523"
                 tools:text="取快递" />
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/calendar_recyclerview_delete" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Calendar_recyclerview_biaoqian"
+                android:layout_width="11dp"
+                android:layout_height="39dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
