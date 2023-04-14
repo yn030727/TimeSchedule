@@ -1,5 +1,6 @@
 package com.example.module_calendar.ui;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_calendar.R;
 import com.example.module_calendar.model.CalendarSchedule;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,12 +28,14 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
     Typeface typeface;
     HashMap<String , Boolean> scheduleStateHashMap;
     ImageView title;
+    HashMap<String , Boolean> receiveHashMap;
 
-    public CalendarScheduleAdapter(ArrayList<CalendarSchedule> scheduleArrayList , Typeface typeface , HashMap<String , Boolean> scheduleStateHashMap , ImageView title){
+    public CalendarScheduleAdapter(ArrayList<CalendarSchedule> scheduleArrayList , Typeface typeface , HashMap<String , Boolean> scheduleStateHashMap , ImageView title , HashMap<String , Boolean> receiveHashMap){
         this.scheduleArrayList = scheduleArrayList;
         this.typeface = typeface;
         this.scheduleStateHashMap = scheduleStateHashMap;
         this.title = title;
+        this.receiveHashMap = receiveHashMap;
     }
 
     @NonNull
@@ -44,14 +48,14 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CalendarScheduleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CalendarScheduleViewHolder holder, @SuppressLint("RecyclerView") int position) {
         CalendarSchedule calendarSchedule = scheduleArrayList.get(position);
 
         //更新UI
         holder.calendar_schedule_name.setText(calendarSchedule.getText());
         holder.calendar_schedule_image.setImageResource(calendarSchedule.getImage());
         holder.calendar_schedule_name.setTypeface(typeface);
-        int randomColor = Color.rgb(new Random().nextInt(256) , new Random().nextInt(256) , new Random().nextInt(256) );
+        int randomColor = Color.rgb(111 , 24 , 32);
         holder.constraintLayout_biaoqian.setBackgroundColor(randomColor);
 
         //点击事件，表示事情的完成
@@ -86,6 +90,19 @@ public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarSched
             }
         });
 
+        //点击事件，表示任务的取消
+        holder.calendar_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Ning_module_calendar" , "delete ");
+                calendarSchedule.setComplete(false);
+                scheduleStateHashMap.remove(calendarSchedule.getText());
+                scheduleArrayList.remove(position);
+                receiveHashMap.put(calendarSchedule.getText() , false);
+                notifyDataSetChanged();
+            }
+        });
+
     }
 
     @Override
@@ -99,11 +116,14 @@ class CalendarScheduleViewHolder extends RecyclerView.ViewHolder{
     ImageView calendar_schedule_image;
     TextView calendar_schedule_name;
     ConstraintLayout constraintLayout_biaoqian;
+    ImageView calendar_delete;
+
     public CalendarScheduleViewHolder(@NonNull View itemView) {
         super(itemView);
         constraintLayout = itemView.findViewById(R.id.Calendar_constraint);
         calendar_schedule_image = itemView.findViewById(R.id.Calendar_recyclerview_image);
         calendar_schedule_name = itemView.findViewById(R.id.Calendar_recyclerview_textview);
         constraintLayout_biaoqian = itemView.findViewById(R.id.Calendar_recyclerview_biaoqian);
+        calendar_delete = itemView.findViewById(R.id.Calendar_recyclerview_delete);
     }
 }

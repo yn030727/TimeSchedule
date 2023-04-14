@@ -69,6 +69,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     HashMap<String , Boolean> eventScheduleHashMap;
 
 
+
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -477,7 +478,6 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         scheduleArrayList.add(new schedule("每天攒钱",com.example.module_baselibs.R.drawable.editschedule_image_zanqian,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每天攒钱")));
         scheduleArrayList.add(new schedule("每月存钱",com.example.module_baselibs.R.drawable.editschedule_image_cunqian,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每月存钱")));
     }
-
 
 
 }

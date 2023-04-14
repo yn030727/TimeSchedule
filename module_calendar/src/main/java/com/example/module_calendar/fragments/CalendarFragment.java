@@ -234,7 +234,7 @@ public class CalendarFragment extends Fragment implements
         initScheduleArrayList();
         initImageHashMap();
         calendar_schedule_recylcerview = view.findViewById(R.id.Calendar_recyclerview);
-        CalendarScheduleAdapter calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap,calendar_title_imageView);
+        CalendarScheduleAdapter calendarScheduleAdapter = new CalendarScheduleAdapter(scheduleArrayList,typeface,scheduleStateHashMap,calendar_title_imageView,receiveHashMap);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         calendar_schedule_recylcerview.setAdapter(calendarScheduleAdapter);
         calendar_schedule_recylcerview.setLayoutManager(linearLayoutManager);
@@ -516,6 +516,7 @@ public class CalendarFragment extends Fragment implements
     @Subscribe(threadMode = ThreadMode.POSTING , sticky = true)
     public void showEventSchedule(EventSchedule eventSchedule){
         Log.d("Ning_module_calendar", "showEventSchedule");
+        //传递过来存储是否选中当前计划的哈希表
         receiveHashMap = eventSchedule.getHashMap();
         Set<String> strings = receiveHashMap.keySet();
         initImageHashMap();
@@ -536,6 +537,7 @@ public class CalendarFragment extends Fragment implements
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.d("Ning_module_calendar" , "onDestro");
         EventBus.getDefault().unregister(this);
     }
 }
