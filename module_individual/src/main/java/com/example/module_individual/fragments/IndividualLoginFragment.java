@@ -77,6 +77,7 @@ public class IndividualLoginFragment extends Fragment {
     //历史上的你模块
     ConstraintLayout individual_history_card2_layout;
     TextView individual_history_card2_title;
+    //RecyclerView功能模块
     Dialog dialog;
     View inflate;
 

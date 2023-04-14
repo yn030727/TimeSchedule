@@ -30,6 +30,7 @@
             android:layout_marginStart="15dp"
             android:gravity="center"
             android:text="发现好友"
+            android:textStyle="bold"
             android:textColor="#353535"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
