@@ -19,5 +19,5 @@ public abstract class Schedule_Database extends RoomDatabase {
         }
         return databaseInstance;
     }
-    public abstract Schedule_Data_Dao schedule_data_dao();
+    public abstract Schedule_Data_Dao getSchedule_data_dao();
 }

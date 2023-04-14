@@ -30,6 +30,7 @@ import com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader;
 import com.example.module_calendar.R;
 import com.example.module_calendar.model.Article;
 import com.example.module_calendar.model.CalendarSchedule;
+import com.example.module_calendar.model.Schedule_Data_Dao;
 import com.example.module_calendar.model.Schedule_Database;
 import com.example.module_calendar.ui.BaseActivity;
 import com.example.module_calendar.ui.CalendarScheduleAdapter;
@@ -106,7 +107,8 @@ public class CalendarFragment extends Fragment implements
     RecyclerView calendar_schedule_recylcerview;
     Typeface typeface;
     //数据库相关
-    Schedule_Database myDatabase = Schedule_Database.getInstance(getContext());
+    Schedule_Database schedule_database;
+    private Schedule_Data_Dao dao;
 
 
     //  1.Fragment内的主要部分
@@ -145,6 +147,9 @@ public class CalendarFragment extends Fragment implements
         calendar_week_textview.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         //初始化EventBus
         EventBus.getDefault().register(this);
+        //初始化数据库
+        schedule_database = Schedule_Database.getInstance(getContext());
+        dao = schedule_database.getSchedule_data_dao();
 
 
 

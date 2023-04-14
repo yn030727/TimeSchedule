@@ -27,7 +27,6 @@ import com.example.module_editscheudle.ui.EditScheduleAdapter;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -68,10 +67,6 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
     TextView edit_schedule_add_create_text;
     ConstraintLayout edit_schedule_add_create_btn;
     HashMap<String , Boolean> eventScheduleHashMap;
-    Calendar calendar;
-    int year;
-    int month;
-    int dayOfMonth;
 
 
     @SuppressLint("MissingInflatedId")
@@ -124,13 +119,6 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         edit_schedule_add_sport.setEnabled(true);
         edit_schedule_add_life.setEnabled(true);
         edit_schedule_add_money.setEnabled(true);
-
-//        calendar = Calendar.getInstance();
-//        year = calendar.get(Calendar.YEAR);
-//        month = calendar.get(Calendar.MONTH) + 1;
-//        dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-//        String toady = year + "/" + month + "/" + dayOfMonth ;
-//        Log.d("Ning_module_calendar: " , "today is " + toady);
 
 
 
@@ -230,13 +218,10 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
 
         }else if(v.getId() == R.id.editschedule_add_create_button){
             Log.d("Ning_Module_EditSchedule" , "创建计划");
-            //回去的时候将哈希表传递回去，哈希表的值是布尔类型，键是String类型
+            //回去的时候将哈希表传递回去，哈希表的值是布尔类型
             //用来判断当前计划是否选择了
             //更新数据库
-            //1.数据库的主键创建
-
-
-
+            
             EventBus.getDefault().postSticky(new EventSchedule(eventScheduleHashMap));
             EventBus.getDefault().postSticky(new EventEditSchedule_MainActivity_Back(true));
         }
@@ -493,9 +478,7 @@ public class EditScheduleFragment extends Fragment implements View.OnClickListen
         scheduleArrayList.add(new schedule("每月存钱",com.example.module_baselibs.R.drawable.editschedule_image_cunqian,com.example.module_baselibs.R.drawable.editschedule_image_weigouxuan,stringscheduleHashMap.get("每月存钱")));
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
+
+
 }
 
