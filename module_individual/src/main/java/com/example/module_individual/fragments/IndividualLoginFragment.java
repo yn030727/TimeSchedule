@@ -308,7 +308,8 @@ public class IndividualLoginFragment extends Fragment implements View.OnClickLis
             Log.d(TAG, "onClick: zhoubian");
             ARouter.getInstance().build("/individual/PerimeterActivity").navigation();
         }else if(id == R.id.individual_card1_quyue){
-
+            Log.d(TAG, "onClick: quyue");
+            ARouter.getInstance().build("/individual/MusicActivity").navigation();
         }else if(id == R.id.individual_card1_zhoubian){
 
         }else if(id == R.id.individual_card1_zhuomian){
