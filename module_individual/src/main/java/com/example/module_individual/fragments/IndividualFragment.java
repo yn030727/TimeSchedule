@@ -47,15 +47,7 @@ public class IndividualFragment extends Fragment {
         Log.d("FUFUFFFFFUUUUU", "IndividualFragment");
         EventBus.getDefault().register(this);
 
-        //判断登录状态，不同状态跳转不同的fragment
-//        LoginInformation loginInformation = new LoginInformation();
-//        if(loginInformation.isLogin){
-//            //已登录，跳转IndividualLoginFragment
-//            view = inflater.inflate(R.layout.fragment_individual_login,container,false);
-//        }else {
-//            //未登录，显示未登录IndividualNotLoginFragment
-//            view = inflater.inflate(R.layout.fragment_individual_not_login,container,false);
-//        }
+
 
         Log.d("FUFU:IndividualFragment", "islogin = "+loginInformation.isLogin);
         loginInformation.isLogin = true;

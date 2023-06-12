@@ -44,13 +44,17 @@ import com.example.module_individual.ui.CircleView;
 import com.youth.banner.Banner;
 import com.youth.banner.indicator.CircleIndicator;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import GeneralInformation.LoginInformation;
 import de.hdodenhof.circleimageview.CircleImageView;
+import eventbus.EventLoginInformation;
 
 //个人界面模块
 //1.定义变量
@@ -112,8 +116,6 @@ public class IndividualLoginFragment extends Fragment implements View.OnClickLis
         //暂时注销，使用测试账户
         typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/main_font_shoujin.ttf");
         login_users.setTypeface(typeface);
-        login_users.setText(getArguments().getString("user"));
-        login_users.setText("测试用户1");
         individual_head_background = (ConstraintLayout)view.findViewById(R.id.individual_head_layout);
         individual_head_background.getBackground().setAlpha(155);
         individual_head_cardView = view.findViewById(R.id.individual_head_cardView);
@@ -156,12 +158,12 @@ public class IndividualLoginFragment extends Fragment implements View.OnClickLis
         banner.start();
 
 
-//        LoginInformation loginInformation = new LoginInformation();
-//        loginInformation.setUser(getArguments().getString("user"));
-//        loginInformation.setAccount(getArguments().getString("account"));
-//        loginInformation.isLogin = getArguments().getBoolean("isLogin");
-//        EventBus.getDefault().postSticky(loginInformation);
-//        EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
+        LoginInformation loginInformation = new LoginInformation();
+        loginInformation.setUser(getArguments().getString("user"));
+        loginInformation.setAccount(getArguments().getString("account"));
+        loginInformation.isLogin = getArguments().getBoolean("isLogin");
+        EventBus.getDefault().postSticky(loginInformation);
+        EventBus.getDefault().postSticky(new EventLoginInformation(getArguments().getBoolean("isLogin"),getArguments().getString("account"),getArguments().getString("user") ));
 
 
         //1.RecyclerView的加载
