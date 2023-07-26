@@ -115,6 +115,9 @@ public class CalendarFragment extends Fragment implements
     int year;
     int month;
     int day;
+    int LastYear;
+    int LastMonth;
+    int LastDay;
 
 
     //  1.Fragment内的主要部分
@@ -286,6 +289,9 @@ public class CalendarFragment extends Fragment implements
 
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
+        LastYear = year;
+        LastDay = day;
+        LastMonth = month;
         mTextLunar.setVisibility(View.VISIBLE);
         mTextYear.setVisibility(View.VISIBLE);
         mTextMonthDay.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");
@@ -293,6 +299,13 @@ public class CalendarFragment extends Fragment implements
         mTextLunar.setText(calendar.getLunar());
         calendar_week_textview.setText(JudgeWeek(calendar.getWeek()));
         calendar_week_textview2.setText(JudgeWeek3(calendar.getWeek()));
+
+
+        //更新当前天的日历
+        Log.d("Ning_Module_Calendar" , "Click ：  Last year is "+ year + " Last month is " + month + " Last Day is " + day);
+        new UpdateScheduleTask().execute();
+
+        //点击日历跳转天数，更新RecyclerView，展示跳转到的那天的计划
         year = calendar.getYear();
         month = calendar.getMonth();
         day = calendar.getDay();
@@ -664,8 +677,50 @@ public class CalendarFragment extends Fragment implements
             }
             return null;
         }
+    }
 
+    //点击不同天数，更新前一个天数的Room数据库，更新是否删除了元素
+    private class UpdateScheduleTask extends AsyncTask<Void , Void ,String>{
 
+        @Override
+        protected String doInBackground(Void... voids) {
+            //跳转其他界面的时候，将当前的打卡计划信息加载到数据库中
+            String str = LastYear + "/" + LastMonth + "/" + LastDay;
+            Log.d("Ning_module_calendar" ,  "today is : " + str);
+
+            //从数据库中读取当天的计划表
+            Schedule_data scheduleData = dao.getSchedule_Data_ById(str);
+            //列出集合,将当前的集合初始化
+            List<Schedule_data.Schedule_Day> list = new ArrayList<>();
+            if(scheduleArrayList.size() != 0){
+                for(int i = 0 ; i < scheduleArrayList.size() ; i++){
+                    //遍历前面保存计划的集合
+                    String text = scheduleArrayList.get(i).getText();
+                    int image = scheduleArrayList.get(i).getImage();
+                    boolean complete = scheduleArrayList.get(i).getComplete();
+                    list.add(new Schedule_data.Schedule_Day(text , image , complete));
+                    if(!complete){
+                        scheduleStateHashMap.put(text , false);
+                    }
+                }
+                if(scheduleStateHashMap.size() == 0){
+                    calendar_title_imageView.setImageResource(R.drawable.calendar_title_happyface2);
+                }
+            }
+
+            if(scheduleData == null){
+                //数据库没有当天的计划内容
+                //那么就将当前的计划内容添加到数据库中
+                dao.insert_Schedule(new Schedule_data(str , list));
+                Log.d("Ning_module_calendar" , "您已经成功添加当天数据库内容");
+            }else{
+                //数据库中有当天内容
+                //那么将当前内容更新到数据库
+                dao.update_Schedule(new Schedule_data(str , list));
+                Log.d("Ning_module_calendar" , "您已经成功更新当天数据库内容");
+            }
+            return null;
+        }
     }
 
 
