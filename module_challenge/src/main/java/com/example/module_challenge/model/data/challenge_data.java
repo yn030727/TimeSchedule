@@ -1,4 +1,4 @@
-package com.example.module_challenge.logic.data;
+package com.example.module_challenge.model.data;
 
 
 //Room数据库中的一张表

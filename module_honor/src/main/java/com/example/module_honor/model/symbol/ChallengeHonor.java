@@ -1,4 +1,4 @@
-package com.example.module_honor.logic.model;
+package com.example.module_honor.model.symbol;
 
 public class ChallengeHonor {
     String challenge_honor_name;

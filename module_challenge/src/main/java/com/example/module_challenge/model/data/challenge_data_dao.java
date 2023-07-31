@@ -1,4 +1,4 @@
-package com.example.module_challenge.logic.data;
+package com.example.module_challenge.model.data;
 
 
 //针对上面的挑战Entity，我们需要定义一个dao接口文件同来对Entity进行访问

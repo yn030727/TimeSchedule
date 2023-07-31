@@ -2,7 +2,6 @@ package com.example.module_challenge.fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.NoCopySpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +17,9 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_challenge.R;
-import com.example.module_challenge.logic.data.challenge_Database;
-import com.example.module_challenge.logic.data.challenge_data;
-import com.example.module_challenge.logic.data.challenge_data_dao;
+import com.example.module_challenge.model.data.challenge_Database;
+import com.example.module_challenge.model.data.challenge_data;
+import com.example.module_challenge.model.data.challenge_data_dao;
 
 import org.greenrobot.eventbus.EventBus;
 

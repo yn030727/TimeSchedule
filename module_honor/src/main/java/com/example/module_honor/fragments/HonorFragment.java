@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_honor.R;
-import com.example.module_honor.logic.model.ChallengeHonor;
-import com.example.module_honor.logic.model.ConsecutiveDay;
+import com.example.module_honor.model.symbol.ChallengeHonor;
+import com.example.module_honor.model.symbol.ConsecutiveDay;
 import com.example.module_honor.ui.ChallengeProgressAdapter;
 import com.example.module_honor.ui.ConsecutiveDayAdapter;
 

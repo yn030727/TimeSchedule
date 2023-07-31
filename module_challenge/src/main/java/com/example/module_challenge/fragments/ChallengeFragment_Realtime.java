@@ -17,15 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_challenge.R;
-import com.example.module_challenge.logic.data.challenge_Database;
-import com.example.module_challenge.logic.data.challenge_data;
-import com.example.module_challenge.logic.data.challenge_data_dao;
-import com.example.module_challenge.logic.model.CurrentChallengeCard;
-import com.example.module_challenge.logic.model.YouChallengeCard;
+import com.example.module_challenge.model.data.challenge_Database;
+import com.example.module_challenge.model.data.challenge_data;
+import com.example.module_challenge.model.data.challenge_data_dao;
+import com.example.module_challenge.model.symbol.CurrentChallengeCard;
+import com.example.module_challenge.model.symbol.YouChallengeCard;
 import com.example.module_challenge.ui.currentchallenge.CurrentChallengeAdapter;
 import com.example.module_challenge.ui.uchallenge.YouChallengeAdapter;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

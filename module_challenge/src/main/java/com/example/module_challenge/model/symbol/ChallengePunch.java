@@ -1,4 +1,4 @@
-package com.example.module_challenge.logic.model;
+package com.example.module_challenge.model.symbol;
 
 
 //挑战打卡信息，七个挑战通用

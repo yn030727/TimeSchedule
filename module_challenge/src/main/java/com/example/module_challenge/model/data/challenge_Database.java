@@ -1,4 +1,4 @@
-package com.example.module_challenge.logic.data;
+package com.example.module_challenge.model.data;
 
 import android.content.Context;
 

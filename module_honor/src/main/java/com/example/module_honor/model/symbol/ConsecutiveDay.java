@@ -1,6 +1,4 @@
-package com.example.module_honor.logic.model;
-
-import android.widget.ImageView;
+package com.example.module_honor.model.symbol;
 
 public class ConsecutiveDay {
     int consecutiveDay_image;

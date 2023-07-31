@@ -1,21 +1,17 @@
 package com.example.module_challenge.ui.uchallenge;
 
-import android.graphics.Typeface;
-import android.media.Image;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_challenge.R;
-import com.example.module_challenge.logic.model.YouChallengeCard;
+import com.example.module_challenge.model.symbol.YouChallengeCard;
 
 import org.greenrobot.eventbus.EventBus;
 

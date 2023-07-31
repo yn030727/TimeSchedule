@@ -1,12 +1,10 @@
 package com.example.module_challenge.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.pm.LabeledIntent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,15 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.module_challenge.R;
-import com.example.module_challenge.logic.data.challenge_Database;
-import com.example.module_challenge.logic.data.challenge_data;
-import com.example.module_challenge.logic.data.challenge_data_dao;
-import com.example.module_challenge.logic.model.ChallengePunch;
+import com.example.module_challenge.model.data.challenge_Database;
+import com.example.module_challenge.model.data.challenge_data;
+import com.example.module_challenge.model.data.challenge_data_dao;
+import com.example.module_challenge.model.symbol.ChallengePunch;
 import com.example.module_challenge.ui.fragments_recyclerview.FifthFragmentAdapter;
-import com.example.module_challenge.ui.fragments_recyclerview.FourthFragmentAdapter;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,7 @@
 package com.example.module_challenge.ui.currentchallenge;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,16 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.module_challenge.ChallengeActivity;
 import com.example.module_challenge.R;
-import com.example.module_challenge.fragments.ChallengeFragment;
-import com.example.module_challenge.fragments.ChallengeFragment_FirstCard;
-import com.example.module_challenge.logic.model.CurrentChallengeCard;
-import com.example.module_challenge.logic.model.MyUtils;
+import com.example.module_challenge.model.symbol.CurrentChallengeCard;
 
 import org.greenrobot.eventbus.EventBus;
 

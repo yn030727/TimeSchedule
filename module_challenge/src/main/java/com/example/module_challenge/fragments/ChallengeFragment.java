@@ -18,9 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_challenge.R;
-import com.example.module_challenge.logic.data.challenge_Database;
-import com.example.module_challenge.logic.data.challenge_data;
-import com.example.module_challenge.logic.data.challenge_data_dao;
+import com.example.module_challenge.model.data.challenge_Database;
+import com.example.module_challenge.model.data.challenge_data;
+import com.example.module_challenge.model.data.challenge_data_dao;
 
 import org.greenrobot.eventbus.EventBus;
 

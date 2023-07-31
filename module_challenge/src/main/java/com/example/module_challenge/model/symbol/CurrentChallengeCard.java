@@ -1,6 +1,4 @@
-package com.example.module_challenge.logic.model;
-
-import android.app.Activity;
+package com.example.module_challenge.model.symbol;
 
 //挑战卡片上的信息类
 public class CurrentChallengeCard {

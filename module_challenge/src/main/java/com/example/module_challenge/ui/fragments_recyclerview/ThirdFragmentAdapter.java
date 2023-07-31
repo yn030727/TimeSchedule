@@ -1,10 +1,7 @@
 package com.example.module_challenge.ui.fragments_recyclerview;
 
 import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_challenge.R;
-import com.example.module_challenge.logic.data.challenge_Database;
-import com.example.module_challenge.logic.data.challenge_data;
-import com.example.module_challenge.logic.data.challenge_data_dao;
-import com.example.module_challenge.logic.model.ChallengePunch;
+import com.example.module_challenge.model.data.challenge_Database;
+import com.example.module_challenge.model.data.challenge_data;
+import com.example.module_challenge.model.data.challenge_data_dao;
+import com.example.module_challenge.model.symbol.ChallengePunch;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
-package com.example.module_challenge.logic.data;
+package com.example.module_challenge.model.data;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 

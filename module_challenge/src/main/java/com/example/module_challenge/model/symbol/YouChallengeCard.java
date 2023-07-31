@@ -1,4 +1,4 @@
-package com.example.module_challenge.logic.model;
+package com.example.module_challenge.model.symbol;
 
 //已经接下挑战后的卡片上的显示的信息
 public class YouChallengeCard {

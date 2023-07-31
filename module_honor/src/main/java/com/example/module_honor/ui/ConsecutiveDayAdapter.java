@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_honor.R;
-import com.example.module_honor.logic.model.ConsecutiveDay;
+import com.example.module_honor.model.symbol.ConsecutiveDay;
 
 import java.util.List;
 
