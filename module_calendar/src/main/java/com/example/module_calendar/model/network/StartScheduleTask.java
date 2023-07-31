@@ -1,4 +1,4 @@
-package com.example.module_calendar.network;
+package com.example.module_calendar.model.network;
 
 import android.os.AsyncTask;
 

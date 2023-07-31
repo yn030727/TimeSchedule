@@ -16,12 +16,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.module_calendar.R;
-import com.example.module_calendar.model.CalendarSchedule;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.module_calendar.model.data.CalendarSchedule;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 public class CalendarScheduleAdapter extends  RecyclerView.Adapter<CalendarScheduleViewHolder>{
     ArrayList<CalendarSchedule> scheduleArrayList;

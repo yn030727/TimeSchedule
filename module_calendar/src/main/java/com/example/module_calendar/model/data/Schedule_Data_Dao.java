@@ -1,4 +1,4 @@
-package com.example.module_calendar.model;
+package com.example.module_calendar.model.data;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

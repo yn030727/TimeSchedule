@@ -1,10 +1,9 @@
-package com.example.module_calendar.model;
+package com.example.module_calendar.model.data;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
 import java.util.List;
