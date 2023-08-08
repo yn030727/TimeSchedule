@@ -43,7 +43,8 @@ ext {
             "converter" : 'com.squareup.retrofit2:converter-gson:2.9.0',
             "rxjava"    : 'io.reactivex.rxjava2:rxjava:2.2.20',
             "rxandroid" : 'io.reactivex.rxjava2:rxandroid:2.1.1',
-            "adapter"   : 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+            "adapter"   : 'com.squareup.retrofit2:adapter-rxjava2:2.9.0',
+            "glide" :   'com.github.bumptech.glide:glide:4.15.1'
     ]
 
     //这里写了一些版本号，support库，路由，图片加载等常用的基础库，最后面这四行，是对前面的一个封装。
