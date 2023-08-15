@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bumptech.glide.Glide;
 import com.example.module_calendar.R;
 import com.example.module_calendar.model.data.CalendarSchedule;
 import com.example.module_calendar.model.data.Schedule_Data_Dao;
@@ -118,7 +119,7 @@ public class CalendarFragment extends Fragment implements
 
 
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "CheckResult"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -167,7 +168,9 @@ public class CalendarFragment extends Fragment implements
             }
         });
 
-
+//
+//        Glide.with(this)
+//                .load("..");
 
 
         // (3).月份,年份,星期各类信息的初始化
